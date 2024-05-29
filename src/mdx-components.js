@@ -141,6 +141,7 @@ export function useMDXComponents(components) {
         sizes="100vw"
         style={{ width: '100%', height: 'auto' }}
         {...(props)}
+        alt='alt hardcodeado'
       />
     ),
     ...components,
