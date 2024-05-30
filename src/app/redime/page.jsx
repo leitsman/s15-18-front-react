@@ -53,7 +53,13 @@ const page = () => {
         <ScrollArea className="w-full h-[80dvh]">
           {/* USER POINTS */}
           <div className="w-full p-5 justify-between  h-20 bg-gray-300 rounded-2xl flex flex-col items-start">
-            <h2 className="font-bold">PUNTAJE</h2>
+            <div className="w-full flex justify-between">
+              <h2 className="font-bold">PUNTAJE</h2>
+              <div className="flex items-center gap-5">
+                <h2 className="font-bold">Historial</h2>
+                <div className="size-3 outline-4 outline-green-500 outline-dashed"></div>
+              </div>
+            </div>
             <h2 className="font-bold">50 pts.</h2>
           </div>
 
