@@ -8,7 +8,7 @@ function RedimePlace() {
           FOTO
         </div>
       </div>
-      <div className="*:font-semibold">
+      <div className="*:font-semibold flex flex-col gap-1">
         <div className="flex justify-between items-center *:font-bold">
           <p>Restaurante los Pepitos</p>
           <div className="px-8 py-1 bg-gray-300 rounded-3xl">Canjear</div>
@@ -36,7 +36,7 @@ const page = () => {
 
   return (
     <>
-      <main className="w-screen h-[calc(100vh-96px)] flex flex-col gap-10 p-5 ">
+      <main className="w-screen h-[calc(100vh-96px)] flex flex-col gap-10 py-5 px-10 ">
         {/* HEADER */}
         <div className="w-full flex p-2 justify-between items-center h-16 ">
           <div className="flex justify-center items-center gap-5 ">
