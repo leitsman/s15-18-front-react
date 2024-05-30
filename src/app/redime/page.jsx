@@ -38,13 +38,13 @@ const page = () => {
     <>
       <main className="w-screen h-[calc(100vh-96px)] flex flex-col gap-10 p-5 ">
         {/* HEADER */}
-        <div className="w-full flex p-2 justify-between items-center h-20 ">
+        <div className="w-full flex p-2 justify-between items-center h-16 ">
           <div className="flex justify-center items-center gap-5 ">
-            <div className="flex justify-center items-center size-14 rounded-full bg-gray-500">
-              <h2 className="font-bold">Icono</h2>
+            <div className="flex justify-center items-center size-10 rounded-full bg-gray-500">
+              <h2 className="text-sm text-white">Icon</h2>
             </div>
             <div>
-              <h2 className="font-bold">Historial</h2>
+              <h2 className="font-bold">PROMOCIONES</h2>
             </div>
           </div>
           <div className="flex justify-center items-center size-5 outline-4 outline-green-500 outline-dashed"></div>
