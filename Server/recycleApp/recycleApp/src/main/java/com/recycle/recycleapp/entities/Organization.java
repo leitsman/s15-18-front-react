@@ -1,10 +1,6 @@
 package com.recycle.recycleapp.entities;
 
-import jakarta.annotation.Resource;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -22,6 +18,7 @@ public class Organization {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
     private String description;
@@ -31,6 +28,11 @@ public class Organization {
     private String website;
 
 
-    //private List<RecycleCenterEntity> recycleCenters;
-}
+//    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<RecycleCenter> recycleCenters;
 
+//    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Person> persons;
+
+
+}
