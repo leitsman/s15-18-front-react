@@ -1,4 +1,5 @@
-package com.recycle.recycleapp.entity;
+package com.recycle.recycleapp.entities;
+
 
 
 
@@ -26,5 +27,8 @@ public class RecycleCenter {
     private String description;
     private LocalTime businessHours;
 
+    //is used to indicate that this relationship is bidirectional and Address is the owner of the relationship.
+    @OneToOne(mappedBy = "recyclingCenter")
+    private Address address;
 
 }
