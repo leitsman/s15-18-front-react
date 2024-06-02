@@ -1,4 +1,4 @@
-package com.recycle.recycleapp.entity;
+package com.recycle.recycleapp.services;
 
 import com.recycle.recycleapp.dtos.RecycleCenterDTO;
 
