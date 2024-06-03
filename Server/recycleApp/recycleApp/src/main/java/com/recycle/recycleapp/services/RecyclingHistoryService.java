@@ -4,7 +4,7 @@ import com.recycle.recycleapp.dtos.RecyclingHistoryDTO;
 
 public interface RecyclingHistoryService {
 
-    RecyclingHistoryDTO createRecyclingHistory(RecyclingHistoryDTO recyclingHistoryDTO);
-    RecyclingHistoryDTO updateRecyclingHistory(String recyclingHistoryId);
-    RecyclingHistoryDTO findById(String recyclingHistoryId);
+    RecyclingHistoryDTO createRecyclingHistory(RecyclingHistoryDTO request);
+    RecyclingHistoryDTO updateRecyclingHistory(int recyclingHistoryId);
+    RecyclingHistoryDTO findById(int recyclingHistoryId);
 }

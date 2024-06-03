@@ -21,18 +21,23 @@ public class RecyclingHistory {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "center_id",referencedColumnName = "idRecycleCenter")
+    @JoinColumn(name = "center_id", referencedColumnName = "idRecycleCenter")
     private RecycleCenter recycleCenter;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
+
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "waste_id", referencedColumnName = "idWaste")
     private Waste waste;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
-
-    private LocalDate date;
-
     private int amount;
+
+    @PrePersist
+    private void prePersist() {
+        this.date = LocalDate.now();
+    } //Le asigna la fecha actual al objeto antes de ser persistido
 }
