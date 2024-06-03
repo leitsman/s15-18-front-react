@@ -1,4 +1,4 @@
-package com.recycle.recycleapp.dtos.responseDtos.entryDtos;
+package com.recycle.recycleapp.dtos.entryDtos;
 
 public class EntryDto {
 }
