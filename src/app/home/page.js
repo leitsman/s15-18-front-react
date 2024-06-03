@@ -1,6 +1,6 @@
 import React from 'react';
 
-const page = () => {
+const Home = () => {
     return (
         <>
             <header className=' bg-slate-500 h-20 p-2 flex flex-row items-center justify-between'>
@@ -75,4 +75,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Home;
