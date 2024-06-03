@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +17,7 @@ import java.time.LocalTime;
 
 public class RecycleCenterDTO {
 
+    private Long id;
     private String name;
     private String description;
     private LocalTime businessHours;

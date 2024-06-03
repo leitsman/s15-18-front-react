@@ -13,7 +13,7 @@ import org.hibernate.annotations.UuidGenerator;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "persons")
+@Table(name = "person")
 public class Person {
 
     @Id

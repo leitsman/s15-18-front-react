@@ -1,4 +1,4 @@
-package com.recycle.recycleapp.entity;
+package com.recycle.recycleapp.entities;
 
 
 
