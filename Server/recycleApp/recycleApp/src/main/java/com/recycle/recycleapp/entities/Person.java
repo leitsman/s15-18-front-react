@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Data
@@ -17,10 +16,16 @@ import org.hibernate.annotations.UuidGenerator;
 public class Person {
 
     @Id
-    @UuidGenerator
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPerson;
+    @Column(name = "first_name", nullable = false, length = 30)
     private String firstName;
+    @Column(name = "last_name", nullable = false, length = 30)
     private String lastName;
-    private Long dni;
+    @Column(name = "dni", nullable = false, length = 20, unique = true)
+    private String dni;
+    @Column(name = "total_points")
     private Long totalPoints;
+
+
 }
