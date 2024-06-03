@@ -14,6 +14,7 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     @Autowired
     private RecyclingHistoryRepo recyclingHistoryRepo;
 
+    
     @Override
     @Transactional
     public RecyclingHistoryDTO createRecyclingHistory(RecyclingHistoryDTO request) {
