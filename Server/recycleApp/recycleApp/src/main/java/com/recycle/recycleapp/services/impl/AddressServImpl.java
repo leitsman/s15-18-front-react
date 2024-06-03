@@ -44,8 +44,27 @@ public class AddressServImpl implements AddressService {
     }
 
     @Override
-    public List<Address> getAddressesByRecycleCenterCity(String city) {
-        return addressRepository.findByRecycleCenter_City(city);
+    public List<Address> getAddressesByRecycleCenterCity(String recycleCenterCity) {
+        return addressRepository.findByRecycleCenter_City(recycleCenterCity);
+    }
+
+    @Override
+    public Address updateAddress(Address address) {
+        if (addressRepository.existsById(address.getAddressId())) {
+            return addressRepository.save(address);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean deleteAddress(Long id) {
+        if (addressRepository.existsById(id)) {
+            addressRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

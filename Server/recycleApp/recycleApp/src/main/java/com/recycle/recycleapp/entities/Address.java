@@ -1,6 +1,7 @@
 package com.recycle.recycleapp.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,12 +23,14 @@ public class Address {
     @Column(name = "address_id")
     private Long addressId;
 
-    @OneToOne
-    @JoinColumn(name = "center_id")
+    @OneToOne(mappedBy = "address")//is used to indicate that this relationship is bidirectional and Address is the owner of the relationship.
+//    @JoinColumn(name = "center_id")
+    @JsonIgnore
     private RecycleCenter recycleCenter;
 
     @ManyToOne
     @JoinColumn(name = "person_id")
+    @JsonIgnore
     private Person person;
 
     @Column(name = "address")

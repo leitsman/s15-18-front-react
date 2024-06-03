@@ -1,4 +1,4 @@
-package com.recycle.recycleapp.entity;
+package com.recycle.recycleapp.entities;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

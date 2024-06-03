@@ -41,6 +41,26 @@ public class AddressController {
         return ResponseEntity.status(HttpStatus.CREATED).body(createdAddress);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Address> updateAddress(@RequestBody Address address) {
+        Address updatedAddress = addressService.updateAddress(address);
+        if (updatedAddress != null) {
+            return ResponseEntity.ok(updatedAddress);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> deleteAddress(@RequestParam Long id) {
+        boolean isRemoved = addressService.deleteAddress(id);
+        if (isRemoved) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/city")
     public ResponseEntity<List<Address>> getAddressesByCity(@RequestParam String city) {
         List<Address> addresses = addressService.getAddressesByCity(city);
@@ -48,8 +68,8 @@ public class AddressController {
     }
 
     @GetMapping("/recycle-center/city")
-    public ResponseEntity<List<Address>> getAddressesByRecycleCenterCity(@RequestParam String city) {
-        List<Address> addresses = addressService.getAddressesByCity(city);
+    public ResponseEntity<List<Address>> getAddressesByRecycleCenterCity(@RequestParam String recycleCenterCity) {
+        List<Address> addresses = addressService.getAddressesByRecycleCenterCity(recycleCenterCity);
         return ResponseEntity.ok(addresses);
     }
 

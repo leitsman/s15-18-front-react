@@ -3,6 +3,7 @@ package com.recycle.recycleapp.entities;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,8 +28,13 @@ public class RecycleCenter {
     private String description;
     private LocalTime businessHours;
 
-    //is used to indicate that this relationship is bidirectional and Address is the owner of the relationship.
-    @OneToOne(mappedBy = "recyclingCenter")
+
+    @OneToOne
+    @JsonIgnore
+    @JoinColumn(name = "address_id")
     private Address address;
+
+    @JsonIgnore
+    private String city;
 
 }

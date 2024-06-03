@@ -17,6 +17,10 @@ public interface AddressService {
 
     List<Address> getAddressesByCity(String city);
 
-    List<Address> getAddressesByRecycleCenterCity(String city);
+    List<Address> getAddressesByRecycleCenterCity(String recycleCenterCity);
+
+    Address updateAddress(Address address);
+
+    boolean deleteAddress(Long id);
 
 }
