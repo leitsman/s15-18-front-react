@@ -25,14 +25,19 @@ public class RecyclingHistory {
     private RecycleCenter recycleCenter;
 
     @ManyToOne
-    @JoinColumn(name = "waste_id")
-    private Waste waste;
-
-    @ManyToOne
     @JoinColumn(name = "person_id")
     private Person person;
 
     private LocalDate date;
 
+    @ManyToOne
+    @JoinColumn(name = "waste_id")
+    private Waste waste;
+
     private int amount;
+
+    @PrePersist
+    private void prePersist() {
+        this.date = LocalDate.now();
+    } //Le asigna la fecha actual al objeto antes de ser persistido
 }
