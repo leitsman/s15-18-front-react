@@ -1,7 +1,9 @@
-package com.recycle.recycleapp.entity;
+package com.recycle.recycleapp.entities;
 
 
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,5 +28,13 @@ public class RecycleCenter {
     private String description;
     private LocalTime businessHours;
 
+
+    @OneToOne
+    @JsonIgnore
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    @JsonIgnore
+    private String city;
 
 }
