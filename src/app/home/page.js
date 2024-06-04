@@ -10,27 +10,27 @@ const Home = () => {
                 </div>
                 <nav>
                     <ul className='flex flex-row gap-1'>
-                        <li className=' bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl'>Registrarme</li>
-                        <li className=' bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl'>Iniciar Sesion</li>
+                        <li className='bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl'>Registrarme</li>
+                        <li className='bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl'>Iniciar Sesion</li>
                     </ul>
                 </nav>
             </header>
             <main className='m-6'>
-                <article>
+                <article className='mb-5'>
                     <section>
                         <banner className='bg-orange-700 flex w-full h-32 mb-10'>banner</banner>
                     </section>
                     <section className='mb-10'>
                         <div className='flex flex-row items-center gap-3 mb-5'>
                             <icono className='bg-green-600 h-10 w-10 flex items-center justify-center rounded-[50%]'>icon</icono>
-                            <h2 className=''>Sobre Nosotros</h2>
+                            <h2 className='text-lg'>Sobre Nosotros</h2>
                         </div>
                         <p>Además de reciclar, podes buscarle un nuevo uso lejos de ser un teléfono móvil: una de las opciones es  convertir nuestro viejo teléfono en una cámara de vigilancia para la casa o para los niños, algo que es tan sencillo a partir de la instalación de aplicaciones</p>
                     </section>
                     <section className='mb-10'>
                         <div className='flex flex-row items-center gap-3 mb-5'>
                             <icono className='bg-green-600 h-10 w-10 flex items-center justify-center rounded-[50%]'>icon</icono>
-                            <h2 className=''>Mision y Visión</h2>
+                            <h2 className='text-lg'>Mision y Visión</h2>
                         </div>
                         <div>
                             <div className='bg-red-600 w-20 h-32 float-start mt-1'>imagen</div>
@@ -39,8 +39,8 @@ const Home = () => {
                     </section>
                     <section className='mb-10'>
                         <div className='flex flex-row items-center gap-3 mb-5'>
-                            <icono className=' bg-green-600 h-10 w-10 flex items-center justify-center rounded-[50%]'>icon</icono>
-                            <h2 className=''>Sistema de Puntaje</h2>
+                            <icono className='bg-green-600 h-10 w-10 flex items-center justify-center rounded-[50%]'>icon</icono>
+                            <h2 className='text-lg'>Sistema de Puntaje</h2>
                         </div>
                         <div>
                             <div className='bg-red-600 w-20 h-32 float-start mt-1'>imagen</div>
@@ -49,18 +49,18 @@ const Home = () => {
                     </section>
                     <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
                 </article>
-                <section>
-                    <h2>Categorias</h2>
-                    <div>
-                        <span>Cables</span>
-                        <span>Baterias</span>
-                        <span>Dispositivos generales</span>
-                        <span>refrigerador</span>
-                        <span>termostatos</span>
+                <section className='mb-5'>
+                    <h2 className='text-lg'>Categorias</h2>
+                    <div className='flex flex-row overflow-x-scroll gap-3'>
+                        <span className='bg-green-400 px-3 py-3 rounded-lg  min-w-max'>Cables</span>
+                        <span className='bg-green-400 px-3 py-3 rounded-lg  min-w-max'>Baterias</span>
+                        <span className='bg-green-400 px-3 py-3 rounded-lg  min-w-max'>Dispositivos moviles</span>
+                        <span className='bg-green-400 px-3 py-3 rounded-lg  min-w-max'>Refrigerador</span>
+                        <span className='bg-green-400 px-3 py-3 rounded-lg  min-w-max'>Termostatos</span>
                     </div>
                 </section>
-                <section>
-                    <h2>Dispositivos Medianos</h2>
+                <section className='mb-5'>
+                    <h2 className='text-lg'>Dispositivos Medianos</h2>
                     <div>
                         <span>Cables</span>
                         <span>Baterias</span>
