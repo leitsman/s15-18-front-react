@@ -24,7 +24,7 @@ export const Stack = ({
   showOutline,
   noMargins,
 }) => {
-  const baseStyle = "w-full h-full flex";
+  const baseStyle = "w-full h-fit flex";
 
   const containerVariants = {
     default: cn(baseStyle),
@@ -36,12 +36,14 @@ export const Stack = ({
     start: "justify-start",
     center: "justify-center",
     end: "justify-end",
+    between: "justify-between",
   };
 
   const alignments = {
     start: "items-start",
     center: "items-center",
     end: "items-end",
+    between: "justify-between",
   };
 
   const spacings = {

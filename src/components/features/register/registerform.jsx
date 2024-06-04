@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Textfield } from "@/components/ui/textfield";
 
 const RegisterForm = () => {
@@ -14,7 +14,11 @@ const RegisterForm = () => {
           />
         </div>
         <div className="mb-5 w-56">
-          <Textfield className="w-72 h-9 border-b-2 border-green-300 placeholder-custom focus:outline" placeholder="Email" type="text"/>
+          <Textfield
+            className="w-full h-9 border-b-2 border-green-300 placeholder-custom focus:outline"
+            placeholder="Email"
+            type="text"
+          />
         </div>
         <div className="mb-5 w-56">
           <input
