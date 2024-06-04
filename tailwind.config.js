@@ -18,6 +18,12 @@ module.exports = {
     },
     extend: {
       colors: {
+        custom: {
+          gradient: {
+            from: "hsl(var(--primary-gradient-from))",
+            to: "hsl(var(--primary-gradient-to))",
+          }
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
