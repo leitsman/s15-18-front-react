@@ -12,6 +12,6 @@ import java.util.List;
 public interface RecyclingHistoryRepo extends JpaRepository<RecyclingHistory, Integer> {
 
 
-    List<RecyclingHistory> findByIdPerson(String id);
+    List<RecyclingHistory> findByPersonIdPerson(String id);
 
 }

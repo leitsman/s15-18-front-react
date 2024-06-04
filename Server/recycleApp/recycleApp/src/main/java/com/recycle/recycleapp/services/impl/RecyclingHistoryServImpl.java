@@ -78,7 +78,7 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
 
         if(personFound.isPresent()){
 
-           List<RecyclingHistory> historyList= recyclingHistoryRepo.findByIdPerson(idPerson);
+           List<RecyclingHistory> historyList= recyclingHistoryRepo.findByPersonIdPerson(idPerson);
 
             return historyList;
         }else{
