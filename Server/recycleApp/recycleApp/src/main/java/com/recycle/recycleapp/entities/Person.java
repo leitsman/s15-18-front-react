@@ -18,7 +18,7 @@ public class Person {
 
     @Id
     @UuidGenerator
-    private String id;
+    private String idPerson;
     private String firstName;
     private String lastName;
     private Long dni;

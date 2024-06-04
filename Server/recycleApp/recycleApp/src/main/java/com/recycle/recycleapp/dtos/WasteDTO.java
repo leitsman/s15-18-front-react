@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class WasteDTO {
     public String type;
     public String description;
-    public Long points;
+    public int points;
 
 }

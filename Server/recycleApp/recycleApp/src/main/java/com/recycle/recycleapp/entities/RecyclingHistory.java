@@ -25,7 +25,7 @@ public class RecyclingHistory {
     private RecycleCenter recycleCenter;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "person_id", referencedColumnName = "idPerson")
     private Person person;
 
     private LocalDate date;

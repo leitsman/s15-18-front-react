@@ -1,18 +1,28 @@
 package com.recycle.recycleapp.services.impl;
 
 import com.recycle.recycleapp.dtos.RecyclingHistoryDTO;
+import com.recycle.recycleapp.entities.Person;
 import com.recycle.recycleapp.entities.RecyclingHistory;
+import com.recycle.recycleapp.mappers.RecycleHistoryMapper;
+import com.recycle.recycleapp.repositories.PersonRepository;
 import com.recycle.recycleapp.repositories.RecyclingHistoryRepo;
 import com.recycle.recycleapp.services.RecyclingHistoryService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.OptionPaneUI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class RecyclingHistoryServImpl implements RecyclingHistoryService {
 
     @Autowired
     private RecyclingHistoryRepo recyclingHistoryRepo;
+    @Autowired
+    private PersonRepository personRepository;
 
     
     @Override
@@ -29,7 +39,6 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
             );
 
         return RecyclingHistoryDTO.builder()
-                .id(recyclingHistoryDB.getId())
                 .recycling_center(recyclingHistoryDB.getRecycleCenter())
                 .recyling_person(recyclingHistoryDB.getPerson())
                 .date(recyclingHistoryDB.getDate())
@@ -39,12 +48,44 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     }
 
     @Override
-    public RecyclingHistoryDTO updateRecyclingHistory(int recyclingHistoryId) {
+    public RecyclingHistoryDTO updateRecyclingHistory(int recyclingHistoryId, RecyclingHistoryDTO request) {
+        Optional<RecyclingHistory> foundRecycleHistory=recyclingHistoryRepo.findById(recyclingHistoryId);
+        if(foundRecycleHistory.isPresent()){
+            RecyclingHistory newRecycleHistory=foundRecycleHistory.get();
+            newRecycleHistory.setRecycleCenter(request.getRecycling_center());
+            newRecycleHistory.setDate(request.getDate());
+            newRecycleHistory.setAmount(request.getAmount());
+            newRecycleHistory.setPerson(request.getRecyling_person());
+            newRecycleHistory.setWaste(request.getRecycling_waste());
+
+            recyclingHistoryRepo.save(newRecycleHistory);
+
+            return RecycleHistoryMapper.toDTO(newRecycleHistory) ;
+
+        }
+
         return null;
     }
 
     @Override
     public RecyclingHistoryDTO findById(int recyclingHistoryId) {
         return null;
+    }
+
+    @Override
+    public List<RecyclingHistory> findRecyclingHistoryByPerson(String idPerson) {
+        Optional<Person> personFound=personRepository.findById(idPerson);
+
+        if(personFound.isPresent()){
+
+           List<RecyclingHistory> historyList= recyclingHistoryRepo.findByIdPerson(idPerson);
+
+            return historyList;
+        }else{
+            return null;
+
+        }
+
+
     }
 }
