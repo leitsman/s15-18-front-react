@@ -73,7 +73,7 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     }
 
     @Override
-    public List<RecyclingHistory> findRecyclingHistoryByPerson(String idPerson) {
+    public List<RecyclingHistory> findRecyclingHistoryByPerson(Long idPerson) {
         Optional<Person> personFound=personRepository.findById(idPerson);
 
         if(personFound.isPresent()){

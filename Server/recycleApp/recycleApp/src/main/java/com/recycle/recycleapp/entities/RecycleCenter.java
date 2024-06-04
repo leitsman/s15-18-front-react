@@ -3,6 +3,7 @@ package com.recycle.recycleapp.entities;
 
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,12 @@ public class RecycleCenter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@JsonIgnore
     private Long idRecycleCenter;
     private String name;
     private String description;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime businessHours;
 
 
@@ -34,7 +38,7 @@ public class RecycleCenter {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @JsonIgnore
+   // @JsonIgnore
     private String city;
 
 }

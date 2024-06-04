@@ -11,5 +11,5 @@ public interface RecyclingHistoryService {
     RecyclingHistoryDTO updateRecyclingHistory(int recyclingHistoryId, RecyclingHistoryDTO request);
     RecyclingHistoryDTO findById(int recyclingHistoryId);
 
-    List<RecyclingHistory> findRecyclingHistoryByPerson(String idPerson);
+    List<RecyclingHistory> findRecyclingHistoryByPerson(Long idPerson);
 }
