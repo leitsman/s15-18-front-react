@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import React from 'react';
 
 const Home = () => {
@@ -61,16 +63,71 @@ const Home = () => {
                 </section>
                 <section className='mb-5'>
                     <h2 className='text-lg'>Dispositivos Medianos</h2>
-                    <div>
-                        <span>Cables</span>
-                        <span>Baterias</span>
-                        <span>Dispositivos generales</span>
-                        <span>refrigerador</span>
-                        <span>termostatos</span>
-                    </div>
+                    <Carousel className='bg-slate-200 w-[70%] mx-auto'>
+                        <CarouselContent className=''>
+                            <CarouselItem className='pl-5 border-solid border-2 border-indigo-600'>
+                                <div className='flex flex-col p-5 gap-2'>
+                                    <div className='bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto'>soy la imagen</div>
+                                    <h3 className='text-ellipsis'>Celular</h3>
+                                    <span>20 puntos</span>
+                                    <span>Centro de acopio</span>
+                                    <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem className='pl-5 border-solid border-2 border-indigo-600'>
+                                <div className='flex flex-col p-5 gap-2'>
+                                    <div className='bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto'>soy la imagen</div>
+                                    <h3 className='text-ellipsis'>pilas acomodativas</h3>
+                                    <span>20 puntos</span>
+                                    <span>Centro de acopio</span>
+                                    <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem className='pl-5 border-solid border-2 border-indigo-600'>
+                                <div className='flex flex-col p-5 gap-2'>
+                                    <div className='bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto'>soy la imagen</div>
+                                    <h3 className='text-ellipsis'>lavadora lg samsumg rkj3-30</h3>
+                                    <span>20 puntos</span>
+                                    <span>Centro de acopio</span>
+                                    <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem className='pl-5 border-solid border-2 border-indigo-600'>
+                                <div className='flex flex-col p-5 gap-2'>
+                                    <div className='bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto'>soy la imagen</div>
+                                    <h3 className='text-ellipsis'>pila</h3>
+                                    <span>20 puntos</span>
+                                    <span>Centro de acopio</span>
+                                    <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
+                                </div>
+                            </CarouselItem>
+                            <CarouselItem className='pl-5 border-solid border-2 border-indigo-600'>
+                                <div className='flex flex-col p-5 gap-2'>
+                                    <div className='bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto'>soy la imagen</div>
+                                    <h3 className='text-ellipsis'>robacorriente</h3>
+                                    <span>20 puntos</span>
+                                    <span>Centro de acopio</span>
+                                    <button className='bg-amber-400 p-1 rounded-xl mx-auto flex'>Quiero Reciclar</button>
+                                </div>
+                            </CarouselItem>
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
+                </section>
+                <section className='mb-5 flex gap-3 flex-col'>
+                    <h2 className='text-lg text-center mb-4 font-bold'>Preguntas frecuentes</h2>
+                    <h3 className='text-lg text-gray-600'>1. ¿Cómo funciona el sistema de puntaje de Recycle?</h3>
+                    <p>Al reciclar tus dispositivos electrónicos a través de nuestra plataforma, acumulas puntos que puedes canjear por promociones y descuentos en establecimientos colaboradores. Cada dispositivo tiene un valor en puntos basado en su tipo y estado.</p>
+                    <h3 className='text-lg text-gray-600'>2. ¿Dónde puedo encontrar los centros de acopio para reciclar mis dispositivos?</h3>
+                    <p>En nuestra webapp, encontrarás una sección dedicada a localizar los centros de acopio más cercanos a tu ubicación. Simplemente ingresa tu dirección y te mostraremos las opciones disponibles.</p>
+                    <h3 className='text-lg text-gray-600'>3. ¿Qué tipos de dispositivos electrónicos puedo reciclar con Recycle?</h3>
+                    <p>Puedes reciclar una amplia variedad de dispositivos electrónicos, incluyendo teléfonos móviles, laptops, tablets, cámaras, y más. Consulta nuestra lista completa en la sección "Cómo reciclar" de nuestra webapp.</p>
+                    <h3 className='text-lg text-gray-600'>4. ¿Cómo puedo canjear mis puntos por promociones y descuentos?</h3>
+                    <p>Una vez que hayas acumulado puntos, visita la sección "Recompensas" en nuestra webapp para ver las promociones y descuentos disponibles. Selecciona la oferta que deseas y sigue las instrucciones para canjear tus puntos.</p>
                 </section>
             </main>
-            <footer>this is footer</footer>
+            {/* <footer>this is footer</footer> */}
         </>
     );
 };
