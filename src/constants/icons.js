@@ -5,6 +5,7 @@ export const iconNames = {
   bell: FiBell,
   menu: FiMenu,
   rightArrow: FiChevronRight,
+  leftArrow: FiChevronLeft,
   eco: MdOutlineEco,
   redeem: MdRedeem,
   recycle: MdRecycling,
