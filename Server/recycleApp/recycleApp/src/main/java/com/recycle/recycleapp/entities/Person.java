@@ -1,6 +1,7 @@
 package com.recycle.recycleapp.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,8 +16,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "person")
 public class Person {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long idPerson;
     @Column(name = "first_name", nullable = false, length = 30)
     private String firstName;
