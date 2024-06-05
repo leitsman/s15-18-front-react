@@ -1,5 +1,7 @@
 import { NavBar } from "@/components/features/navbar/NavBar";
 import { Button } from "@/components/ui/button";
+import { ContentCard } from "@/components/ui/content_card";
+import React from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,12 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ContentCard } from "@/components/ui/content_card";
-import React from "react";
-
-/* 
-Además de reciclar, podes buscarle un nuevo uso lejos de ser un teléfono móvil: una de las opciones es convertir nuestro viejo teléfono en una cámara de vigilancia para la casa o para los niños, algo que es tan sencillo a partir de la instalación de aplicaciones
- */
 
 const textAboutUs = {
   iconName: "arrowRight",
@@ -30,16 +26,18 @@ const textMission = {
 const textPointsSystem = {
   iconName: "arrowRight",
   title: "Sistema de Puntaje",
+  image: "/images/placeholder.webp",
+  alt: "asdasdad",
   content: `En Recycle, recompensamos tus esfuerzos por cuidar el medio ambiente. Por cada dispositivo electrónico que recicles a través de nuestra plataforma, ganarás puntos que podrás canjear por promociones y descuentos en establecimientos aliados que comparten nuestro compromiso con la sostenibilidad. ¡Recicla, acumula puntos y disfruta de beneficios mientras ayudas a proteger el planeta!`,
 };
 const Home = () => {
   return (
     <>
-      <NavBar variant="home" />
-      <main className="">
+      <NavBar design="home" />
+      <main>
         <article>
           <section>
-            <banner className="bg-orange-700 flex w-full h-32 mb-10">
+            <banner className="bg-orange-700 flex w-full h-32 mb-10 rounded-t-3xl">
               banner
             </banner>
           </section>
@@ -185,7 +183,7 @@ const Home = () => {
           </p>
         </section>
       </main>
-      <footer>this is footer</footer>
+      {/* <footer>this is footer</footer> */}
     </>
   );
 };
