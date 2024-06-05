@@ -1,18 +1,18 @@
 import Image from "next/image";
 import React from "react";
 import RegisterForm from "../../components/features/register/registerform";
+import { Button } from "@/components/ui/button"
+import { Text } from "@/components/ui/text";
+import logo from "../../app/assets/logorecycle.png";
 const page = () => {
   return (
-    <main className="w-full h-full flex flex-col items-center bg-red-500">
+    <main className="w-full h-full flex flex-col items-center">
       <div className="w-3/5 flex flex-col justify-center items-center gap-6">
-        <div className="w-1/2 bg-gray-300">
-          <Image src="" width={168.95} height={168.95} alt="imagen" />
+        <div className="w-full flex justify-center">
+          <Image src={logo} width={200} height={200} alt="imagen" />
         </div>
-        <h1 className="text-center text-6xl max-sm:text-4xl">Crea tu cuenta</h1>
-
-        <a className="flex items-center space-x-2 justify-center w-64 text-black bg-gray-200 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-2xl text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 font-bold">
-          <span>CONTINUAR CON GOOGLE</span>
-        </a>
+        <h1 className="text-center text-5xl max-sm:text-2xl">Crea tu cuenta</h1>
+        <Button className="border-custom-gradient-to border-2 rounded-full bg-white hover:bg-white"><Text size="sm" variant="subtitle" className="text-custom-gradient-to">Continuar con Google</Text></Button>
       </div>
 
       <RegisterForm />
