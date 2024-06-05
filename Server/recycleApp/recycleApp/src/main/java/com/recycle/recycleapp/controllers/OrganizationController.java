@@ -2,6 +2,7 @@ package com.recycle.recycleapp.controllers;
 
 import com.recycle.recycleapp.dtos.OrganizationDTO;
 import com.recycle.recycleapp.services.OrganizationService;
+import com.recycle.recycleapp.utils.Response;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,6 +26,7 @@ public class OrganizationController {
     @PostMapping("/create")
     @Operation(summary = "Crear una nueva organización", description = "Un usuario con rol SUPER_ADMIN puede registrar una nueva organización")
     public ResponseEntity<OrganizationDTO> createOrganization(@Valid @RequestBody OrganizationDTO organizationDTO) {
+        Response response = new Response(true, HttpStatus.CREATED);
         OrganizationDTO savedOrganization = organizationService.saveOrganization(organizationDTO);
         return new ResponseEntity<>(savedOrganization, HttpStatus.CREATED);
     }
