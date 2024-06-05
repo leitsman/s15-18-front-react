@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 export const Container = ({
   children,
   className,
@@ -5,7 +7,7 @@ export const Container = ({
   showOutline,
   noMargins,
 }) => {
-  const baseStyle = "w-full h-full flex";
+  const baseStyle = "w-full h-full flex flex-col";
   const spacings = {
     sm: "px-4 py-2",
     md: "px-8 py-2",
@@ -17,7 +19,7 @@ export const Container = ({
       className={cn(
         baseStyle,
         spacings[spacing],
-        showOutline && "outline outline-1 outline-gray-300",
+        showOutline && "outline-dashed outline-3 outline-gray-300",
         noMargins && "p-0",
         className,
       )}
