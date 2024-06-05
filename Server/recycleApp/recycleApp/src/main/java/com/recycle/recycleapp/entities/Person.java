@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -29,6 +31,16 @@ public class Person {
     private String dni;
     @Column(name = "total_points")
     private Long totalPoints;
+
+    @OneToMany(mappedBy = "person")
+    private List<RecyclingHistory> recyclingHistory;
+
+    @OneToMany(mappedBy = "person")
+    private List<Address> address;
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
+    private Organization organization;
 
 
 }
