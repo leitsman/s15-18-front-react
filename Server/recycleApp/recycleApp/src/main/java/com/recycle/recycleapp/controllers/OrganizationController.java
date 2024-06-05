@@ -4,7 +4,6 @@ import com.recycle.recycleapp.dtos.OrganizationDTO;
 import com.recycle.recycleapp.services.OrganizationService;
 import com.recycle.recycleapp.utils.Response;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +24,9 @@ public class OrganizationController {
 
     @PostMapping("/create")
     @Operation(summary = "Crear una nueva organización", description = "Un usuario con rol SUPER_ADMIN puede registrar una nueva organización")
-    public ResponseEntity<OrganizationDTO> createOrganization(@Valid @RequestBody OrganizationDTO organizationDTO) {
-        Response response = new Response(true, HttpStatus.CREATED);
-        OrganizationDTO savedOrganization = organizationService.saveOrganization(organizationDTO);
-        return new ResponseEntity<>(savedOrganization, HttpStatus.CREATED);
+    public ResponseEntity<Response> createOrganization(@Valid @RequestBody OrganizationDTO organizationDTO) {
+        Response response = new Response(true, HttpStatus.CREATED,organizationService.saveOrganization(organizationDTO));
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")

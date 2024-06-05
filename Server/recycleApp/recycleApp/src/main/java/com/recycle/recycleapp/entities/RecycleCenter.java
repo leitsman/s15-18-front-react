@@ -29,7 +29,7 @@ public class RecycleCenter {
     private String name;
     private String description;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime businessHours;
 
 

@@ -15,10 +15,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class RecyclingHistoryDTO {
-    // public int id;
-    public RecycleCenter recycling_center;
-    public Person recyling_person;
-    public LocalDate date;
-    public Waste recycling_waste;
-    public int amount;
+    // private int id;
+    private RecycleCenter recycling_center;
+    private Person recyling_person;
+    private LocalDate date;
+    private Waste recycling_waste;
+    private int amount;
 }

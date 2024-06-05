@@ -22,7 +22,7 @@ public class Waste {
 
     @Enumerated(EnumType.STRING)
     private typeEnum type;
-    private String description;
+    private String name;
     private String imageroute;
     private int points;
 

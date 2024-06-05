@@ -33,7 +33,7 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
                 RecyclingHistory.builder()
                         .recycleCenter(request.getRecycling_center())
                         .person(request.getRecyling_person())
-                        .waste(request.recycling_waste)
+                        .waste(request.getRecycling_waste())
                         .amount(request.getAmount())
                         .build()
             );

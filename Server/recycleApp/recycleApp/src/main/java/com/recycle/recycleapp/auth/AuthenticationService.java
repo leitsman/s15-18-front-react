@@ -32,10 +32,10 @@ public class AuthenticationService {
         }
 
         var userRole = roleRepository.findByName(request.getRole())
-                    .orElse(null);
+                .orElse(null);
         if(userRole == null){
-            userRole = roleRepository.findByName("USER")
-                    .orElseThrow(() -> new IllegalStateException("ROLE USER was not initiated"));
+            userRole = roleRepository.findByName("ROLE_RECYCLER")
+                    .orElseThrow(() -> new IllegalStateException("ROLE RECYCLER was not initiated"));
         }
 
 
