@@ -34,13 +34,13 @@ public class WasteServImpl implements WasteService {
 
 
             Waste wasteDB = wasteRepo.save(Waste.builder()
-                    .description(request.getDescription())
+                    .name(request.getName())
                     .points(request.getPoints())
                     .type(typeEnum.valueOf(request.getType().toLowerCase()))
                     .build());
 
             return WasteDTO.builder()
-                    .description(wasteDB.getDescription())
+                    .name(wasteDB.getName())
                     .points(wasteDB.getPoints())
                     .type(wasteDB.getType().name())
                     .build();
@@ -70,14 +70,14 @@ public class WasteServImpl implements WasteService {
             throw  new WasteNotFoundException("No se encuentra el producto de reciclaje en la base de datos");
         } else {
 
-            wasteRef.get().setDescription(request.getDescription());
+            wasteRef.get().setName(request.getName());
             wasteRef.get().setType(typeEnum.valueOf(request.getType()));
             wasteRef.get().setPoints(request.getPoints());
 
             Waste wasteDB = wasteRepo.save(wasteRef.get());
 
             return WasteDTO.builder()
-                    .description(wasteDB.getDescription())
+                    .name(wasteDB.getName())
                     .points(wasteDB.getPoints())
                     .type(wasteDB.getType().name())
                     .build();
