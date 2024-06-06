@@ -22,6 +22,10 @@ module.exports = {
           gradient: {
             from: "hsl(var(--primary-gradient-from))",
             to: "hsl(var(--primary-gradient-to))",
+          },
+          recycle: {
+            background: "hsl(var(--recycled-background))",
+            foreground: "hsl(var(--recycled-foreground))"
           }
         },
         border: "hsl(var(--border))",

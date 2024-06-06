@@ -8,6 +8,8 @@ import { ContentCard } from "@/components/ui/content_card";
 import { MockRecycledItems } from "@/components/features/recycled_items/recycledItems.content";
 import { RecycledItemsContainer } from "@/components/features/recycled_items/RecycledItemsContainer";
 import { Button } from "@/components/ui/button";
+import { BreadCrumbs } from "@/components/ui/breadCrumbs";
+import { ModeToggle } from "@/components/ui/mode_toggle";
 
 const singleDataCardOptions = {
   mainContent: "PUNTAJE",
@@ -79,6 +81,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
       <h1 className="font-semibold">Hola team: s15-18-t-java-react</h1>
+      <ModeToggle />
+
       <NavBar />
       <Icon variant="circular" circularColor="green" iconName={"bell"} />
       <DataCard variant={"single"} dataCardOptions={singleDataCardOptions} />
@@ -92,6 +96,8 @@ export default function Home() {
         <Text variant={"body"}>hola</Text>
         <Icon iconName={"rightArrow"} />
       </Button>
+
+      <BreadCrumbs currentRoute={"Historial"} />
     </main>
   );
 }
