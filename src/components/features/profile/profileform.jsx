@@ -3,16 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { Textfield } from "@/components/ui/textfield";
 const ProfileForm = () => {
+  return null;
   return (
     <main className="flex flex-col justify-center items-center">
       <div className="w-3/5 flex flex-col justify-center items-center gap-4">
         <div className="w-full">
           <form className=" flex flex-col items-center gap-0">
-          <Textfield
+            <Textfield
               className="w-72 h-9  placeholder-custom focus:outline-none"
               placeholder="Nombre"
               type="text"
-            ></Textfield>         
+            ></Textfield>
             <Textfield
               className="w-72 h-9 border-b-2 border-green-300 placeholder-custom focus:outline-none"
               placeholder="Pepita Flores"
@@ -23,7 +24,7 @@ const ProfileForm = () => {
               placeholder="Direccion"
               type="text"
             ></Textfield>
-              <Textfield
+            <Textfield
               className="w-72 h-9 border-b-2 border-green-300 placeholder-custom focus:outline-none"
               placeholder="San Patricio 1234"
               type="text"
@@ -33,7 +34,7 @@ const ProfileForm = () => {
               placeholder="Localidad"
               type="text"
             ></Textfield>
-             <Textfield
+            <Textfield
               className="w-72 h-9 border-b-2 border-green-300 placeholder-custom focus:outline-none"
               placeholder="San Rafael"
               type="text"
@@ -48,12 +49,12 @@ const ProfileForm = () => {
               placeholder="pepitaflores@gmail.com"
               type="email"
             ></Textfield>
-             <Textfield
+            <Textfield
               className="w-72 h-9  placeholder-custom focus:outline-none"
               placeholder="Contraseña"
               type="text"
             ></Textfield>
-             <Textfield
+            <Textfield
               className="w-72 h-9 border-b-2 border-green-300 placeholder-custom focus:outline-none"
               placeholder="********"
               type="password"
