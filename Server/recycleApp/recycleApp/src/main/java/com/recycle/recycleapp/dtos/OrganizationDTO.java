@@ -23,7 +23,7 @@ public class OrganizationDTO implements Serializable {
     private String description;
 
     @Size(max = 1000, message = "La información no puede tener más de 1000 caracteres")
-    private String about_as;
+    private String about_us;
 
     @Size(max = 100, message = "El sitio web no puede tener más de 100 caracteres")
     private String website;

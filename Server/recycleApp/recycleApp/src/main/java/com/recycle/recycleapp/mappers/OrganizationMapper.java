@@ -9,7 +9,7 @@ public class OrganizationMapper {
         return new OrganizationDTO(
                 organization.getName(),
                 organization.getDescription(),
-                organization.getAbout_as(),
+                organization.getAbout_us(),
                 organization.getWebsite()
         );
     }
@@ -18,7 +18,7 @@ public class OrganizationMapper {
         return Organization.builder()
                 .name(organizationDTO.getName())
                 .description(organizationDTO.getDescription())
-                .about_as(organizationDTO.getAbout_as())
+                .about_us(organizationDTO.getAbout_us())
                 .website(organizationDTO.getWebsite())
                 .build();
     }
