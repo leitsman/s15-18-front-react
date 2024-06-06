@@ -3,9 +3,14 @@ import { iconNames } from "@/constants/icons";
 import { cn } from "@/lib/utils";
 
 /**
- *
- * @param {string} iconName: nombre del icono (constants/icon)
- * @returns
+ * Componente funcional que representa un ícono con diferentes variantes y tamaños.
+ * @param {Object} props - Las propiedades del ícono.
+ * @param {string} props.variant - La variante del ícono (por defecto: "default" o "circular").
+ * @param {string} props.iconName - El nombre del ícono a mostrar. (de constants/icons)
+ * @param {string} props.size - El tamaño del ícono (por defecto: "sm", "md" o "lg").
+ * @param {string} props.circularColor - El color de fondo del ícono circular.
+ * @param {string} props.className - Clases CSS adicionales para el ícono.
+ * @returns {ReactElement} El elemento de ícono renderizado.
  */
 export const Icon = ({
   variant = "default",
@@ -13,7 +18,6 @@ export const Icon = ({
   size = "sm",
   circularColor = "white",
   className,
-  s,
 }) => {
   const sizes = {
     sm: "w-4 h-4",

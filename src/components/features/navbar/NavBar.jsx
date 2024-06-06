@@ -1,8 +1,8 @@
 import React from "react";
+
 import { navbarContent } from "./nabar.content";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Stack } from "@/components/layout/stack";
-import { Container } from "@/components/layout/container";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
@@ -23,7 +23,7 @@ export const NavBar = ({ design = "default" }) => {
                 src="https://github.com/jandres373.png"
                 alt="@jam avatar"
               />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>♻️</AvatarFallback>
             </Avatar>
           </Avatar>
           <div className="flex">
@@ -44,10 +44,10 @@ export const NavBar = ({ design = "default" }) => {
           alignment="center"
           className="gap-4 w-fit h-fit"
         >
-          <Button variant="ghost" className={"p-0"}>
+          <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
             <Icon iconName={"bell"} size="md" />
           </Button>
-          <Button variant="ghost" className={"p-0"}>
+          <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
             <Icon iconName={"menu"} size="md" />
           </Button>
         </Stack>
