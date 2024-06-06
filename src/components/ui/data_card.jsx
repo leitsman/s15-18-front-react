@@ -3,8 +3,13 @@ import { Icon } from "@/components/ui/icon";
 import { Stack } from "../layout/stack";
 import { Button } from "./button";
 import { Container } from "../layout/container";
-import { Text } from "./text";
 
+/**
+ * Componente que muestra un DataCard con diferentes variantes.
+ * @param {string} variant - La variante del DataCard a mostrar (single o compose).
+ * @param {object} dataCardOptions - Opciones del DataCard que incluyen contenido principal, secundario, icono, y elementos adicionales.
+ * @returns {JSX.Element} - Elemento JSX que representa el DataCard.
+ */
 export const DataCard = ({ variant, dataCardOptions }) => {
   const variants = {
     single: (

@@ -1,10 +1,10 @@
 import React from "react";
+import Image from "next/image";
 import { Container } from "../layout/container";
 import { Stack } from "../layout/stack";
 import { Icon } from "./icon";
 import { Text } from "./text";
 import { Button } from "./button";
-import Image from "next/image";
 
 export const ContentCard = ({
   contentOptions,
@@ -43,6 +43,7 @@ export const ContentCard = ({
             width={100}
             height={100}
             className="size-[100px]"
+            priority
           />
         )}
         <Text variant={"body"} size="xs" className="line-clamp-6">

@@ -34,18 +34,4 @@ export const MockRecycledItems = [
     date: "12/12/2020",
     center: "Centro de acopio"
   },
-  {
-    id: 6,
-    name: "CELULAR",
-    points: 20,
-    date: "12/12/2020",
-    center: "Centro de acopio"
-  },
-  {
-    id: 7,
-    name: "CELULAR",
-    points: 20,
-    date: "12/12/2020",
-    center: "Centro de acopio"
-  }
 ];
