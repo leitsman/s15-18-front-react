@@ -54,7 +54,7 @@ export const NavBar = ({ design = "default" }) => {
       </Stack>
     ),
     home: (
-      <header className="bg-fuchsia-500 h-14 flex flex-row items-center justify-between w-full mb-10">
+      <header className="h-14 flex flex-row items-center justify-between w-full mb-10">
         <div className="bg-green-600 h-9 w-20 flex items-center justify-center">
           logo Recicle
         </div>

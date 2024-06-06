@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 const textAboutUs = {
   iconName: "arrowRight",
@@ -37,9 +38,14 @@ const Home = () => {
       <main>
         <article>
           <section>
-            <banner className="bg-orange-700 flex w-full h-32 mb-10 rounded-t-3xl">
-              banner
-            </banner>
+            <Image
+              className="bg-orange-700 flex w-full h-32 mb-10 rounded-t-3xl"
+              src="/images/home/bannerHome.webp"
+              alt="banner home"
+              unoptimized
+              width={500}
+              height={300}
+            ></Image>
           </section>
           <ContentCard contentOptions={textAboutUs} noImage noIcon />
           <ContentCard contentOptions={textMission} noIcon />
