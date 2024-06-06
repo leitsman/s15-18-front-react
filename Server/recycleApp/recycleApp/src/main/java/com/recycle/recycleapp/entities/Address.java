@@ -24,12 +24,12 @@ public class Address {
     private Long addressId;
 
     @OneToOne(mappedBy = "address")//is used to indicate that this relationship is bidirectional and Address is the owner of the relationship.
-    //@JoinColumn(name = "center_id")
-   @JsonIgnore
+    @JoinColumn(name = "center_id",referencedColumnName = "idRecycleCenter")
+   //@JsonIgnore
     private RecycleCenter recycleCenter;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", referencedColumnName = "idPerson")
     @JsonIgnore
     private Person person;
 

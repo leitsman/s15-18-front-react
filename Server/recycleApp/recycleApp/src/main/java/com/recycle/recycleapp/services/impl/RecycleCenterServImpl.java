@@ -36,6 +36,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                             .name(request.getName())
                             .businessHours(request.getBusinessHours())
                             .description(request.getDescription())
+                            .city(request.getCity())
                             .build());
 
             return RecycleCenterDTO.builder()
@@ -43,6 +44,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                     .name(recycleCenterDB.getName())
                     .description(recycleCenterDB.getDescription())
                     .businessHours(recycleCenterDB.getBusinessHours())
+                    .city(recycleCenterDB.getCity())
                     .build();
 
 
@@ -63,6 +65,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
             recycleCentRef.get().setBusinessHours(request.getBusinessHours());
             recycleCentRef.get().setDescription(request.getDescription());
             recycleCentRef.get().setName(request.getName());
+            recycleCentRef.get().setCity(request.getCity());
 
             RecycleCenter recycleCenterDB = recycleCenterRepo.save(recycleCentRef.get());
 
@@ -71,6 +74,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                     .name(recycleCenterDB.getName())
                     .description(recycleCenterDB.getDescription())
                     .businessHours(recycleCenterDB.getBusinessHours())
+                    .city(recycleCenterDB.getCity())
                     .build();
         }
     }

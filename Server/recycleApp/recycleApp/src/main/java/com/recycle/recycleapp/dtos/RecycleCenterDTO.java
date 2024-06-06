@@ -20,7 +20,8 @@ public class RecycleCenterDTO {
     private Long id;
     private String name;
     private String description;
-    private LocalTime businessHours;
+    private String businessHours;
+    private String city;
 
 
 }

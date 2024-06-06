@@ -12,7 +12,9 @@ public class RecycleCenterMapper {
                 recyclingCenter.getIdRecycleCenter(),
                 recyclingCenter.getName(),
                 recyclingCenter.getDescription(),
-                recyclingCenter.getBusinessHours()
+                recyclingCenter.getBusinessHours(),
+                recyclingCenter.getCity()
+
         );
     }
 
@@ -21,6 +23,7 @@ public class RecycleCenterMapper {
                 .name(recycleCenterDTO.getName())
                 .description(recycleCenterDTO.getDescription())
                 .businessHours(recycleCenterDTO.getBusinessHours())
+                .city(recycleCenterDTO.getCity())
                 .build();
     }
 }

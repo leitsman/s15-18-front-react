@@ -30,12 +30,12 @@ public class RecycleCenter {
     private String description;
 
     //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-    private LocalTime businessHours;
+    private  String businessHours;
 
 
     @OneToOne
-    @JsonIgnore
-    @JoinColumn(name = "address_id")
+    //@JsonIgnore
+    //@JoinColumn(name = "address_id")
     private Address address;
 
    // @JsonIgnore
