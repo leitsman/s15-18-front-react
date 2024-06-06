@@ -25,7 +25,7 @@ const RegisterForm = () => {
   });
 
   const handleRegister = async (data) => {
-    const BASE_URL = "http://localhost:3000/api";
+    const BASE_URL = "https://7ffc-181-168-133-217.ngrok-free.app/api/v1";
     const path = "/auth/login";
 
     const promise = new Promise((resolve) => {
