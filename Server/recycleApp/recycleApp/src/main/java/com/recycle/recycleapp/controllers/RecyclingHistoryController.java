@@ -1,14 +1,15 @@
 package com.recycle.recycleapp.controllers;
 
 import com.recycle.recycleapp.dtos.RecyclingHistoryDTO;
+import com.recycle.recycleapp.dtos.RecyclingHistoryRequest;
 import com.recycle.recycleapp.dtos.responseDtos.ResponseRecyclingHistoryDTO;
 import com.recycle.recycleapp.entities.RecyclingHistory;
 import com.recycle.recycleapp.services.RecyclingHistoryService;
+import com.recycle.recycleapp.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,14 @@ public class RecyclingHistoryController {
 
         return listaRecycleResponse;
 
+    }
+
+    @PostMapping("/recycler")
+    public ResponseEntity<Response> createRecyclingHistory(@RequestBody RecyclingHistoryRequest request){
+        System.out.println(request);
+        recyclingHistoryService.createRecyclingHistory(request);
+        Response response = new Response(true, HttpStatus.CREATED);
+        return ResponseEntity.ok(response);
     }
 
 

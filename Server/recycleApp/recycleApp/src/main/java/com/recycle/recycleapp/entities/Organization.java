@@ -23,7 +23,7 @@ public class Organization {
 
     private String description;
 
-    private String about_as;
+    private String about_us;
 
     private String website;
 

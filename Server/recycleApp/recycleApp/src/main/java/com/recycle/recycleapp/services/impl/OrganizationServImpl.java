@@ -44,7 +44,7 @@ public class OrganizationServImpl implements OrganizationService {
             Organization organization = organizationOptional.get();
             organization.setName(organizationDTO.getName());
             organization.setDescription(organizationDTO.getDescription());
-            organization.setAbout_as(organizationDTO.getAbout_as());
+            organization.setAbout_us(organizationDTO.getAbout_us());
             organization.setWebsite(organizationDTO.getWebsite());
 
             Organization updatedOrganization = organizationRepository.save(organization);
