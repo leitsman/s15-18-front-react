@@ -1,1 +1,1 @@
-las carpetas origen seran server y client
+# ReCycle project
