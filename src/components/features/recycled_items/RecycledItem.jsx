@@ -1,13 +1,13 @@
-export function RecycledItem(data) {
+export function RecycledItem({ item }) {
   return (
-    <div className="w-full p-3  h-24 flex flex-col justify-between bg-gray-300">
+    <div className="w-full p-3  h-24 flex flex-col justify-between bg-custom-recycle-background">
       <div className="flex justify-between *:font-bold">
-        <p>{data.name}</p>
-        <p>{data.points}</p>
+        <p>{item.name}</p>
+        <p>{item.points}</p>
       </div>
       <div className="flex justify-between *:font-bold">
-        <p>{data.date}</p>
-        <p>{data.center}</p>
+        <p>{item.date}</p>
+        <p>{item.center}</p>
       </div>
     </div>
   );

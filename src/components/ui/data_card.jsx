@@ -64,7 +64,5 @@ export const DataCard = ({ variant, dataCardOptions }) => {
     ),
   };
 
-  console.log(dataCardOptions);
-
   return variants[variant];
 };
