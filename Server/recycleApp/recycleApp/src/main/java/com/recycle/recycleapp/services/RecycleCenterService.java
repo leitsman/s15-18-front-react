@@ -12,7 +12,7 @@ public interface RecycleCenterService {
     RecycleCenterDTO createRecycleCenterDTO(RecycleCenterDTO request);
     RecycleCenterDTO updateRecycleCenterById(Long idRecycleCenter,RecycleCenterDTO request) throws RecycleCenterNotFoundException;
     Optional<RecycleCenterDTO> findRecycleCenterById(Long recycleCenterId);
-    RecycleCenterDTO findByCity(String city);
+    List<RecycleCenterDTO> findByCity(String city);
 
     List<RecycleCenterDTO> findAllRecycleCenter();
     //

@@ -19,6 +19,6 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 //    List<String> findRecycleCenterAddressesByCity(@Param("city") String city);
 
 
-    List<Address> findByRecycleCenterCity(String city); //to filter RecyclingCenter by city.
+    //List<Address> findByRecycleCenterCity(String city); //to filter RecyclingCenter by city.
 
 }

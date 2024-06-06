@@ -1,6 +1,7 @@
 package com.recycle.recycleapp.dtos;
 
 
+import com.recycle.recycleapp.entities.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class RecycleCenterDTO {
     private String description;
     private String businessHours;
     private String city;
+    private Address address;
 
 
 }

@@ -17,7 +17,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/v1/recenter")
+@RequestMapping("/recenter")
 public class RecycleCenterController {
 
     @Autowired
@@ -45,5 +45,12 @@ public class RecycleCenterController {
     @Operation(summary = "Obtener todos los centros de reciclaje", description = "Obtiene todas los centros de reciclaje.")
     public ResponseEntity<List<RecycleCenterDTO>> getAllRecycleCenter() {
         return new ResponseEntity<>(recycleCenterService.findAllRecycleCenter(), HttpStatus.OK);
+    }
+
+
+    @GetMapping("/city/{city}")
+    @Operation(summary = "Obtener todos los centros de reciclaje por ciudad", description = "Obtiene todas los centros de reciclaje por ciudad.")
+    public ResponseEntity<List<RecycleCenterDTO>> getAllRecycleCenterByCity(@PathVariable(value = "city") String city) {
+        return new ResponseEntity<>(recycleCenterService.findByCity(city), HttpStatus.OK);
     }
 }
