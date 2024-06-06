@@ -11,6 +11,6 @@ export const iconNames = {
   redeem: MdRedeem,
   recycle: MdRecycling,
   news: MdNewspaper,
-  loader: LuLoader2
+  loader: LuLoader2,
   arrowRight: FiArrowRight,
 };
