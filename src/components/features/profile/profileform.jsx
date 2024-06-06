@@ -1,7 +1,9 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Text } from "@/components/ui/text";
 import { Textfield } from "@/components/ui/textfield";
+
 const ProfileForm = () => {
   return (
     <main className="flex flex-col justify-center items-center">

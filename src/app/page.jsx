@@ -4,6 +4,7 @@ import { Text } from "@/components/ui/text";
 import { Icon } from "@/components/ui/icon";
 import { Stack } from "@/components/layout/stack";
 import { ContentCard } from "@/components/ui/content_card";
+import { BadgeC } from "@/components/ui/badge_claro";
 
 const composeDataCardOptions = {
   mainContent: "PUNTAJE",
@@ -69,7 +70,7 @@ export default async function Home() {
       <ContentCard contentOptions={contentCardOptions} />
       <ContentCard contentOptions={contentCardOptions2} />
       <Stack showOutline className="h-20">
-        badges
+      <BadgeC className="h-20">hola</BadgeC>
       </Stack>
     </main>
   );
