@@ -22,8 +22,8 @@ public class Waste {
 
     @Enumerated(EnumType.STRING)
     private typeEnum type;
-    private String description;
+    private String name;
     private String imageroute;
-    private Long points;
+    private int points;
 
 }

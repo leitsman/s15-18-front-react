@@ -1,8 +1,13 @@
 package com.recycle.recycleapp.services.impl;
 
 import com.recycle.recycleapp.dtos.RecycleCenterDTO;
+import com.recycle.recycleapp.entities.Address;
+import com.recycle.recycleapp.entities.Organization;
 import com.recycle.recycleapp.entities.RecycleCenter;
 import com.recycle.recycleapp.exceptions.RecycleCenterNotFoundException;
+import com.recycle.recycleapp.mappers.OrganizationMapper;
+import com.recycle.recycleapp.mappers.RecycleCenterMapper;
+import com.recycle.recycleapp.repositories.AddressRepository;
 import com.recycle.recycleapp.repositories.RecycleCenterRepo;
 import com.recycle.recycleapp.services.RecycleCenterService;
 import jakarta.transaction.Transactional;
@@ -10,7 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -22,29 +29,50 @@ public class RecycleCenterServImpl implements RecycleCenterService {
     @Autowired
     private RecycleCenterRepo recycleCenterRepo;
 
+    @Autowired
+    private AddressRepository addressRepository;
+
     @Override
     @Transactional
-    public RecycleCenterDTO createRecycleCenterDTO(Long rcenterID, RecycleCenterDTO request) {
-        Optional<RecycleCenter> recycleCentRef=recycleCenterRepo.findById(rcenterID);
-        if(recycleCentRef.isEmpty()){
+    public RecycleCenterDTO createRecycleCenterDTO( RecycleCenterDTO request) {
+
+
 
             RecycleCenter recycleCenterDB = recycleCenterRepo.save(
                     RecycleCenter.builder()
                             .name(request.getName())
                             .businessHours(request.getBusinessHours())
                             .description(request.getDescription())
+                            .city(request.getCity())
+                            .address(request.getAddress())
                             .build());
+
+
+        Address addr=Address.builder()
+                .phone(request.getAddress().getPhone())
+                .addressName(request.getAddress().getAddressName())
+                .recycleCenter(recycleCenterDB)
+                .country(request.getAddress().getCountry())
+                .latitude(request.getAddress().getLatitude())
+                .longitude(request.getAddress().getLongitude())
+                .postalCode(request.getAddress().getPostalCode())
+                .city(request.getCity())
+                    .build();
+
+        addressRepository.save(addr);
 
             return RecycleCenterDTO.builder()
                     .id(recycleCenterDB.getIdRecycleCenter())
                     .name(recycleCenterDB.getName())
                     .description(recycleCenterDB.getDescription())
                     .businessHours(recycleCenterDB.getBusinessHours())
+                    .city(recycleCenterDB.getCity())
+                    .address(recycleCenterDB.getAddress())
                     .build();
-        }
-        else{
-            return null;
-        }
+
+
+
+
 
 
     }
@@ -62,6 +90,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
             recycleCentRef.get().setBusinessHours(request.getBusinessHours());
             recycleCentRef.get().setDescription(request.getDescription());
             recycleCentRef.get().setName(request.getName());
+            recycleCentRef.get().setCity(request.getCity());
 
             RecycleCenter recycleCenterDB = recycleCenterRepo.save(recycleCentRef.get());
 
@@ -70,22 +99,36 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                     .name(recycleCenterDB.getName())
                     .description(recycleCenterDB.getDescription())
                     .businessHours(recycleCenterDB.getBusinessHours())
+                    .city(recycleCenterDB.getCity())
                     .build();
         }
     }
 
     @Override
-    public RecycleCenterDTO findById(Long recycleCenterId) {
+    public Optional<RecycleCenterDTO> findRecycleCenterById(Long recycleCenterId) {
         Optional<RecycleCenter> recycleCentRef=recycleCenterRepo.findById(recycleCenterId);
-        return RecycleCenterDTO.builder()
-                .id(recycleCentRef.get().getIdRecycleCenter())
-                .name(recycleCentRef.get().getName())
-                .businessHours(recycleCentRef.get().getBusinessHours())
-                .build();
+
+        return recycleCentRef.map(RecycleCenterMapper::toDTO);
+
     }
 
     @Override
-    public RecycleCenterDTO findByCity(String city) {
-        return null;
+    public List<RecycleCenterDTO> findByCity(String city) {
+        List<RecycleCenter> listRecycleCnt = recycleCenterRepo.findAll();
+
+
+        return listRecycleCnt.stream()
+                .map(RecycleCenterMapper::toDTO)
+                .filter(center -> center.getCity().equalsIgnoreCase(city))
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public List<RecycleCenterDTO> findAllRecycleCenter() {
+        List<RecycleCenter> centers = recycleCenterRepo.findAll();
+        return centers.stream()
+                .map(RecycleCenterMapper::toDTO)
+                .toList();
     }
 }

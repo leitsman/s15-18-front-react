@@ -1,9 +1,10 @@
 package com.recycle.recycleapp.controllers;
 
 import com.recycle.recycleapp.dtos.OrganizationDTO;
+import com.recycle.recycleapp.exceptions.OrganizationNotFoundException;
 import com.recycle.recycleapp.services.OrganizationService;
+import com.recycle.recycleapp.utils.Response;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,43 +25,51 @@ public class OrganizationController {
 
     @PostMapping("/create")
     @Operation(summary = "Crear una nueva organización", description = "Un usuario con rol SUPER_ADMIN puede registrar una nueva organización")
-    public ResponseEntity<OrganizationDTO> createOrganization(@Valid @RequestBody OrganizationDTO organizationDTO) {
-        OrganizationDTO savedOrganization = organizationService.saveOrganization(organizationDTO);
-        return new ResponseEntity<>(savedOrganization, HttpStatus.CREATED);
+    public ResponseEntity<Response> createOrganization(@Valid @RequestBody OrganizationDTO organizationDTO) {
+        Response response = new Response(true, HttpStatus.CREATED,organizationService.saveOrganization(organizationDTO));
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtener organización por ID", description = "Obtiene la información detallada de una organización")
-    public ResponseEntity<OrganizationDTO> getOrganizationById(@PathVariable Long id) {
-        Optional<OrganizationDTO> organizationDto = organizationService.getOrganizationById(id);
+    public ResponseEntity<Response> getOrganizationById(@PathVariable Long id) {
+        OrganizationDTO organizationDto = organizationService.getOrganizationById(id)
+                .orElseThrow(() -> new RuntimeException("Organization not found"));
 
-        return organizationDto.map(org -> new ResponseEntity<>(org, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        Response response = new Response(true, HttpStatus.OK, organizationDto);
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping
     @Operation(summary = "Obtener todas las organizaciones", description = "Obtiene todas las organizaciones registradas")
-    public ResponseEntity<List<OrganizationDTO>> getAllOrganizations() {
-        return new ResponseEntity<>(organizationService.getAllOrganizations(), HttpStatus.OK);
+    public ResponseEntity<Response> getAllOrganizations() {
+        Response response = new Response(true, HttpStatus.OK, organizationService.getAllOrganizations());
+        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Eliminar una organización", description = "Un usuario con rol SUPER_ADMIN puede eliminar una organización por su ID")
-    public ResponseEntity<Void> deleteOrganization(@PathVariable Long id) {
-        if (organizationService.getOrganizationById(id).isPresent()) {
+    public ResponseEntity<Response> deleteOrganization(@PathVariable Long id) {
+        try {
             organizationService.deleteOrganization(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            Response response = new Response(true, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            throw new OrganizationNotFoundException("No se encontró la organización con ID: " + id);
         }
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar una organización", description = "Un usuario con rol SUPER_ADMIN puede actualizar la información de una organización")
-    public ResponseEntity<OrganizationDTO> updateOrganization(@PathVariable Long id, @Valid @RequestBody OrganizationDTO organizationDTO) {
+    public ResponseEntity<Response> updateOrganization(@PathVariable Long id, @Valid @RequestBody OrganizationDTO organizationDTO) {
         Optional<OrganizationDTO> updatedOrganization = organizationService.updateOrganization(id, organizationDTO);
-        return updatedOrganization.map(ResponseEntity::ok)
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        if (updatedOrganization.isPresent()) {
+            Response response = new Response(true, HttpStatus.OK);
+            return ResponseEntity.ok(response);
+        } else {
+            throw new OrganizationNotFoundException("Organización no encontrada con el ID: " + id);
+        }
     }
 
 //    @GetMapping("/{organizationId}/recycle-centers")

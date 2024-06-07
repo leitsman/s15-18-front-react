@@ -69,7 +69,9 @@ public class AddressController {
 
     @GetMapping("/recycle-center/city")
     public ResponseEntity<List<Address>> getAddressesByRecycleCenterCity(@RequestParam String recycleCenterCity) {
+        System.out.println(recycleCenterCity);
         List<Address> addresses = addressService.getAddressesByRecycleCenterCity(recycleCenterCity);
+
         return ResponseEntity.ok(addresses);
     }
 

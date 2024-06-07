@@ -21,17 +21,17 @@ public class RecyclingHistory {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "center_id")
+    @JoinColumn(name = "center_id", referencedColumnName = "idRecycleCenter")
     private RecycleCenter recycleCenter;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", referencedColumnName = "idPerson")
     private Person person;
 
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "waste_id")
+    @JoinColumn(name = "waste_id", referencedColumnName = "idWaste")
     private Waste waste;
 
     private int amount;

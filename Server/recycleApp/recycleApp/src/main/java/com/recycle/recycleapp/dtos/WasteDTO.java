@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class WasteDTO {
     public String type;
-    public String description;
-    public Long points;
+    public String name;
+    public int points;
 
 }
