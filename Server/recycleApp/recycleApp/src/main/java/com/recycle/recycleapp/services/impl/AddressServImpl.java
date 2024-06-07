@@ -7,8 +7,10 @@ import com.recycle.recycleapp.services.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -45,7 +47,25 @@ public class AddressServImpl implements AddressService {
 
     @Override
     public List<Address> getAddressesByRecycleCenterCity(String recycleCenterCity) {
-        return addressRepository.findByRecycleCenter_City(recycleCenterCity);
+        List<Address> listAddress = addressRepository.findAll();
+
+        return listAddress.stream()
+                .filter(address -> address.getCity().equalsIgnoreCase(recycleCenterCity))
+                .collect(Collectors.toList());
+
+
+//
+//        List<Address> responseList=new ArrayList<>();
+//        for (Address address:listAddress
+//             ) {
+//            if(address.getCity().equalsIgnoreCase(recycleCenterCity)){
+//
+//                responseList.add(address);
+//            }
+//
+//        }
+
+
     }
 
     @Override

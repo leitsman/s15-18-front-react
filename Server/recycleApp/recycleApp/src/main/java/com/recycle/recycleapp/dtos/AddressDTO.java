@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class AddressDTO {
 
         private Long addressId;
-        private Long recycleCenterId;
+        private Long RecyclerCenterName;
         private Long personId;
         private String address;
         private String postalCode;
