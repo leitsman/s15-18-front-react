@@ -1,6 +1,8 @@
 package com.recycle.recycleapp.services;
 
+import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +10,7 @@ import java.util.Optional;
 public interface IPersonService {
 
 
-    Person save(Person person);
+    void save(PersonDTO person, Authentication authentication);
 
     List<Person> getAll();
 
