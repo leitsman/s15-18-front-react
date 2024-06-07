@@ -40,6 +40,7 @@ public class UserEntity implements UserDetails, Principal {
     @Column(unique = true)
     private String email;
     private String password;
+    private boolean active;
     private boolean accountLocked;
     private boolean enabled;
     @ManyToMany(fetch = EAGER)

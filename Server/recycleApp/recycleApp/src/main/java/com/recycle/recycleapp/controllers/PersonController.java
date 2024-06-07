@@ -1,10 +1,14 @@
 package com.recycle.recycleapp.controllers;
 
+import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
 import com.recycle.recycleapp.services.impl.PersonServiceImpl;
+import com.recycle.recycleapp.utils.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -14,7 +18,7 @@ import java.util.Optional;
 @RequestMapping("/persons")
 public class PersonController {
 
-
+    @Autowired
     private final PersonServiceImpl personServiceImpl;
 
     //localhost:8080/api/persons/all
@@ -25,27 +29,25 @@ public class PersonController {
 
     //localhost:8080/api/persons/
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<Person>> getById(@PathVariable Long id) {
+    public ResponseEntity<Optional<Person>> getById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(personServiceImpl.getById(id));
 
     }
 
-    //localhost:8080/api/persons/save
-    @PostMapping(path = "/save")
-    public ResponseEntity<Person> savePerson(@RequestBody Person person) throws Exception {
-        return new ResponseEntity<>(personServiceImpl.save(person), HttpStatus.CREATED);
+
+    @PostMapping("/save")
+    public ResponseEntity<Response> savePerson(@RequestBody PersonDTO person, Authentication authentication){
+        System.out.println(person);
+        personServiceImpl.save(person, authentication);
+        Response response = new Response(true, HttpStatus.CREATED);
+        return ResponseEntity.ok(response);
 
     }
-    //localhost:8080/api/persons/delete/
-    @DeleteMapping(path = "/delete/{id}")
-    public void deleteById(@PathVariable Long id){
-        personServiceImpl.delete(id);
-    }
 
 
-    @PutMapping(path = "/update/{id}")
-    public ResponseEntity<Person> updatePerson(@PathVariable ("id") Long id, @RequestBody Person person) throws Exception {
-        Person updatePerson = personServiceImpl.update(id,person);
+    @PutMapping(path = "/update")
+    public ResponseEntity<Person> updatePerson(@RequestBody PersonDTO person, Authentication authentication) throws Exception {
+        Person updatePerson = personServiceImpl.update(person,authentication);
         return ResponseEntity.ok(updatePerson);
 
     }
