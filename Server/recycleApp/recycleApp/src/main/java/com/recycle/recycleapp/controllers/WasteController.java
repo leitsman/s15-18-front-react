@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/waste")
+@RequestMapping("/waste")
 @RequiredArgsConstructor
 
 public class WasteController {

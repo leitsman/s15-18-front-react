@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/history")
+@RequestMapping("/history")
 
 public class RecyclingHistoryController {
 
