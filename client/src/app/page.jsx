@@ -5,10 +5,13 @@ import { Icon } from "@/components/ui/icon";
 import { Stack } from "@/components/layout/stack";
 import { ContentCard } from "@/components/ui/content_card";
 import { BadgeC } from "@/components/ui/badge_claro";
+import { CLIENT_ROUTES } from "@/constants/routes.client";
+import { ModeToggle } from "@/components/ui/mode_toggle";
 
 const composeDataCardOptions = {
   mainContent: "PUNTAJE",
   secondaryContent: "Historial",
+  secondaryLinkTo: CLIENT_ROUTES.HISTORY,
   iconName: "rightArrow",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
@@ -62,15 +65,18 @@ const contentCardOptions2 = {
 };
 
 export default async function Home() {
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
       <NavBar />
+
+    <ModeToggle />
+
       <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
       <ContentCard contentOptions={contentCardOptions} />
       <ContentCard contentOptions={contentCardOptions2} />
-      <Stack showOutline className="h-20">
-      <BadgeC className="h-20">hola</BadgeC>
+      <Stack showOutline distribution="center" alignment="center" className="h-20">
+        Badges placeholder
+        {/* <BadgeC className="h-20">hola</BadgeC> */}
       </Stack>
     </main>
   );

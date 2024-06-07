@@ -1,8 +1,10 @@
 import React from "react";
 import { Icon } from "@/components/ui/icon";
 import { Stack } from "../layout/stack";
-import { Button } from "./button";
+import { Button, buttonVariants } from "./button";
 import { Container } from "../layout/container";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 /**
  * Componente que muestra un DataCard con diferentes variantes.
@@ -54,9 +56,9 @@ export const DataCard = ({ variant, dataCardOptions }) => {
             <h2 className="font-bold">{dataCardOptions.mainContent}</h2>
             <div className="flex items-center gap-2">
               <h2 className="font-bold">{dataCardOptions.secondaryContent}</h2>
-              <Button variant="ghost" className="h-fit p-0">
+              <Link className={cn(buttonVariants({variant: 'ghost'}), "h-fit p-0")} href={dataCardOptions.secondaryLinkTo}>
                 <Icon iconName={dataCardOptions.iconName} />
-              </Button>
+              </Link>
             </div>
           </Stack>
           <Stack noMargins>{dataCardOptions.secondSectionElements}</Stack>
