@@ -129,8 +129,8 @@ const Home = () => {
           <h2 className="text-lg mb-5">Dispositivos Medianos</h2>
           <Carousel className="w-[85%] mx-auto">
             <CarouselContent className="ml-2 gap-1">
-              {arr.map((data) => (
-                <CarrouselCard data={data} />
+              {arr.map((data, idx) => (
+                <CarrouselCard key={idx} data={data} />
               ))}
             </CarouselContent>
             <CarouselPrevious />
