@@ -1,12 +1,14 @@
 import React from "react";
-import { NavBar } from "@/components/features/navbar/NavBar";
-import { NavBarUbicacion } from "@/components/features/navbar/NavBarUbicacion";
-import Image from "next/image";
 import ProfileForm from "../../components/features/profile/profileform";
+import Image from "next/image";
+
+import { Icon } from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
+import { NavBar } from "@/components/features/navbar/NavBar";
+
+import { NavBarUbicacion } from "@/components/features/navbar/NavBarUbicacion";
 import { DataCard } from "@/components/ui/data_card";
 import { Text } from "@/components/ui/text";
-import { Icon } from "@/components/ui/icon";
 import { Stack } from "@/components/layout/stack";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
 
