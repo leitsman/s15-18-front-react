@@ -34,7 +34,7 @@ public class OrganizationController {
     @Operation(summary = "Obtener organización por ID", description = "Obtiene la información detallada de una organización")
     public ResponseEntity<Response> getOrganizationById(@PathVariable Long id) {
         OrganizationDTO organizationDto = organizationService.getOrganizationById(id)
-                .orElseThrow(() -> new RuntimeException("Organization not found"));
+                .orElseThrow(() -> new OrganizationNotFoundException("No se encontró una organización con el ID: " + id));
 
         Response response = new Response(true, HttpStatus.OK, organizationDto);
 
