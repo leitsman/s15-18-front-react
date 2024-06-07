@@ -29,7 +29,7 @@ public class PersonController {
 
     //localhost:8080/api/persons/
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<Person>> getById(@PathVariable Long id) {
+    public ResponseEntity<Optional<Person>> getById(@PathVariable Integer id) {
         return ResponseEntity.ok().body(personServiceImpl.getById(id));
 
     }
@@ -43,16 +43,11 @@ public class PersonController {
         return ResponseEntity.ok(response);
 
     }
-    //localhost:8080/api/persons/delete/
-    @DeleteMapping(path = "/delete/{id}")
-    public void deleteById(@PathVariable Long id){
-        personServiceImpl.delete(id);
-    }
 
 
-    @PutMapping(path = "/update/{id}")
-    public ResponseEntity<Person> updatePerson(@PathVariable ("id") Long id, @RequestBody Person person) throws Exception {
-        Person updatePerson = personServiceImpl.update(id,person);
+    @PutMapping(path = "/update")
+    public ResponseEntity<Person> updatePerson(@RequestBody PersonDTO person, Authentication authentication) throws Exception {
+        Person updatePerson = personServiceImpl.update(person,authentication);
         return ResponseEntity.ok(updatePerson);
 
     }
