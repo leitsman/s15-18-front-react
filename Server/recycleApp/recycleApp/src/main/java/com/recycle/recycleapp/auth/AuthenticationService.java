@@ -43,7 +43,8 @@ public class AuthenticationService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .accountLocked(false)
-                .enabled(true)  // Set enabled to true since we are removing email activation
+                .enabled(true)// Set enabled to true since we are removing email activation
+                .active(false)
                 .roles(List.of(userRole))
                 .build();
         userRepository.save(user);

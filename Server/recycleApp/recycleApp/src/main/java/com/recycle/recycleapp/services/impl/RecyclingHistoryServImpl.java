@@ -80,7 +80,7 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     }
 
     @Override
-    public List<RecyclingHistory> findRecyclingHistoryByPerson(Long idPerson) {
+    public List<RecyclingHistory> findRecyclingHistoryByPerson(Integer idPerson) {
         Optional<Person> personFound=personRepository.findById(idPerson);
 
         if(personFound.isPresent()){

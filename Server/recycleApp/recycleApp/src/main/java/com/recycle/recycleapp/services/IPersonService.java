@@ -1,6 +1,8 @@
 package com.recycle.recycleapp.services;
 
+import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,15 +10,12 @@ import java.util.Optional;
 public interface IPersonService {
 
 
-    Person save(Person person);
+    void save(PersonDTO person, Authentication authentication);
 
     List<Person> getAll();
 
-    Optional<Person> getById(Long id);
+    Optional<Person> getById(Integer id);
 
-    Person update(Long id, Person person) throws Exception;
-
-    void delete(Long id);
-
+    Person update( PersonDTO person, Authentication authentication) throws Exception;
 
 }
