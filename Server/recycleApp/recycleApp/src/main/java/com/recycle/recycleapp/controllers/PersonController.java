@@ -1,10 +1,14 @@
 package com.recycle.recycleapp.controllers;
 
+import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
 import com.recycle.recycleapp.services.impl.PersonServiceImpl;
+import com.recycle.recycleapp.utils.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -14,7 +18,7 @@ import java.util.Optional;
 @RequestMapping("/persons")
 public class PersonController {
 
-
+    @Autowired
     private final PersonServiceImpl personServiceImpl;
 
     //localhost:8080/api/persons/all
@@ -30,10 +34,13 @@ public class PersonController {
 
     }
 
-    //localhost:8080/api/persons/save
-    @PostMapping(path = "/save")
-    public ResponseEntity<Person> savePerson(@RequestBody Person person) throws Exception {
-        return new ResponseEntity<>(personServiceImpl.save(person), HttpStatus.CREATED);
+
+    @PostMapping("/save")
+    public ResponseEntity<Response> savePerson(@RequestBody PersonDTO person, Authentication authentication){
+        System.out.println(person);
+        personServiceImpl.save(person, authentication);
+        Response response = new Response(true, HttpStatus.CREATED);
+        return ResponseEntity.ok(response);
 
     }
     //localhost:8080/api/persons/delete/

@@ -42,5 +42,8 @@ public class Person {
     @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
 
-
+    @PrePersist
+    void prePersist() {
+        this.totalPoints = 0L;
+    }
 }
