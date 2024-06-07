@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/organizations")
+@RequestMapping("/organizations")
 @Tag(name = "Organization", description = "Endpoints para gestionar organizaciones")
 public class OrganizationController {
 
