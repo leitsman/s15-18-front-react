@@ -14,11 +14,8 @@ public interface IPersonService {
 
     List<Person> getAll();
 
-    Optional<Person> getById(Long id);
+    Optional<Person> getById(Integer id);
 
-    Person update(Long id, Person person) throws Exception;
-
-    void delete(Long id);
-
+    Person update( PersonDTO person, Authentication authentication) throws Exception;
 
 }
