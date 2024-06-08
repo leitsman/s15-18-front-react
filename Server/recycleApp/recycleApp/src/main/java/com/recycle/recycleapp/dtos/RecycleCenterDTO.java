@@ -23,7 +23,7 @@ public class RecycleCenterDTO {
     private String description;
     private String businessHours;
     private String city;
-    private Address address;
+    private AddressDTO address;
 
 
 }

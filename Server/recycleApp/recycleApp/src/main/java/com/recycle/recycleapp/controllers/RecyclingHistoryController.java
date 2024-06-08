@@ -29,7 +29,7 @@ public class RecyclingHistoryController {
         List<RecyclingHistory> list=recyclingHistoryService.findRecyclingHistoryByPerson(id);
         for (RecyclingHistory elem: list
              ) {
-            int totalPoints=elem.getWaste().getPoints()*elem.getAmount();
+            Long totalPoints=elem.getWaste().getPoints()*elem.getAmount();
             listaRecycleResponse.add(new ResponseRecyclingHistoryDTO(
                     elem.getWaste().getType().toString(),
                     elem.getDate(),

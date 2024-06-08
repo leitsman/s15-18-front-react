@@ -21,6 +21,7 @@ public class Person {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Integer idPerson;
     @Column(name = "first_name", nullable = false, length = 30)

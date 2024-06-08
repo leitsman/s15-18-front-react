@@ -11,6 +11,7 @@ import com.recycle.recycleapp.repositories.PersonRepository;
 import com.recycle.recycleapp.repositories.RecycleCenterRepo;
 import com.recycle.recycleapp.repositories.RecyclingHistoryRepo;
 import com.recycle.recycleapp.repositories.WasteRepo;
+import com.recycle.recycleapp.services.IPersonService;
 import com.recycle.recycleapp.services.RecyclingHistoryService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     private RecyclingHistoryRepo recyclingHistoryRepo;
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private IPersonService iPersonService;
     @Autowired
     private RecycleCenterRepo recycleCenterRepo;
     @Autowired
@@ -37,12 +41,17 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
     public void createRecyclingHistory(RecyclingHistoryRequest request) {
 
         Optional<RecycleCenter> recycleCenterDB = recycleCenterRepo.findById(request.getRecycle_center());
+
         Optional<Person> personDB = personRepository.findById(request.getRecyling_person());
         Optional<Waste> wasteDB = wasteRepo.findById(request.getRecycling_waste());
 
         RecycleCenter recycleCenter = recycleCenterDB.get();
         Person person = personDB.get();
         Waste waste = wasteDB.get();
+
+        //
+        Long points=waste.getPoints()*request.getAmount();
+        iPersonService.addPoints(points,person); //
 
         RecyclingHistory recyclingHistoryDB = recyclingHistoryRepo.save(
                 RecyclingHistory.builder()

@@ -1,6 +1,5 @@
 package com.recycle.recycleapp.dtos;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class WasteDTO {
     public String type;
     public String name;
-    public int points;
+    public Long points;
 
 }

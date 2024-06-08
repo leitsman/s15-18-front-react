@@ -27,7 +27,7 @@ public class PersonServiceImpl implements IPersonService {
     private final AddressRepository addressRepository;
 
     @Override
-    public void save(PersonDTO person, Authentication authentication) {
+    public PersonDTO save(PersonDTO personDTO, Authentication authentication) {
         UserEntity user = ((UserEntity) authentication.getPrincipal());
         user.setActive(true);
         userRepository.save(user);
@@ -35,25 +35,43 @@ public class PersonServiceImpl implements IPersonService {
 
         Person personRepo =  personRepository.save(Person.builder()
                 .idPerson(user.getId())
-                .firstName(person.getFirstName())
-                .lastName(person.getLastName())
-                .dni(person.getDni())
+                .firstName(personDTO.getFirstName())
+                .lastName(personDTO.getLastName())
+                .dni(personDTO.getDni())
                 .address(null)
                 .build());
 
+//        Address address =  addressRepository.save(
+//                Address.builder()
+//                        .city(personDTO.getAddress().getCity())
+//                        .person(personRepo)
+//                        .addressName(personDTO.getAddress().getAddressName())
+//                        .phone(personDTO.getAddress().getPhone())
+//                        .country(personDTO.getAddress().getCountry())
+//                        .postalCode(personDTO.getAddress().getPostalCode())
+//                        .latitude(personDTO.getAddress().getLatitude())
+//                        .longitude(personDTO.getAddress().getLongitude())
+//                        .build()
+//
+//        );
+
+
         Address address =  addressRepository.save(
                 Address.builder()
-                        .city(person.getAddress().getCity())
+                        .city(personDTO.getAddress().getCity())
                         .person(personRepo)
-                        .addressName(person.getAddress().getAddressName())
-                        .phone(person.getAddress().getPhone())
-                        .country(person.getAddress().getCountry())
-                        .postalCode(person.getAddress().getPostalCode())
-                        .latitude(person.getAddress().getLatitude())
-                        .longitude(person.getAddress().getLongitude())
+                        .addressName(personDTO.getAddress().getAddressName())
+                        .phone(personDTO.getAddress().getPhone())
+                        .country(personDTO.getAddress().getCountry())
+                        .postalCode(personDTO.getAddress().getPostalCode())
+                        .latitude(personDTO.getAddress().getLatitude())
+                        .longitude(personDTO.getAddress().getLongitude())
                         .build()
 
         );
+
+        return personDTO;
+
 
 
     }
@@ -83,6 +101,12 @@ public class PersonServiceImpl implements IPersonService {
 
             return personRepository.save(existingPerson);
         }).orElseThrow(() -> new PersonNotFoundException("Person not found with id: " + user.getId()));
+    }
+
+    @Override
+    public void addPoints(Long points, Person person) {
+        person.setTotalPoints(person.getTotalPoints()+points);
+        personRepository.save(person);
     }
 
 }

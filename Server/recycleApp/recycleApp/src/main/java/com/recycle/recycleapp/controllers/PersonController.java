@@ -38,8 +38,8 @@ public class PersonController {
     @PostMapping("/save")
     public ResponseEntity<Response> savePerson(@RequestBody PersonDTO person, Authentication authentication){
         System.out.println(person);
-        personServiceImpl.save(person, authentication);
-        Response response = new Response(true, HttpStatus.CREATED);
+
+        Response response = new Response(true, HttpStatus.CREATED, personServiceImpl.save(person, authentication));
         return ResponseEntity.ok(response);
 
     }

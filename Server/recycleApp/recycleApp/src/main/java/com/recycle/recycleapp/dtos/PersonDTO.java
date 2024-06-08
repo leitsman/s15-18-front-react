@@ -16,5 +16,5 @@ public class PersonDTO {
     private String firstName;
     private String lastName;
     private String dni;
-    private Address address;
+    private AddressDTO address;
 }
