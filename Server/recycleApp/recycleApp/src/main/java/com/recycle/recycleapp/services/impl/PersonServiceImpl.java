@@ -29,8 +29,7 @@ public class PersonServiceImpl implements IPersonService {
     @Override
     public PersonDTO save(PersonDTO personDTO, Authentication authentication) {
         UserEntity user = ((UserEntity) authentication.getPrincipal());
-        user.setActive(true);
-        userRepository.save(user);
+
 
 
         Person personRepo =  personRepository.save(Person.builder()
@@ -69,6 +68,9 @@ public class PersonServiceImpl implements IPersonService {
                         .build()
 
         );
+
+        user.setActive(true);
+        userRepository.save(user);
 
         return personDTO;
 
