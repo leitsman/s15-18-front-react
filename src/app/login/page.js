@@ -15,21 +15,7 @@ const page = () => {
         </div>
         <div className="w-full">
           <h1 className="text-black text-center text-2xl">BIENVENIDOS</h1>
-          <LoginForm></LoginForm>
-          {/* <form className=' flex flex-col items-center gap-5'>
-            <div className='w-full h-12 pl-2 pr-10 bg-gray-300 flex items-center'>
-              E-mail o numero
-            </div>
-            <div className='w-full h-12 pl-2 pr-10 bg-gray-300 flex items-center'>
-              Contraseña
-            </div>
-            <div className='w-4/5  flex flex-col justify-center items-center'>
-              <div className='w-4/5 h-12 gap-2 m-3 px-2 bg-gray-300 flex justify-center items-center rounded-lg'>
-                Iniciar sesión
-              </div>
-              <p className='text-xs'>¿Olvidaste tu contraseña?</p>
-            </div>
-          </form> */}
+          <LoginForm />
         </div>
         <div>
           <div className="w-full flex flex-col gap-3">
