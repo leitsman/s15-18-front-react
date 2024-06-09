@@ -12,18 +12,13 @@ public class RecycleCenterMapper {
 
     public static RecycleCenterDTO toDTO(RecycleCenter recyclingCenter) {
 
-
-        AddressDTO paraconv= AddressMapper::toDTO (recyclingCenter.getAddress());
-
         return new RecycleCenterDTO(
                 recyclingCenter.getIdRecycleCenter(),
                 recyclingCenter.getName(),
                 recyclingCenter.getDescription(),
                 recyclingCenter.getBusinessHours(),
-                paraconv
-
-
-
+                recyclingCenter.getCity(),
+                recyclingCenter.getAddress()
         );
     }
 

@@ -68,7 +68,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                 .city(request.getCity())
                     .build();
 
-        addressRepository.save(addr);
+        Address addressDb = addressRepository.save(addr);
 
             return RecycleCenterDTO.builder()
                     .id(recycleCenterDB.getIdRecycleCenter())
@@ -76,7 +76,7 @@ public class RecycleCenterServImpl implements RecycleCenterService {
                     .description(recycleCenterDB.getDescription())
                     .businessHours(recycleCenterDB.getBusinessHours())
                     .city(recycleCenterDB.getCity())
-                    .address(null)
+                    .address(addressDb)
                     .build();
 
 
