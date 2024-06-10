@@ -48,17 +48,17 @@ public class OrganizationController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Eliminar una organización", description = "Un usuario con rol SUPER_ADMIN puede eliminar una organización por su ID")
-    public ResponseEntity<Response> deleteOrganization(@PathVariable Long id) {
-        try {
-            organizationService.deleteOrganization(id);
-            Response response = new Response(true, HttpStatus.NO_CONTENT);
-            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            throw new OrganizationNotFoundException("No se encontró la organización con ID: " + id);
-        }
-    }
+//    @DeleteMapping("/{id}")
+//    @Operation(summary = "Eliminar una organización", description = "Un usuario con rol SUPER_ADMIN puede eliminar una organización por su ID")
+//    public ResponseEntity<Response> deleteOrganization(@PathVariable Long id) {
+//        try {
+//            organizationService.deleteOrganization(id);
+//            Response response = new Response(true, HttpStatus.NO_CONTENT);
+//            return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);
+//        } catch (Exception e) {
+//            throw new OrganizationNotFoundException("No se encontró la organización con ID: " + id);
+//        }
+//    }
 
     @PutMapping("/{id}")
     @Operation(summary = "Actualizar una organización", description = "Un usuario con rol SUPER_ADMIN puede actualizar la información de una organización")
