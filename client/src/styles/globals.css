@@ -73,7 +73,7 @@
 @layer components {
   .placeholder-custom::placeholder {
     @apply text-sm; /* Cambia el tamaño según tus necesidades */
-    color: gray;    /* Puedes agregar más estilos si lo deseas */
+    color: gray; /* Puedes agregar más estilos si lo deseas */
   }
 }
 @layer base {

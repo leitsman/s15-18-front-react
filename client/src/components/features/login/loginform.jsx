@@ -12,7 +12,6 @@ import { redirect } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 
-
 const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
 
@@ -43,18 +42,16 @@ const LoginForm = () => {
         title: "Upsss 🤭",
         description: "Credenciales de usuario invalidas",
       });
-      
     }
     async function handlePromise() {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(signInUser());
-        }, 2000);
+        }, 200);
       });
     }
 
     startTransition(async () => handlePromise());
-    console.log("Petición exitosa");
   };
 
   return (

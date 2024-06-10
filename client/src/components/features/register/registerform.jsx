@@ -51,7 +51,7 @@ const RegisterForm = () => {
 
     console.log(data);
   };
-  return null;
+
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <div className="w-full flex flex-col justify-center items-center gap-5">

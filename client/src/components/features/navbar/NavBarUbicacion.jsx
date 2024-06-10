@@ -54,50 +54,51 @@ export const NavBarUbicacion = ({ variant = "default" }) => {
       </Stack>
     ),
     home: <div>tienen que crearme</div>,
-    perfil:(
+    perfil: (
+      <Stack
+        noMargins
+        variant="inline"
+        distribution="between"
+        alignment="center"
+      >
+        <Stack noMargins variant="inline" alignment="center" className="gap-5">
+          <Avatar>
+            <Avatar>
+              <AvatarImage
+                src="https://github.com/jandres373.png"
+                alt="@jam avatar"
+              />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </Avatar>
+          <div className="flex">
+            <Text
+              variant={"subtitle"}
+              size="lg"
+              className={
+                "bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to text-transparent bg-clip-text font-bold"
+              }
+            >
+              {`¡${navbarContent.greeting.greeting} --$perfil--!`}
+              {"Perfil"}
+            </Text>
+          </div>
+        </Stack>
         <Stack
           noMargins
           variant="inline"
-          distribution="between"
           alignment="center"
+          className="gap-4 w-fit h-fit"
         >
-          <Stack noMargins variant="inline" alignment="center" className="gap-5">
-            <Avatar>
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/jandres373.png"
-                  alt="@jam avatar"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </Avatar>
-            <div className="flex">
-              <Text
-                variant={"subtitle"}
-                size="lg"
-                className={
-                  "bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to text-transparent bg-clip-text font-bold"
-                }
-              >
-                {`¡${navbarContent.greeting.greeting} --$perfil--!`}{"Perfil"}
-              </Text>
-            </div>
-          </Stack>
-          <Stack
-            noMargins
-            variant="inline"
-            alignment="center"
-            className="gap-4 w-fit h-fit"
-          >
-            <Button variant="ghost" className={"p-0"}>
-              <Icon iconName={"bell"} size="md" />
-            </Button>
-            <Button variant="ghost" className={"p-0"}>
-              <Icon iconName={"menu"} size="md" />
-            </Button>
-          </Stack>
+          <Button variant="ghost" className={"p-0"}>
+            <Icon iconName={"bell"} size="md" />
+          </Button>
+          <Button variant="ghost" className={"p-0"}>
+            <Icon iconName={"menu"} size="md" />
+          </Button>
         </Stack>
-      ),
+      </Stack>
+    ),
   };
 
   return variants[variant];

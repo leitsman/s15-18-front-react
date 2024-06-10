@@ -1,6 +1,18 @@
-import { FiBell, FiMenu, FiChevronRight, FiChevronLeft, FiArrowRight, } from "react-icons/fi";
-import { MdOutlineEco, MdRedeem, MdRecycling, MdNewspaper } from "react-icons/md";
+import {
+  FiBell,
+  FiMenu,
+  FiChevronRight,
+  FiChevronLeft,
+  FiArrowRight,
+} from "react-icons/fi";
+import {
+  MdOutlineEco,
+  MdRedeem,
+  MdRecycling,
+  MdNewspaper,
+} from "react-icons/md";
 import { LuLoader2 } from "react-icons/lu";
+import { LuPencil } from "react-icons/lu";
 
 export const iconNames = {
   bell: FiBell,
@@ -13,4 +25,5 @@ export const iconNames = {
   news: MdNewspaper,
   loader: LuLoader2,
   arrowRight: FiArrowRight,
+  pencil: LuPencil,
 };

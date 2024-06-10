@@ -10,6 +10,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import { BadgeC } from "@/components/ui/badge_claro";
+import { Text } from "@/components/ui/text";
+import { Stack } from "@/components/layout/stack";
 
 const textAboutUs = {
   iconName: "arrowRight",
@@ -24,6 +27,13 @@ const textMission = {
   alt: "asdasdad",
   content: `Nuestra misión es empoderar a las personas a reciclar sus dispositivos electrónicos de manera fácil y efectiva, proporcionando las herramientas y la información necesarias para reducir la contaminación y promover la reutilización de los recursos. A través de nuestro sistema de retribución por puntos, incentivamos a los usuarios a participar activamente en el reciclaje, recompensándolos con beneficios en establecimientos comprometidos con el cuidado ambiental. Queremos crear una comunidad consciente y activa en la preservación del medio ambiente, haciendo del reciclaje una práctica accesible y común para todos.`,
 };
+const textVision = {
+  iconName: "arrowRight",
+  title: "Visión",
+  image: "/images/placeholder.webp",
+  alt: "asdasdad",
+  content: `Nuestra visión es convertirnos en la plataforma líder en reciclaje de dispositivos electrónicos, transformando la forma en que las personas gestionan sus residuos tecnológicos. Aspiramos a ser un referente en educación ambiental y sostenibilidad, inspirando a las generaciones actuales y futuras a adoptar hábitos de consumo más responsables y a contribuir activamente en la protección del planeta. Con nuestro sistema de retribución por puntos, buscamos motivar a más personas a reciclar y colaborar con comercios que promuevan prácticas ecológicas, fomentando una economía circular y sostenible.`,
+};
 const textPointsSystem = {
   iconName: "arrowRight",
   title: "Sistema de Puntaje",
@@ -31,15 +41,44 @@ const textPointsSystem = {
   alt: "asdasdad",
   content: `En Recycle, recompensamos tus esfuerzos por cuidar el medio ambiente. Por cada dispositivo electrónico que recicles a través de nuestra plataforma, ganarás puntos que podrás canjear por promociones y descuentos en establecimientos aliados que comparten nuestro compromiso con la sostenibilidad. ¡Recicla, acumula puntos y disfruta de beneficios mientras ayudas a proteger el planeta!`,
 };
+
+function CarrouselCard() {
+  return (
+    <CarouselItem className="border-2 rounded-3xl bg-card p-0">
+      <div className="flex flex-col p-5 gap-2">
+        <div className="bg-indigo-800 rounded-t-2xl h-32 w-full">
+          soy la imagen
+        </div>
+        <h3 className="text-ellipsis">Celular</h3>
+        <span>20 puntos</span>
+        <span>Centro de acopio</span>
+        <Button
+          type="button"
+          className="w-48 bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full"
+        >
+          <Text
+            size="md"
+            variant="subtitle"
+            className="text-white font-serif"
+          >
+            Registrarme
+          </Text>
+        </Button>
+      </div>
+    </CarouselItem>
+  )
+}
 const Home = () => {
+
+  const arr = Array.from({ length: 10 }, (_, i) => i)
   return (
     <>
       <NavBar design="home" />
-      <main>
-        <article>
+      <main className="flex flex-col gap-10">
+        <article className="flex flex-col gap-10" >
           <section>
             <Image
-              className="bg-orange-700 flex w-full h-32 mb-10 rounded-t-3xl"
+              className="bg-orange-700 flex w-full h-32  rounded-t-3xl"
               src="/images/home/bannerHome.webp"
               alt="banner home"
               unoptimized
@@ -49,107 +88,59 @@ const Home = () => {
           </section>
           <ContentCard contentOptions={textAboutUs} noImage noIcon />
           <ContentCard contentOptions={textMission} noIcon />
+          <ContentCard contentOptions={textVision} noIcon reverse />
           <ContentCard contentOptions={textPointsSystem} noIcon />
-          <Button className="flex mx-auto">Quiero Reciclar</Button>
+          <Stack noMargins distribution="center">
+            <Button
+              type="button"
+              className="w-48 bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full"
+            >
+              <Text
+                size="md"
+                variant="subtitle"
+                className="text-white font-serif"
+              >
+                Quiero reciclar
+              </Text>
+            </Button>
+          </Stack>
         </article>
-        <section className="mb-5">
+        <section className="flex flex-col gap-5">
           <h2 className="text-lg">Categorias</h2>
           <div className="flex flex-row overflow-x-scroll gap-3">
-            <span className="bg-green-400 px-3 py-3 rounded-lg  min-w-max">
+            <BadgeC>
               Cables
-            </span>
-            <span className="bg-green-400 px-3 py-3 rounded-lg  min-w-max">
-              Baterias
-            </span>
-            <span className="bg-green-400 px-3 py-3 rounded-lg  min-w-max">
+            </BadgeC>
+            <BadgeC>
+              Baterías
+            </BadgeC>
+            <BadgeC>
               Dispositivos moviles
-            </span>
-            <span className="bg-green-400 px-3 py-3 rounded-lg  min-w-max">
+            </BadgeC>
+            <BadgeC>
               Refrigerador
-            </span>
-            <span className="bg-green-400 px-3 py-3 rounded-lg  min-w-max">
+            </BadgeC>
+            <BadgeC>
               Termostatos
-            </span>
+            </BadgeC>
           </div>
         </section>
         <section className="mb-5">
           <h2 className="text-lg mb-5">Dispositivos Medianos</h2>
-          <Carousel className="bg-slate-200 w-[70%] mx-auto">
-            <CarouselContent className="">
-              <CarouselItem className="pl-5 border-solid border-2 border-indigo-600">
-                <div className="flex flex-col p-5 gap-2">
-                  <div className="bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto">
-                    soy la imagen
-                  </div>
-                  <h3 className="text-ellipsis">Celular</h3>
-                  <span>20 puntos</span>
-                  <span>Centro de acopio</span>
-                  <button className="bg-amber-400 p-1 rounded-xl mx-auto flex">
-                    Quiero Reciclar
-                  </button>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="pl-5 border-solid border-2 border-indigo-600">
-                <div className="flex flex-col p-5 gap-2">
-                  <div className="bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto">
-                    soy la imagen
-                  </div>
-                  <h3 className="text-ellipsis">pilas acomodativas</h3>
-                  <span>20 puntos</span>
-                  <span>Centro de acopio</span>
-                  <button className="bg-amber-400 p-1 rounded-xl mx-auto flex">
-                    Quiero Reciclar
-                  </button>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="pl-5 border-solid border-2 border-indigo-600">
-                <div className="flex flex-col p-5 gap-2">
-                  <div className="bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto">
-                    soy la imagen
-                  </div>
-                  <h3 className="text-ellipsis">lavadora lg samsumg rkj3-30</h3>
-                  <span>20 puntos</span>
-                  <span>Centro de acopio</span>
-                  <button className="bg-amber-400 p-1 rounded-xl mx-auto flex">
-                    Quiero Reciclar
-                  </button>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="pl-5 border-solid border-2 border-indigo-600">
-                <div className="flex flex-col p-5 gap-2">
-                  <div className="bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto">
-                    soy la imagen
-                  </div>
-                  <h3 className="text-ellipsis">pila</h3>
-                  <span>20 puntos</span>
-                  <span>Centro de acopio</span>
-                  <button className="bg-amber-400 p-1 rounded-xl mx-auto flex">
-                    Quiero Reciclar
-                  </button>
-                </div>
-              </CarouselItem>
-              <CarouselItem className="pl-5 border-solid border-2 border-indigo-600">
-                <div className="flex flex-col p-5 gap-2">
-                  <div className="bg-indigo-800 rounded-t-2xl h-32 w-full mx-auto">
-                    soy la imagen
-                  </div>
-                  <h3 className="text-ellipsis">robacorriente</h3>
-                  <span>20 puntos</span>
-                  <span>Centro de acopio</span>
-                  <button className="bg-amber-400 p-1 rounded-xl mx-auto flex">
-                    Quiero Reciclar
-                  </button>
-                </div>
-              </CarouselItem>
+          <Carousel className="w-[85%] mx-auto">
+            <CarouselContent className="ml-2 gap-1">
+              {arr.map((data, idx) => (
+                <CarrouselCard key={idx} data={data} />
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
         </section>
         <section className="mb-5 flex gap-3 flex-col">
-          <h2 className="text-lg text-center mb-4 font-bold">
+          <Text variant="subtitle" className="text-lg text-center mb-4 font-bold">
             Preguntas frecuentes
-          </h2>
+          </Text>
           <h3 className="text-lg text-gray-600">
             1. ¿Cómo funciona el sistema de puntaje de Recycle?
           </h3>
@@ -195,22 +186,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// <header className=" bg-slate-500 h-20 p-2 flex flex-row items-center justify-between">
-//   <div className="flex flex-row items-center gap-1">
-//     <logo className="bg-green-600 h-9 w-9 flex items-center justify-center rounded-[50%]">
-//       logo
-//     </logo>
-//     <h1>Recicle</h1>
-//   </div>
-//   <nav>
-//     <ul className="flex flex-row gap-1">
-//       <li className="bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl">
-//         Registrarme
-//       </li>
-//       <li className="bg-fuchsia-400 px-2 flex items-center text-center rounded-3xl">
-//         Iniciar Sesion
-//       </li>
-//     </ul>
-//   </nav>
-// </header>

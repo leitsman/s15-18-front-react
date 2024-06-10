@@ -5,7 +5,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Stack } from "@/components/layout/stack";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { CLIENT_ROUTES } from "@/constants/routes.client";
 
 export const NavBar = ({ design = "default" }) => {
   const variants = {
@@ -55,16 +59,16 @@ export const NavBar = ({ design = "default" }) => {
     ),
     home: (
       <header className="h-14 flex flex-row items-center justify-between w-full mb-10">
-        <div className="bg-green-600 h-9 w-20 flex items-center justify-center">
-          logo Recicle
+        <div className="w-20 flex items-center justify-center">
+          <Logo width={50} height={50} />
         </div>
         <nav>
           <ul className="flex flex-row gap-1">
             <li>
-              <Button className="rounded-2xl px-2">Registrarme</Button>
+              <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.REGISTER}>Registrarme</Link>
             </li>
             <li>
-              <Button className="rounded-2xl px-2">Iniciar Sesion</Button>
+            <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.LOGIN}>Iniciar sesión</Link>
             </li>
           </ul>
         </nav>
