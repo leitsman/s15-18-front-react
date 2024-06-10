@@ -34,7 +34,7 @@ import org.springframework.context.annotation.Configuration;
                 ),
                 @Server(
                         description = "PROD ENV",
-                        url = "https://recycle.com"
+                        url = "https://s15-18-t-java-react.onrender.com"
                 )
         },
         security = {
