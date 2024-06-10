@@ -10,7 +10,6 @@ public class AddressMapper {
 
     public static AddressDTO toDTO(Address address) {
         return new AddressDTO(
-                address.getRecycleCenter().getName(),
                 address.getAddressName(),
                 address.getPostalCode(),
                 address.getLatitude(),

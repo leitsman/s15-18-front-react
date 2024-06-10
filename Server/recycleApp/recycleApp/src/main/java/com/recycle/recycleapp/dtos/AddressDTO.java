@@ -16,7 +16,7 @@ public class AddressDTO {
 
 
 
-       private String RecyclerCenterName;
+       //private String RecyclerCenterName;
 
 
 

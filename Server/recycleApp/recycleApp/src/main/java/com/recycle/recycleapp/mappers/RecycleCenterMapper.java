@@ -1,12 +1,11 @@
 package com.recycle.recycleapp.mappers;
 
 
-import com.recycle.recycleapp.dtos.AddressDTO;
 import com.recycle.recycleapp.dtos.RecycleCenterDTO;
-import com.recycle.recycleapp.entities.Address;
 import com.recycle.recycleapp.entities.RecycleCenter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public class RecycleCenterMapper {
 
 
@@ -23,6 +22,10 @@ public class RecycleCenterMapper {
     }
 
     public static RecycleCenter toEntity(RecycleCenterDTO recycleCenterDTO) {
+        if (recycleCenterDTO == null) {
+            return null;
+        }
+
         return RecycleCenter.builder()
                 .name(recycleCenterDTO.getName())
                 .description(recycleCenterDTO.getDescription())

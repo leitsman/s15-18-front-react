@@ -6,9 +6,12 @@ import com.recycle.recycleapp.dtos.responseDtos.ResponseRecyclingHistoryDTO;
 import com.recycle.recycleapp.entities.RecyclingHistory;
 import com.recycle.recycleapp.services.RecyclingHistoryService;
 import com.recycle.recycleapp.utils.Response;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,7 +26,7 @@ public class RecyclingHistoryController {
     RecyclingHistoryService recyclingHistoryService;
 
     @GetMapping("/personId/{id}")
-    public List<ResponseRecyclingHistoryDTO> listRecycleHistory(@PathVariable Integer id){
+    public ResponseEntity<Response> listRecycleHistory(@PathVariable Integer id){
 
         List<ResponseRecyclingHistoryDTO> listaRecycleResponse=new ArrayList<>();
         List<RecyclingHistory> list=recyclingHistoryService.findRecyclingHistoryByPerson(id);
@@ -38,15 +41,16 @@ public class RecyclingHistoryController {
             ));
         }
 
-        return listaRecycleResponse;
-
+        Response response = new Response(true, HttpStatus.OK, listaRecycleResponse);
+        return ResponseEntity.ok(response);
     }
 
+    @PreAuthorize("hasRole('ROLE_RECEIVER')")
+    @Operation(summary = "Crear un historial de reciclaje", description = "Sólo un usuario con rol RECEIVER puede registrar un historial de reciclaje")
     @PostMapping("/recycler")
-    public ResponseEntity<Response> createRecyclingHistory(@RequestBody RecyclingHistoryRequest request){
-        System.out.println(request);
-        recyclingHistoryService.createRecyclingHistory(request);
-        Response response = new Response(true, HttpStatus.CREATED);
+    public ResponseEntity<Response> createRecyclingHistory(@RequestBody RecyclingHistoryRequest request, Authentication authentication){
+
+        Response response = new Response(true, HttpStatus.CREATED,recyclingHistoryService.createRecyclingHistory(request, authentication));
         return ResponseEntity.ok(response);
     }
 

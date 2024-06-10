@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -29,5 +31,8 @@ public class RecycleCenter {
     private Address address;
 
     private String city;
+
+    @OneToMany(mappedBy = "recycleCenter")
+    private List<Person> persons;
 }
 
