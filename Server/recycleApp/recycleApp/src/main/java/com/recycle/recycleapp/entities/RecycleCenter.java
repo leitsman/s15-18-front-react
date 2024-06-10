@@ -1,5 +1,6 @@
 package com.recycle.recycleapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class RecycleCenter {
     private String city;
 
     @OneToMany(mappedBy = "recycleCenter")
+    @JsonIgnore
     private List<Person> persons;
 }
 

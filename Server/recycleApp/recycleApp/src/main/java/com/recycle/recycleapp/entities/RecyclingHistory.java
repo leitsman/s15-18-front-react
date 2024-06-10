@@ -1,5 +1,6 @@
 package com.recycle.recycleapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,7 @@ public class RecyclingHistory {
     private RecycleCenter recycleCenter;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "person_id", referencedColumnName = "idPerson")
     private Person person;
 
