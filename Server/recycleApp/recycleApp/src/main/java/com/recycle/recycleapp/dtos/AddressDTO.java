@@ -1,6 +1,7 @@
 package com.recycle.recycleapp.dtos;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressDTO {
 
-        private Long addressId;
-        private Long RecyclerCenterName;
-        private Long personId;
-        private String address;
+
+
+
+       //private String RecyclerCenterName;
+
+
+
+        private String addressName;
         private String postalCode;
         private String latitude;
         private String longitude;

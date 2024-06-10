@@ -24,6 +24,6 @@ public class Waste {
     private typeEnum type;
     private String name;
     private String imageroute;
-    private int points;
+    private Long points;
 
 }

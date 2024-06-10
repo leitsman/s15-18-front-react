@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @Builder
 public class RecyclingHistoryDTO {
     // private int id;
-    private RecycleCenter recycling_center;
     private Person recyling_person;
     private LocalDate date;
     private Waste recycling_waste;

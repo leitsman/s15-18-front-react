@@ -10,12 +10,14 @@ import java.util.Optional;
 public interface IPersonService {
 
 
-    void save(PersonDTO person, Authentication authentication);
+    PersonDTO save(PersonDTO person, Authentication authentication);
 
     List<Person> getAll();
 
     Optional<Person> getById(Integer id);
 
     Person update( PersonDTO person, Authentication authentication) throws Exception;
+
+    void addPoints(Long points, Person person);
 
 }

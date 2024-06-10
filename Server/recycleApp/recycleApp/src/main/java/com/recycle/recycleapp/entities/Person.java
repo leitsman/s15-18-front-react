@@ -39,8 +39,8 @@ public class Person {
     private Address address;
 
     @ManyToOne
-    @JoinColumn(name = "organization_id", referencedColumnName = "id")
-    private Organization organization;
+    @JoinColumn(name = "recycle_center_id", referencedColumnName = "idRecycleCenter")
+    private RecycleCenter recycleCenter;
 
     @PrePersist
     void prePersist() {

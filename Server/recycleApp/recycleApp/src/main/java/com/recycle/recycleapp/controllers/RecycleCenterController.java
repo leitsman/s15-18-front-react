@@ -5,6 +5,7 @@ import com.recycle.recycleapp.dtos.OrganizationDTO;
 import com.recycle.recycleapp.dtos.RecycleCenterDTO;
 import com.recycle.recycleapp.entities.RecycleCenter;
 import com.recycle.recycleapp.services.RecycleCenterService;
+import com.recycle.recycleapp.utils.Response;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +26,20 @@ public class RecycleCenterController {
 
     @PostMapping("/create")
     @Operation(summary = "Crear un nuevo centro de reciclaje", description = "Un usuario con rol SUPER_ADMIN puede registrar un nuevo centro de reciclaje.")
-    public ResponseEntity<RecycleCenterDTO> createRecycleCenter( @RequestBody RecycleCenterDTO recycleCenterDTO) {
+    public ResponseEntity<Response> createRecycleCenter(@RequestBody RecycleCenterDTO recycleCenterDTO) {
         RecycleCenterDTO savedRecycleCenter = recycleCenterService.createRecycleCenterDTO(recycleCenterDTO);
-        return new ResponseEntity<>(savedRecycleCenter, HttpStatus.CREATED);
+        Response response = new Response(true, HttpStatus.CREATED, savedRecycleCenter);
+        return ResponseEntity.ok(response);
     }
 
 
     @GetMapping("/{id}")
     @Operation(summary = "Obtener Centro de Reciclaje por ID", description = "Obtiene la información detallada de un centro de reciclaje.")
-    public ResponseEntity<RecycleCenterDTO> getRecycleCenterById(@PathVariable Long id) {
+    public ResponseEntity<Response> getRecycleCenterById(@PathVariable Long id) {
         Optional<RecycleCenterDTO> recycleCenterDTO = recycleCenterService.findRecycleCenterById(id);
+        Response response = new Response(true, HttpStatus.OK, recycleCenterDTO);
 
-
-        return recycleCenterDTO.map(ctr -> new ResponseEntity<>(ctr, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

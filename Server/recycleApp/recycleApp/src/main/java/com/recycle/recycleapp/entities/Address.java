@@ -19,7 +19,7 @@ public class Address {
     private Long addressId;
 
     @OneToOne
-    //@JsonIgnore
+    @JsonIgnore
     @JoinColumn(name = "recycle_center_id", referencedColumnName = "idRecycleCenter")
     private RecycleCenter recycleCenter;
 
