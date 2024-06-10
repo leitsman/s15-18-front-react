@@ -10,6 +10,7 @@ import { Logo } from "@/components/ui/logo";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
+import { MenuDrawer } from "../menu_drawer/MenuDrawer";
 
 export const NavBar = ({ design = "default" }) => {
   const variants = {
@@ -51,9 +52,9 @@ export const NavBar = ({ design = "default" }) => {
           <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
             <Icon iconName={"bell"} size="md" />
           </Button>
-          <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
-            <Icon iconName={"menu"} size="md" />
-          </Button>
+          <div className={"p-0 hover:bg-transparent"}>
+            <MenuDrawer />
+          </div>
         </Stack>
       </Stack>
     ),
@@ -65,10 +66,10 @@ export const NavBar = ({ design = "default" }) => {
         <nav>
           <ul className="flex flex-row gap-1">
             <li>
-              <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.REGISTER}>Registrarme</Link>
+              <Link className={cn(buttonVariants({ variant: "default" }), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.REGISTER}>Registrarme</Link>
             </li>
             <li>
-            <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.LOGIN}>Iniciar sesión</Link>
+              <Link className={cn(buttonVariants({ variant: "default" }), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.LOGIN}>Iniciar sesión</Link>
             </li>
           </ul>
         </nav>

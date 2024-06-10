@@ -51,7 +51,7 @@ export const Icon = ({
       <div
         className={cn(
           outterSize[size],
-          "flex justify-center items-center  rounded-full bg-white",
+          "flex justify-center items-center rounded-full bg-white size-fit p-3",
           circularColors[circularColor],
         )}
       >
