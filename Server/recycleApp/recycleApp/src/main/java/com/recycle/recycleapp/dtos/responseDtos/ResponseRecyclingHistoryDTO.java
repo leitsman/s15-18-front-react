@@ -17,6 +17,6 @@ public class ResponseRecyclingHistoryDTO {
     private String wasteName;
     private LocalDate recycleDate;
     private String recycleCntrName;
-    private int totalPoints; // need to multiply with amount
+    private Long totalPoints; // need to multiply with amount
 }
 

@@ -2,8 +2,10 @@ package com.recycle.recycleapp.controllers;
 
 import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
+import com.recycle.recycleapp.exceptions.PersonNotFoundException;
 import com.recycle.recycleapp.services.impl.PersonServiceImpl;
 import com.recycle.recycleapp.utils.Response;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,12 +36,35 @@ public class PersonController {
 
     }
 
+    @GetMapping(path = "findByDNI/{dni}")
+    public ResponseEntity<Response> getById(@PathVariable String dni) {
+        Person person = personServiceImpl.getByDNI(dni)
+                .orElseThrow(() -> new PersonNotFoundException("No se encontró una persona con el DNI: " + dni));
+
+        Response response = new Response(true, HttpStatus.OK, person);
+        return ResponseEntity.ok(response);
+
+    }
+
+    //TODO: restringir a ORGANIZATION_MANAGER Y ADMIN
+    @Operation(summary = "Asignar centro de reciclaje a una persona", description = "Asigna un centro de reciclaje a una persona con role receiver")
+    @PutMapping("/{personId}/assign-recycle-center/{recycleCenterId}")
+    public ResponseEntity<Response> assignRecycleCenter(
+            @PathVariable Integer personId,
+            @PathVariable Long recycleCenterId) {
+
+        personServiceImpl.assignRcToReceiver(personId, recycleCenterId);
+
+        Response response = new Response(true, HttpStatus.OK, "Recycle Center assigned to person");
+        return ResponseEntity.ok(response);
+    }
+
 
     @PostMapping("/save")
     public ResponseEntity<Response> savePerson(@RequestBody PersonDTO person, Authentication authentication){
         System.out.println(person);
-        personServiceImpl.save(person, authentication);
-        Response response = new Response(true, HttpStatus.CREATED);
+
+        Response response = new Response(true, HttpStatus.CREATED, personServiceImpl.save(person, authentication));
         return ResponseEntity.ok(response);
 
     }
