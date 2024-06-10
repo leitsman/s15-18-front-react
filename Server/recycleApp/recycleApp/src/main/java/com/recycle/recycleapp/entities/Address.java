@@ -2,13 +2,11 @@ package com.recycle.recycleapp.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
+@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -21,11 +19,11 @@ public class Address {
     private Long addressId;
 
     @OneToOne
-    @JsonIgnore
+    //@JsonIgnore
     @JoinColumn(name = "recycle_center_id", referencedColumnName = "idRecycleCenter")
     private RecycleCenter recycleCenter;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "person_id", referencedColumnName = "idPerson")
     @JsonIgnore
     private Person person;

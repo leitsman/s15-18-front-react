@@ -3,6 +3,7 @@ package com.recycle.recycleapp.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -24,6 +25,9 @@ import java.util.Collections;
 @Configuration
 @RequiredArgsConstructor
 public class BeansConfig {
+
+    @Value("${web.cors.allowed-origins}")
+    private String corsAllowedOrigins;
 
     private final UserDetailsService userDetailsService;
 
@@ -55,7 +59,7 @@ public class BeansConfig {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOriginPattern("*");
+        config.setAllowedOrigins(Arrays.asList(corsAllowedOrigins.split(",")));
         config.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.ORIGIN,
                 HttpHeaders.CONTENT_TYPE,

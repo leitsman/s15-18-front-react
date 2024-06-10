@@ -23,7 +23,7 @@ public class RecyclingHistoryController {
     RecyclingHistoryService recyclingHistoryService;
 
     @GetMapping("/personId/{id}")
-    public List<ResponseRecyclingHistoryDTO> listRecycleHistory(@PathVariable Long id){
+    public List<ResponseRecyclingHistoryDTO> listRecycleHistory(@PathVariable Integer id){
 
         List<ResponseRecyclingHistoryDTO> listaRecycleResponse=new ArrayList<>();
         List<RecyclingHistory> list=recyclingHistoryService.findRecyclingHistoryByPerson(id);

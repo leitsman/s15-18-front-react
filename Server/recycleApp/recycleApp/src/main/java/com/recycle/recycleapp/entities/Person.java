@@ -2,6 +2,7 @@ package com.recycle.recycleapp.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.recycle.recycleapp.repositories.AddressRepository;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,9 +21,8 @@ public class Person {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    private Long idPerson;
+    private Integer idPerson;
     @Column(name = "first_name", nullable = false, length = 30)
     private String firstName;
     @Column(name = "last_name", nullable = false, length = 30)
@@ -35,12 +35,15 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<RecyclingHistory> recyclingHistory;
 
-    @OneToMany(mappedBy = "person")
-    private List<Address> address;
+    @OneToOne(mappedBy = "person")
+    private Address address;
 
     @ManyToOne
     @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
 
-
+    @PrePersist
+    void prePersist() {
+        this.totalPoints = 0L;
+    }
 }
