@@ -19,7 +19,7 @@ FROM openjdk:17
 WORKDIR /usr/app
 
 
-COPY --from=build /app/target/recycle_app.jar /usr/app/recycle_app.jar
+COPY --from=build /app/target/recycleApp-0.0.1-SNAPSHOT.jar /usr/app/recycleApp-0.0.1-SNAPSHOT.jar
 
 
 ENTRYPOINT ["java", "-jar", "recycle_app.jar"]
