@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.Optional;
 
 @RestController
@@ -75,6 +76,14 @@ public class PersonController {
         Person updatePerson = personServiceImpl.update(person,authentication);
         return ResponseEntity.ok(updatePerson);
 
+    }
+
+
+    @GetMapping("/info")
+    public ResponseEntity<Response> getInfoByPerson(Authentication authentication) throws UserPrincipalNotFoundException {
+       Person person= personServiceImpl.findByToken(authentication);
+       Response response=new Response(true,HttpStatus.OK, person);
+        return ResponseEntity.ok(response);
     }
 
 

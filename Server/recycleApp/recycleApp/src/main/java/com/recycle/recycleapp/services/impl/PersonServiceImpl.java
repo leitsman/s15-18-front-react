@@ -16,6 +16,7 @@ import org.hibernate.service.spi.ServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -133,6 +134,14 @@ public class PersonServiceImpl implements IPersonService {
     public void addPoints(Long points, Person person) {
         person.setTotalPoints(person.getTotalPoints()+points);
         personRepository.save(person);
+    }
+
+    @Override
+    public Person findByToken(Authentication authentication) throws UserPrincipalNotFoundException {
+        UserEntity user = (UserEntity) authentication.getPrincipal();
+
+
+        return personRepository.findById(user.getId()).orElseThrow(()->new UserPrincipalNotFoundException("Usuario no encontrado en la base de datos."));
     }
 
     public Optional<Person> getByDNI(String dni) {
