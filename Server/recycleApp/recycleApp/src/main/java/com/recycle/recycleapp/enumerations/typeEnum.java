@@ -1,9 +1,11 @@
 package com.recycle.recycleapp.enumerations;
 
 public enum typeEnum {
-    smarthphone,
-    pc,
-    bateria,
-    misce
+    CABLES,
+    BATERIAS,
+    DISP_GRANDE,
+    DISP_MEDIANO,
+    DISP_CHICO
+
 
 }

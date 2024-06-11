@@ -36,7 +36,9 @@ public class WasteServImpl implements WasteService {
             Waste wasteDB = wasteRepo.save(Waste.builder()
                     .name(request.getName())
                     .points(request.getPoints())
-                    .type(typeEnum.valueOf(request.getType().toLowerCase()))
+                    .imageroute("")
+                    .type(typeEnum.valueOf(request.getType().toUpperCase()))
+
                     .build());
 
             return WasteDTO.builder()
