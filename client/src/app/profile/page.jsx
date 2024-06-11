@@ -1,11 +1,5 @@
 import React from "react";
 import ProfileForm from "../../components/features/profile/profileform";
-import Image from "next/image";
-
-import { Icon } from "@/components/ui/icon";
-import { Button } from "@/components/ui/button";
-import { NavBar } from "@/components/features/navbar/NavBar";
-
 import { NavBarUbicacion } from "@/components/features/navbar/NavBarUbicacion";
 import { DataCard } from "@/components/ui/data_card";
 import { Text } from "@/components/ui/text";
@@ -39,16 +33,17 @@ const composeDataCardOptions = {
 
 const page = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
+    <main className="w-full h-screen">
       <NavBarUbicacion className="perfil"></NavBarUbicacion>
-      <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
-      <div className="text-xs flex flex-col  justicefy-center items-center">
-        <div>
+
+      <div className="mt-5 flex flex-col  justicefy-center items-center">
+          <div className="mb-10">
+             <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
+          </div>
           <div>
             <h1 className="text-[14px]">Datos Personales</h1>
             <ProfileForm></ProfileForm>
           </div>
-        </div>
       </div>
     </main>
   );

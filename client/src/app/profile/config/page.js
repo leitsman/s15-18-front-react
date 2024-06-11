@@ -1,95 +1,107 @@
+import { BreadCrumbs } from "@/components/ui/breadCrumbs";
+import { DataCard } from "@/components/ui/data_card";
+import { Text } from "@/components/ui/text";
 import React from "react";
 import Image from "next/image";
+import { Icon } from "@/components/ui/icon";
+import { Button } from "@/components/ui/button";
+import { NavBar } from "@/components/features/navbar/NavBar";
+import { NavBarUbicacion } from "@/components/features/navbar/NavBarUbicacion";
+import { Stack } from "@/components/layout/stack";
+import { CLIENT_ROUTES } from "@/constants/routes.client";
+
+const composeDataCardOptions = {
+  mainContent: "Pepita Flores",
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      pepitaflores@gmail.com
+    </Text>
+  ),
+  secondaryLinkTo: CLIENT_ROUTES.HOME,
+  extraSectionElements: (
+    <Stack noMargins variant="inline" distribution="between">
+      <div className="w-fit flex flex-col items-center">
+        <Text variant={"body"} size="sm">
+          Total de Puntos
+        </Text>
+      </div>
+      <div className="w-fit flex flex-col items-center pl-5">
+        <Text variant={"body"} size="sm">
+          50 pts.
+        </Text>
+      </div>
+    </Stack>
+  ),
+};
+
+const singleDataCardOptions = {
+  mainContent: "Datos Personales",
+  secondaryContent: "",
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      
+    </Text>
+  ),
+};
+const singleDataCardOptionsSeguridad = {
+  mainContent: "Seguridad",
+  secondaryContent: "",
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      
+    </Text>
+  ),
+};
+const singleDataCardOptionsPrivacidad = {
+  mainContent: "Privacidad",
+  secondaryContent: "",
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      
+    </Text>
+  ),
+};
+const singleDataCardOptionsNotificaciones ={
+  mainContent: "Notificaciones",
+  secondaryContent: "",
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      
+    </Text>
+  ),
+};
+
 const page = () => {
   return (
-    <main className="w-screen h-screen border-2 border-black border-dashed ">
-      <div className="gap-2 mx-5 flex flex-row justicefy-center items-center">
-        <button className="text-xs w-12 h-12 bg-gray-700 rounded-full">
-          icono
-        </button>
-        <div className="text-lg">Configuración</div>
-        <div className="pl-60 gap-2 m-5 flex  justicefy-center items-center">
-          <button className=" text-xs w-12 h-12  bg-gray-400 rounded">
-            Menu
-          </button>
-        </div>
+    <main className="w-full h-screen ">
+      <NavBarUbicacion className="perfil"></NavBarUbicacion>
+          
+      <div className="mt-5 flex flex-col  justicefy-center items-center">
+          <div className="mb-5 w-full">
+            <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
+          </div>
+          <div className="mb-5 w-full ">
+             <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
+          </div>
+          <div className="mb-5 w-full ">
+             <DataCard variant="single" dataCardOptions={singleDataCardOptionsNotificaciones} />
+          </div>
+          <div className="mb-5  w-full">
+            <DataCard variant="single" dataCardOptions={singleDataCardOptionsSeguridad} />
+          </div>
+          <div className="mb-5  w-full">
+            <DataCard variant="single" dataCardOptions={singleDataCardOptionsPrivacidad} />
+          </div>
       </div>
-      <div className="text-xs flex flex-col  justicefy-center items-center">
-        <div className="bg-gray-300 rounded-lg flex flex-col  mb-2 p-5">
-          <div>
-            <button className="text-xs w-10 h-10 bg-gray-700 rounded-full m-2">
-              Foto
-            </button>
-            Pepita Flores
-          </div>
-          <div>pepitaflores@gmail.com</div>
-          <div>----------------------------------</div>
-          <div className="gap-2 mx-5 flex flex-row justicefy-center items-center">
-            <div className="text-xs">PUNTAJE </div>
-            <div className="text-xs pl-10"> 50pts.</div>
-          </div>
-        </div>
 
-        <div className="mb-40">
-          <div className="">
-            <button className="w-60 h-10 bg-gray-200 rounded-lg m-2">
-              <button className="text-xs w-5 h-5 bg-gray-700 rounded-full m-2">
-                !!
-              </button>
-              Datos personales
-            </button>
-          </div>
-          <div className="">
-            <button className="w-60 h-10 bg-gray-200 rounded-lg m-2">
-              <button className="text-xs w-5 h-5 bg-gray-700 rounded-full m-2">
-                !!
-              </button>
-              Seguridad
-            </button>
-          </div>
-          <div className="">
-            <button className="w-60 h-10 bg-gray-200 rounded-lg m-2">
-              <button className="text-xs w-5 h-5 bg-gray-700 rounded-full m-2">
-                !!
-              </button>
-              Privacidad
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-row bg-gray-300 justicefy-center items-center space-x-7 ">
-          <div className=" flex  flex-col justicefy-center items-center">
-            <button className="w-12 h-12 bg-gray-700 rounded-full">
-              icono
-            </button>
-            Home
-          </div>
-          <div className=" flex  flex-col justicefy-center items-center">
-            <button className="w-12 h-12 bg-gray-700 rounded-full">
-              icono
-            </button>
-            Perfil
-          </div>
-          <div className=" flex  flex-col justicefy-center items-center">
-            <button className="w-12 h-12 bg-gray-700 rounded-full">
-              icono
-            </button>
-            Promociones
-          </div>
-          <div className=" flex  flex-col justicefy-center items-center">
-            <button className="w-12 h-12 bg-gray-700 rounded-full">
-              icono
-            </button>
-            Informacion
-          </div>
-          <div className=" flex  flex-col justicefy-center items-center">
-            <button className="w-12 h-12 bg-gray-700 rounded-full">
-              icono
-            </button>
-            Ayuda
-          </div>
-        </div>
-      </div>
+        
+     
+    
     </main>
   );
 };
