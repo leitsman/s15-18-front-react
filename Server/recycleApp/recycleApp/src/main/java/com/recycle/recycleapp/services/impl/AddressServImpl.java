@@ -42,7 +42,7 @@ public class AddressServImpl implements AddressService {
 
     @Override
     public List<Address> getAddressesByCity(String city) {
-        return addressRepository.findByCity(city);
+        return addressRepository.findByCity(city.toLowerCase());
     }
 
     @Override

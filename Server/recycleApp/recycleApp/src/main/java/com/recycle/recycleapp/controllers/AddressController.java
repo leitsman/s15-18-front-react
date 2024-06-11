@@ -51,15 +51,7 @@ public class AddressController {
         }
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteAddress(@RequestParam Long id) {
-        boolean isRemoved = addressService.deleteAddress(id);
-        if (isRemoved) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+
 
     @GetMapping("/city")
     public ResponseEntity<List<Address>> getAddressesByCity(@RequestParam String city) {
