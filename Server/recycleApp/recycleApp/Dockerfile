@@ -23,4 +23,3 @@ COPY --from=build /app/target/recycle_app.jar /usr/app/recycle_app.jar
 
 
 ENTRYPOINT ["java", "-jar", "recycle_app.jar"]
-

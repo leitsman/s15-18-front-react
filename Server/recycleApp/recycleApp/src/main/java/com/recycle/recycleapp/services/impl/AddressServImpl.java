@@ -77,15 +77,6 @@ public class AddressServImpl implements AddressService {
         }
     }
 
-    @Override
-    public boolean deleteAddress(Long id) {
-        if (addressRepository.existsById(id)) {
-            addressRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 }
 

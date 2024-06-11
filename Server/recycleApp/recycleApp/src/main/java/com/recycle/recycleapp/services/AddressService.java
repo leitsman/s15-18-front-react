@@ -21,6 +21,6 @@ public interface AddressService {
 
     Address updateAddress(Address address);
 
-    boolean deleteAddress(Long id);
+
 
 }
