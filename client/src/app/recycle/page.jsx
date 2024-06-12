@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import { BreadCrumbs } from '@/components/ui/breadCrumbs';
 import { MenuDrawer } from '@/components/features/menu_drawer/MenuDrawer';
@@ -10,6 +8,7 @@ import { HorizontalSlider } from '@/components/ui/horizontal_slider';
 import { BadgeC } from '@/components/ui/badge_claro';
 import { Carousel, CarouselContent } from '@/components/ui/carousel';
 import { CarrouselCard } from '@/components/features/carrousel/CarrouselCard';
+import { getCurrentUserInfo } from '@/actions/getUserInfo';
 
 
 const singleDataCardOptions = {
@@ -48,8 +47,9 @@ const badges = [
   }
 ]
 
-const Page = () => {
+const Page = async () => {
 
+  const userData = await getCurrentUserInfo()
 
   const devices = [{
     id: 1,
@@ -105,7 +105,7 @@ const Page = () => {
     <main className='flex flex-col w-full h-full gap-6'>
 
       <BreadCrumbs currentRoute={'quiero reciclar'}>
-        <MenuDrawer />
+        <MenuDrawer data={userData.data} />
       </BreadCrumbs>
 
       <DataCard variant="single" dataCardOptions={singleDataCardOptions} />

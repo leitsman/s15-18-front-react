@@ -7,6 +7,7 @@ async function AuthMiddleware(req) {
     "/home",
     "/login",
     "/register",
+    "/onboarding",
     "/api/auth/login",
     "/api/auth/register",
   ];

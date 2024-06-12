@@ -39,7 +39,7 @@ const navIconsArr = [
   },
 ]
 
-export function MenuDrawer() {
+export function MenuDrawer({ data }) {
   const router = useRouter()
 
   function redirectToRoute(route) {
@@ -64,7 +64,7 @@ export function MenuDrawer() {
             </Avatar>
 
             <div>
-              <Text variant="subtitle">PEPITA FLORES</Text>
+              <Text variant="subtitle">{data.firstName.toUpperCase()}</Text>
             </div>
           </div>
 
