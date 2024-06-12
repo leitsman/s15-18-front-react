@@ -57,7 +57,6 @@ const page = () => {
           <div className="mb-5">
              <h1 className="text-[14px]">Caracteristicas del dispositivo</h1>
           </div>
-
         <div className="mt-5 flex flex-col  justicefy-center items-center">
             <div className="mb-5 w-full font-serif">
                 <DataCard variant="single" dataCardOptions={singleDataCardOptions} />

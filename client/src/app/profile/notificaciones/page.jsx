@@ -67,9 +67,6 @@ const page = () => {
         </div>
         
       </div>
-     
-
-
     </main>
   );
 };

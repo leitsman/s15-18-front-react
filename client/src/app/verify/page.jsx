@@ -20,8 +20,6 @@ const page = () => {
           <div>
             <h2 className="text-[10px]">Documento de identidad</h2>
             /****** input DNI */
-
-
             <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full">
                 <Text
                   size="md"
@@ -31,8 +29,6 @@ const page = () => {
                  Continuar
                 </Text>
                 </Button>
-            
-
           </div>
       </div>
       <div className="w-full flex justify-center">

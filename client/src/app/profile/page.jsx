@@ -87,7 +87,6 @@ const page = () => {
        <BreadCrumbs currentRoute="Configuración">
         <Icon iconName="menu" size="lg" />
       </BreadCrumbs>
-          
       <div className="mt-5 flex flex-col  justicefy-center items-center">
           <div className="mb-5 w-full">
             <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
@@ -106,9 +105,6 @@ const page = () => {
           </div>
       </div>
 
-        
-     
-    
     </main>
   );
 };

@@ -9,7 +9,6 @@ import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { Photo } from "@/components/ui/photo"
 
 const composeDataCardOptions = {
-
   mainContent: "Pepita Flores",
   iconName: "rightArrow",
   secondSectionElements: (
@@ -40,7 +39,6 @@ const composeDataCardOptions = {
     </Stack>
   ),
 };
-
 const page = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
