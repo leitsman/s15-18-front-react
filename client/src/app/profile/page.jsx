@@ -11,6 +11,7 @@ import { DataCard } from "@/components/ui/data_card";
 import { Text } from "@/components/ui/text";
 import { Stack } from "@/components/layout/stack";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const composeDataCardOptions = {
   mainContent: "Pepita Flores",
@@ -25,7 +26,7 @@ const composeDataCardOptions = {
     <Stack noMargins variant="inline" distribution="between">
       <div className="w-fit flex flex-col items-center">
         <Text variant={"body"} size="sm">
-          Total de Puntos
+          Puntaje total
         </Text>
       </div>
       <div className="w-fit flex flex-col items-center pl-5">
@@ -40,8 +41,8 @@ const composeDataCardOptions = {
 const page = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
-      <NavBarUbicacion className="perfil"></NavBarUbicacion>
-      <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
+      <NavBarUbicacion variant="perfil" className=""></NavBarUbicacion>
+      <DataCard variant={"avatar"} dataCardOptions={composeDataCardOptions} />
       <div className="text-xs flex flex-col  justicefy-center items-center">
         <div>
           <div>

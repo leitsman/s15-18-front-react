@@ -5,8 +5,10 @@ export const CLIENT_ROUTES = {
   FORGOT_PASSWORD: "/forgot-password", // ?
   RESET_PASSWORD: "/reset-password", // ?
   HISTORY: "/history", // Julian
+  PROFILE: "/profile", // Julian
+  ONBOARDING: "/onboarding", // Julian
   RECYCLE: {
-    ROOT: "/",
+    ROOT: "/recycle",
     POINTS: "/recycle/points",
     PRODUCT: "/recycle/product",
     SCHEDULE: "/recycle/schedule",
@@ -17,4 +19,8 @@ export const CLIENT_ROUTES = {
     TIPS: "/tips",
   }, // Julian
   CENTER: "/center", // ?
+  RECIVER: {
+    root: "/reciver",
+    verify: "/reciver/verify",
+  }
 };

@@ -5,7 +5,6 @@ import React from "react";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
@@ -13,6 +12,7 @@ import Image from "next/image";
 import { BadgeC } from "@/components/ui/badge_claro";
 import { Text } from "@/components/ui/text";
 import { Stack } from "@/components/layout/stack";
+import { CarrouselCard } from "@/components/features/carrousel/CarrouselCard";
 
 const textAboutUs = {
   iconName: "arrowRight",
@@ -42,35 +42,45 @@ const textPointsSystem = {
   content: `En Recycle, recompensamos tus esfuerzos por cuidar el medio ambiente. Por cada dispositivo electrónico que recicles a través de nuestra plataforma, ganarás puntos que podrás canjear por promociones y descuentos en establecimientos aliados que comparten nuestro compromiso con la sostenibilidad. ¡Recicla, acumula puntos y disfruta de beneficios mientras ayudas a proteger el planeta!`,
 };
 
-function CarrouselCard() {
-  return (
-    <CarouselItem className="border-2 rounded-3xl bg-card p-0">
-      <div className="flex flex-col p-5 gap-2">
-        <div className="bg-indigo-800 rounded-t-2xl h-32 w-full">
-          soy la imagen
-        </div>
-        <h3 className="text-ellipsis">Celular</h3>
-        <span>20 puntos</span>
-        <span>Centro de acopio</span>
-        <Button
-          type="button"
-          className="w-48 bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full"
-        >
-          <Text
-            size="md"
-            variant="subtitle"
-            className="text-white font-serif"
-          >
-            Registrarme
-          </Text>
-        </Button>
-      </div>
-    </CarouselItem>
-  )
-}
 const Home = () => {
 
-  const arr = Array.from({ length: 10 }, (_, i) => i)
+  const arr = [
+    {
+      image: "/images/home/placeholder.webp",
+      alt: "celular",
+      title: "Celular",
+      points: "20",
+      center: "center"
+    },
+    {
+      image: "/images/home/placeholder.webp",
+      alt: "celular",
+      title: "Celular",
+      points: "20",
+      center: "center"
+    },
+    {
+      image: "/images/home/placeholder.webp",
+      alt: "celular",
+      title: "Celular",
+      points: "20",
+      center: "center"
+    },
+    {
+      image: "/images/home/placeholder.webp",
+      alt: "celular",
+      title: "Celular",
+      points: "20",
+      center: "center"
+    },
+    {
+      image: "/images/home/placeholder.webp",
+      alt: "celular",
+      title: "Celular",
+      points: "20",
+      center: "center"
+    },
+  ]
   return (
     <>
       <NavBar design="home" />

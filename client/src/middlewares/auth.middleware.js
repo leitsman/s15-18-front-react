@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 async function AuthMiddleware(req) {
-  const isLoggedIn = req.cookies.get("userId");
+  const isLoggedIn = req.cookies.get("token");
 
   const loggedOutAllowedPaths = [
     "/home",

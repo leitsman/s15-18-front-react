@@ -6,7 +6,7 @@ import { Stack } from "@/components/layout/stack";
 import { ContentCard } from "@/components/ui/content_card";
 import { BadgeC } from "@/components/ui/badge_claro";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
-import { ModeToggle } from "@/components/ui/mode_toggle";
+import Link from "next/link";
 
 const composeDataCardOptions = {
   mainContent: "PUNTAJE",
@@ -19,30 +19,32 @@ const composeDataCardOptions = {
     </Text>
   ),
   extraSectionElements: (
-    <Stack noMargins variant="inline" distribution="between">
-      <div className="w-fit flex flex-col items-center">
-        <Icon
-          variant="circular"
-          size="lg"
-          iconName={"eco"}
-          className={"text-black"}
-        />
-        <Text variant={"body"} size="sm">
-          ¡Quiero reciclar!
-        </Text>
-      </div>
-      <div className="w-fit flex flex-col items-center">
-        <Icon
-          variant="circular"
-          size="lg"
-          iconName={"redeem"}
-          className={"text-black"}
-        />
-        <Text variant={"body"} size="sm">
-          Canjear puntos
-        </Text>
-      </div>
-    </Stack>
+    <>
+      <Stack noMargins variant="inline" distribution="between">
+        <Link href={CLIENT_ROUTES.RECYCLE.ROOT} className="w-fit flex flex-col items-center">
+          <Icon
+            variant="circular"
+            size="lg"
+            iconName={"eco"}
+            className={"text-black"}
+          />
+          <Text variant={"body"} size="sm">
+            ¡Quiero reciclar!
+          </Text>
+        </Link>
+        <Link href={CLIENT_ROUTES.REDIME} className="w-fit flex flex-col items-center">
+          <Icon
+            variant="circular"
+            size="lg"
+            iconName={"redeem"}
+            className={"text-black"}
+          />
+          <Text variant={"body"} size="sm">
+            Canjear puntos
+          </Text>
+        </Link>
+      </Stack>
+    </>
   ),
 };
 
@@ -66,17 +68,24 @@ const contentCardOptions2 = {
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
+    <main className="flex min-h-screen flex-col items-center justify-between py-5 lg:p-24 gap-5">
       <NavBar />
-
-    <ModeToggle />
-
       <DataCard variant={"compose"} dataCardOptions={composeDataCardOptions} />
       <ContentCard contentOptions={contentCardOptions} />
       <ContentCard contentOptions={contentCardOptions2} />
-      <Stack showOutline distribution="center" alignment="center" className="h-20">
-        Badges placeholder
-        {/* <BadgeC className="h-20">hola</BadgeC> */}
+      <Stack noMargins distribution="between" alignment="center" className="h-20 gap-3">
+        <BadgeC className="h-20 flex items-center justify-center gap-1">
+          <Text variant="body" size="sm">
+            Centros de acopio
+          </Text>
+          <Icon iconName="recycle" variant="circular" className="text-black" />
+        </BadgeC>
+        <BadgeC className="h-20 flex items-center justify-center gap-1">
+          <Text variant="body" size="sm">
+            Registrarse como reciclador
+          </Text>
+          <Icon iconName="recycle" variant="circular" className="text-black" />
+        </BadgeC>
       </Stack>
     </main>
   );
