@@ -14,4 +14,5 @@ public interface RecyclingHistoryRepo extends JpaRepository<RecyclingHistory, In
 
     List<RecyclingHistory> findByPersonIdPerson(Integer id);
 
+    List<RecyclingHistory> findByPersonDni(String dni);
 }

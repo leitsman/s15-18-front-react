@@ -2,6 +2,7 @@ package com.recycle.recycleapp.services;
 
 import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
+import com.recycle.recycleapp.exceptions.RecycleCenterNotFoundException;
 import org.springframework.security.core.Authentication;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
@@ -24,4 +25,5 @@ public interface IPersonService {
     Person findByToken(Authentication authentication) throws UserPrincipalNotFoundException;
 
 
+    void assignRcToReceiverByDni(String personDni, Long recycleCenterId) throws RecycleCenterNotFoundException;
 }

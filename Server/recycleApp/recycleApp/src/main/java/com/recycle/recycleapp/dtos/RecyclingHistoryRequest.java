@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class RecyclingHistoryRequest {
 
     //public Long recycle_center;
-    private Integer recyling_person;
-    private Long recycling_waste;
+    private String recyclingPersonDni;
+    private Long recyclingWaste;
     private int amount;
 }
