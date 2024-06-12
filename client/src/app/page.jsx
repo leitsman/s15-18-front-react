@@ -7,6 +7,7 @@ import { ContentCard } from "@/components/ui/content_card";
 import { BadgeC } from "@/components/ui/badge_claro";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { ModeToggle } from "@/components/ui/mode_toggle";
+import { Logo } from "@/components/ui/logo";
 
 const composeDataCardOptions = {
   mainContent: "PUNTAJE",
