@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { navbarContent } from "./nabar.content";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -7,12 +8,14 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { MenuDrawer } from "../menu_drawer/MenuDrawer";
+import { getCurrentUserInfo } from "@/actions/getUserInfo";
 
 export const NavBar = ({ design = "default" }) => {
+  getCurrentUserInfo()
+
   const variants = {
     default: (
       <Stack

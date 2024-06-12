@@ -23,7 +23,7 @@ const LoginForm = () => {
     resolver: valibotResolver(LoginSchema),
   });
 
-  const handleRegister = async (data) => {
+  const handleLogin = async (data) => {
     const BASE_URL = "http://localhost:3000/api";
     const path = "/auth/login";
 
@@ -59,7 +59,7 @@ const LoginForm = () => {
       <div className="w-3/5 flex flex-col justify-center items-center gap-6">
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(handleRegister)}
+            onSubmit={form.handleSubmit(handleLogin)}
             className="flex flex-col items-center gap-5"
           >
             <FormField

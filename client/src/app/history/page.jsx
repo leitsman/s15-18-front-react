@@ -24,8 +24,9 @@ function RecycledItem() {
 
 const singleDataCardOptions = {
   mainContent: "PUNTAJE",
-  secondaryContent: "Historial",
-  iconName: "rightArrow",
+  secondaryContent: "home",
+  secondaryLinkTo: "/",
+  iconName: "leftArrow",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       50 pts.
@@ -33,7 +34,6 @@ const singleDataCardOptions = {
   ),
 };
 const page = () => {
-  const recycledItems = Array(4).fill();
 
   return (
     <main className="w-full h-full flex flex-col gap-10 ">

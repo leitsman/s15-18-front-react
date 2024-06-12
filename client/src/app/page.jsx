@@ -6,6 +6,7 @@ import { Stack } from "@/components/layout/stack";
 import { ContentCard } from "@/components/ui/content_card";
 import { BadgeC } from "@/components/ui/badge_claro";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
+import Link from "next/link";
 
 const composeDataCardOptions = {
   mainContent: "PUNTAJE",
@@ -18,30 +19,32 @@ const composeDataCardOptions = {
     </Text>
   ),
   extraSectionElements: (
-    <Stack noMargins variant="inline" distribution="between">
-      <div className="w-fit flex flex-col items-center">
-        <Icon
-          variant="circular"
-          size="lg"
-          iconName={"eco"}
-          className={"text-black"}
-        />
-        <Text variant={"body"} size="sm">
-          ¡Quiero reciclar!
-        </Text>
-      </div>
-      <div className="w-fit flex flex-col items-center">
-        <Icon
-          variant="circular"
-          size="lg"
-          iconName={"redeem"}
-          className={"text-black"}
-        />
-        <Text variant={"body"} size="sm">
-          Canjear puntos
-        </Text>
-      </div>
-    </Stack>
+    <>
+      <Stack noMargins variant="inline" distribution="between">
+        <Link href={CLIENT_ROUTES.RECYCLE.ROOT} className="w-fit flex flex-col items-center">
+          <Icon
+            variant="circular"
+            size="lg"
+            iconName={"eco"}
+            className={"text-black"}
+          />
+          <Text variant={"body"} size="sm">
+            ¡Quiero reciclar!
+          </Text>
+        </Link>
+        <Link href={CLIENT_ROUTES.REDIME} className="w-fit flex flex-col items-center">
+          <Icon
+            variant="circular"
+            size="lg"
+            iconName={"redeem"}
+            className={"text-black"}
+          />
+          <Text variant={"body"} size="sm">
+            Canjear puntos
+          </Text>
+        </Link>
+      </Stack>
+    </>
   ),
 };
 
