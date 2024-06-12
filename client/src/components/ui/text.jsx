@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+
 /**
  * Componente funcional que representa un texto con diferentes variantes y tamaños.
  * @param {Object} props - Las propiedades del texto.

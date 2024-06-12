@@ -7,18 +7,16 @@ import {Button} from "@/components/ui/button";
 const singleDataCardOptions = {
   mainContent: "Datos personales",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "downArrow",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
-      
-
     </Text>
   ),
 };
 const singleDataCardOptions1 = {
   mainContent: "Nombre: Pepita Flores",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "check",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -28,7 +26,7 @@ const singleDataCardOptions1 = {
 const singleDataCardOptions2 = {
   mainContent: "Direcion: San Patricio 1234",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "check",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -38,7 +36,7 @@ const singleDataCardOptions2 = {
 const singleDataCardOptions3 = {
   mainContent: "Localidad: San Rafael",
   secondaryContent: "",
-  iconName: "rightArrow",
+   iconName: "check",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -48,7 +46,7 @@ const singleDataCardOptions3 = {
 const singleDataCardOptions4 = {
   mainContent: "Mail: pepitaflores@gmail.ocm",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "check",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -58,7 +56,7 @@ const singleDataCardOptions4 = {
 const singleDataCardOptions5 = {
   mainContent: "Contraseña: ********",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "check",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -94,25 +92,27 @@ const page = () => {
           </div>
         </div>
         <div className="mt-10 flex flex-row  justicefy-center items-center ">
-            <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full">
+            <Button variant="ghost">
                 <Text
                   size="md"
                   variant="subtitle"
                   className="w-full text-white font-serif"
                 >
-                Editar
+                <Icon variant="circular" circularColor="green" iconName="pencil" size="lg" />
                 </Text>
             </Button>
-            <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full">
+            <Button variant="ghost">
                 <Text
                   size="md"
                   variant="subtitle"
                   className="w-full text-white font-serif"
                 >
-                Compartir
+                <Icon variant="circular" circularColor="green" iconName="social" size="lg" />
                 </Text>
             </Button>
-          
+                
+
+            
         </div>
       </div>
     </main>

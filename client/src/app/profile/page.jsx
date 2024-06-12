@@ -53,7 +53,7 @@ const singleDataCardOptions = {
 const singleDataCardOptionsSeguridad = {
   mainContent: "Seguridad",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "candado",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -63,7 +63,7 @@ const singleDataCardOptionsSeguridad = {
 const singleDataCardOptionsPrivacidad = {
   mainContent: "Privacidad",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "candado",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       

@@ -21,7 +21,7 @@ export const Photo = ({ width = 100, height = 100 }) => {
     <div>
       {currentTheme === "dark" ? (
         <Image
-          src={"/photo/foto.png"}
+          src={"/photo/photo.png"}
           alt="foto perfil"
           width={width}
           height={height}
@@ -30,7 +30,7 @@ export const Photo = ({ width = 100, height = 100 }) => {
         />
       ) : (
         <Image
-          src={"/photo/foto.png"}
+          src={"/photo/photo.png"}
           alt="foto perfil"
           width={width}
           height={height}

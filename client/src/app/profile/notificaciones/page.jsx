@@ -2,11 +2,12 @@ import { BreadCrumbs } from "@/components/ui/breadCrumbs";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { DataCard } from "@/components/ui/data_card";
+import { Switch } from "@/components/ui/switch";
 
 const singleDataCardOptions = {
   mainContent: "Notificaciones",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "downArrow",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -16,7 +17,7 @@ const singleDataCardOptions = {
 const singleDataCardOptions1 = {
   mainContent: "Recibir notificaciones al realizar la verificación del dispositivo",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "toggleOn",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -26,7 +27,7 @@ const singleDataCardOptions1 = {
 const singleDataCardOptions2 = {
   mainContent: "Recibir notificaciones al correo electrónico registrado",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "toggleOn",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -36,7 +37,7 @@ const singleDataCardOptions2 = {
 const singleDataCardOptions3 = {
   mainContent: "Recibir notificaciones al acreditarse mi puntaje",
   secondaryContent: "",
-  iconName: "rightArrow",
+  iconName: "toggleOn",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
       
@@ -53,19 +54,20 @@ const page = () => {
       <div className="mt-5 flex flex-col  justicefy-center items-center">
          <div className="mb-5 w-full ">
              <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
+             <Switch />
         </div>
-        <div className="border-4 rounded-xl">
-          <div className="mb-5 w-full ">
+        <div>
+          <div className="mb-7 h-7 w-full ">
               <DataCard variant="single" dataCardOptions={singleDataCardOptions1} />
           </div>
-          <div className="mb-5 w-full ">
+          <div className="mb-7 h-7 w-full ">
               <DataCard variant="single" dataCardOptions={singleDataCardOptions2} />
           </div>
-          <div className="mb-5 w-full ">
+          <div className="mb-7 w-full ">
               <DataCard variant="single" dataCardOptions={singleDataCardOptions3} />
           </div>
+          <Switch />
         </div>
-        
       </div>
     </main>
   );

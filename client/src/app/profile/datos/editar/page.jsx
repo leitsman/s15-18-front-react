@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileForm from "../../components/features/profile/profileform";
+import ProfileForm from "@/components/features/profile/profileform";
 import { Icon } from "@/components/ui/icon";
 import { BreadCrumbs } from "@/components/ui/breadCrumbs";
 import { DataCard } from "@/components/ui/data_card";
@@ -39,6 +39,7 @@ const composeDataCardOptions = {
     </Stack>
   ),
 };
+
 const page = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 gap-5">
