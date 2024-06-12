@@ -21,7 +21,7 @@ public class Person {
 
 
     @Id
-    @JsonIgnore
+    //@JsonIgnore
     private Integer idPerson;
     @Column(name = "first_name", nullable = false, length = 30)
     private String firstName;
