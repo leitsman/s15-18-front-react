@@ -1,3 +1,4 @@
+
 import { MenuDrawer } from "@/components/features/menu_drawer/MenuDrawer";
 import { NavBar } from "@/components/features/navbar/NavBar";
 import { BreadCrumbs } from "@/components/ui/breadCrumbs";
@@ -47,37 +48,9 @@ function RedimePlace() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-const page = () => {
-  const redimePlaces = Array(10).fill();
 
-  return (
-    <>
-      <main className="w-full h-full flex flex-col gap-10 py-5">
-        {/* HEADER */}
-        <BreadCrumbs currentRoute={'PROMOCIONES'} >
-          <MenuDrawer />
-        </BreadCrumbs>
-
-
-        {/* USER POINTS */}
-
-        <DataCard variant={"single"} dataCardOptions={singleDataCardOptions} />
-
-        {/* Places to redime points */}
-        <ScrollArea className="w-full h-[80dvh]">
-          <div className="w-full h-96 mt-10 flex flex-col  justify-between items-center gap-5">
-            {redimePlaces.map((_, idx) => (
-              <RedimePlace key={idx} />
-            ))}
-          </div>
-          <ScrollBar direction="vertical" />
-        </ScrollArea>
-      </main>
-    </>
-  );
-};
 
 export default page;
