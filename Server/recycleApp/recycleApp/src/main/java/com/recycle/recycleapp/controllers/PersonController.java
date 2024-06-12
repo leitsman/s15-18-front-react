@@ -3,6 +3,7 @@ package com.recycle.recycleapp.controllers;
 import com.recycle.recycleapp.dtos.PersonDTO;
 import com.recycle.recycleapp.entities.Person;
 import com.recycle.recycleapp.exceptions.PersonNotFoundException;
+import com.recycle.recycleapp.exceptions.RecycleCenterNotFoundException;
 import com.recycle.recycleapp.services.impl.PersonServiceImpl;
 import com.recycle.recycleapp.utils.Response;
 import io.swagger.v3.oas.annotations.Operation;
@@ -55,6 +56,18 @@ public class PersonController {
             @PathVariable Long recycleCenterId) {
 
         personServiceImpl.assignRcToReceiver(personId, recycleCenterId);
+
+        Response response = new Response(true, HttpStatus.OK, "Recycle Center assigned to person");
+        return ResponseEntity.ok(response);
+    }
+
+    @Operation(summary = "Asignar centro de reciclaje a una persona", description = "Asigna un centro de reciclaje a una persona con role receiver")
+    @PutMapping("/dni/{personDni}/assign-recycle-center/{recycleCenterId}")
+    public ResponseEntity<Response> assignRecycleCenterByDni(
+            @PathVariable String personDni,
+            @PathVariable Long recycleCenterId) throws RecycleCenterNotFoundException {
+
+        personServiceImpl.assignRcToReceiverByDni(personDni, recycleCenterId);
 
         Response response = new Response(true, HttpStatus.OK, "Recycle Center assigned to person");
         return ResponseEntity.ok(response);

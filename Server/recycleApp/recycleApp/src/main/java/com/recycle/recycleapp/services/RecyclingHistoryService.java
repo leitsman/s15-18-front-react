@@ -15,4 +15,8 @@ public interface RecyclingHistoryService {
     RecyclingHistoryDTO findById(int recyclingHistoryId);
 
     List<RecyclingHistory> findRecyclingHistoryByPerson(Integer idPerson);
+
+    List<RecyclingHistory> findRecyclingHistoryByToken(Authentication authentication);
+
+    List<RecyclingHistory> findRecyclingHistoryByDni(String dni);
 }

@@ -17,6 +17,7 @@ import com.recycle.recycleapp.services.IPersonService;
 import com.recycle.recycleapp.services.RecyclingHistoryService;
 import com.recycle.recycleapp.user.UserEntity;
 import jakarta.transaction.Transactional;
+import org.mapstruct.control.MappingControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -54,8 +55,8 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
             throw new PersonNotFoundException("Centro de reciclaje no encontrado");
         }
 
-        Optional<Person> recyclerDB = personRepository.findById(request.getRecyling_person());
-        Optional<Waste> wasteDB = wasteRepo.findById(request.getRecycling_waste());
+        Optional<Person> recyclerDB = personRepository.findByDni(request.getRecyclingPersonDni());
+        Optional<Waste> wasteDB = wasteRepo.findById(request.getRecyclingWaste());
 
         Person recycler = recyclerDB.get();
         Waste waste = wasteDB.get();
@@ -119,5 +120,35 @@ public class RecyclingHistoryServImpl implements RecyclingHistoryService {
 
         }
 
+    }
+
+    @Override
+    public List<RecyclingHistory> findRecyclingHistoryByToken(Authentication authentication) {
+        UserEntity user = (UserEntity) authentication.getPrincipal();
+        Optional<Person> personFound=personRepository.findById(user.getId());
+
+        if(personFound.isPresent()){
+
+            List<RecyclingHistory> historyList= recyclingHistoryRepo.findByPersonIdPerson(user.getId());
+
+            return historyList;
+        }else{
+            return null;
+
+        }
+    }
+
+    @Override
+    public List<RecyclingHistory> findRecyclingHistoryByDni(String dni) {
+        Optional<Person> personFound=personRepository.findByDni(dni);
+
+        if(personFound.isPresent()){
+
+            List<RecyclingHistory> historyList= recyclingHistoryRepo.findByPersonDni(dni);
+
+            return historyList;
+        }else{
+            return null;
+        }
     }
 }
