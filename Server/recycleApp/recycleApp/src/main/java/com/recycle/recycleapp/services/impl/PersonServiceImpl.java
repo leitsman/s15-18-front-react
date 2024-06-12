@@ -144,6 +144,28 @@ public class PersonServiceImpl implements IPersonService {
         return personRepository.findById(user.getId()).orElseThrow(()->new UserPrincipalNotFoundException("Usuario no encontrado en la base de datos."));
     }
 
+    @Override
+    public void assignRcToReceiverByDni(String personDni, Long recycleCenterId) throws RecycleCenterNotFoundException {
+        Person person = personRepository.findByDni(personDni)
+                .orElseThrow(() -> new PersonNotFoundException("No se encontró la persona con dni " + personDni));
+
+        UserRole userRole = userRoleRepository.findByUserId(person.getIdPerson());
+        if(userRole == null) throw new ServiceException("User does not have a role assigned");
+
+        Role role = roleRepository.findById(userRole.getRoleId()).orElseThrow(() -> new ServiceException("Role not found"));
+
+        // Verificar si la persona tiene el rol RECEIVER
+        if (!role.getName().equals("ROLE_RECEIVER")) {
+            throw new ServiceException("Sólo puedes asignar un centro de reciclaje a una persona con role RECEIVER");
+        }
+
+        RecycleCenter recycleCenter = recycleCenterRepository.findById(recycleCenterId)
+                .orElseThrow(() -> new RecycleCenterNotFoundException("No se encontro el centro de reciclaje con id " + recycleCenterId));
+
+        person.setRecycleCenter(recycleCenter);
+        personRepository.save(person);
+    }
+
     public Optional<Person> getByDNI(String dni) {
         return personRepository.findByDni(dni);
     }

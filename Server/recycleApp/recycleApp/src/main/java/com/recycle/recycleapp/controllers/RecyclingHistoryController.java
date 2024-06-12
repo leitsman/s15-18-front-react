@@ -45,6 +45,46 @@ public class RecyclingHistoryController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/personDni/{dni}")
+    public ResponseEntity<Response> listRecycleHistoryByDni(@PathVariable String dni){
+
+        List<ResponseRecyclingHistoryDTO> listaRecycleResponse=new ArrayList<>();
+        List<RecyclingHistory> list=recyclingHistoryService.findRecyclingHistoryByDni(dni);
+        for (RecyclingHistory elem: list
+        ) {
+            Long totalPoints=elem.getWaste().getPoints()*elem.getAmount();
+            listaRecycleResponse.add(new ResponseRecyclingHistoryDTO(
+                    elem.getWaste().getType().toString(),
+                    elem.getDate(),
+                    elem.getRecycleCenter().getName(),
+                    totalPoints
+            ));
+        }
+
+        Response response = new Response(true, HttpStatus.OK, listaRecycleResponse);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/listarPersonaConectada")
+    public ResponseEntity<Response> listRecycleHistory(Authentication authentication){
+
+        List<ResponseRecyclingHistoryDTO> listaRecycleResponse=new ArrayList<>();
+        List<RecyclingHistory> list=recyclingHistoryService.findRecyclingHistoryByToken(authentication);
+        for (RecyclingHistory elem: list
+        ) {
+            Long totalPoints=elem.getWaste().getPoints()*elem.getAmount();
+            listaRecycleResponse.add(new ResponseRecyclingHistoryDTO(
+                    elem.getWaste().getType().toString(),
+                    elem.getDate(),
+                    elem.getRecycleCenter().getName(),
+                    totalPoints
+            ));
+        }
+
+        Response response = new Response(true, HttpStatus.OK, listaRecycleResponse);
+        return ResponseEntity.ok(response);
+    }
+
     @PreAuthorize("hasRole('ROLE_RECEIVER')")
     @Operation(summary = "Crear un historial de reciclaje", description = "Sólo un usuario con rol RECEIVER puede registrar un historial de reciclaje")
     @PostMapping("/recycler")
