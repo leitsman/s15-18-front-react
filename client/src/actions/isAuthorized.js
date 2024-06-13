@@ -1,9 +1,9 @@
-'use server'
+"use server";
 
-import { getUserCredentials } from "./getUserCredentials"
+import { getUserCredentials } from "./getUserToken";
 
 export async function isAuthorized() {
-  const res = await getUserCredentials()
-  if (!res.userId) return false
-  return true
+  const res = await getUserCredentials();
+  if (!res.token) return false;
+  return true;
 }

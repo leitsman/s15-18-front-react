@@ -1,4 +1,4 @@
-import AuthMiddleware from './middlewares/auth.middleware';
+import AuthMiddleware from "./middlewares/auth.middleware";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
@@ -6,5 +6,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };

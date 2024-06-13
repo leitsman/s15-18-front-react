@@ -1,14 +1,8 @@
 export const navbarContent = {
-  avatar: {
-
-  },
+  avatar: {},
   greeting: {
-    greeting: "Hola"
+    greeting: "Hola",
   },
-  notifications: {
-
-  },
-  menu: {
-
-  }
-}
+  notifications: {},
+  menu: {},
+};

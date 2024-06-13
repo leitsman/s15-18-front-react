@@ -5,11 +5,14 @@ import { Stack } from "../layout/stack";
 import { Icon } from "./icon";
 import { Text } from "./text";
 import { Button } from "./button";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const ContentCard = ({
   contentOptions,
   noImage = false,
   noIcon = false,
+  reverse = false,
 }) => {
   return (
     <Container noMargins className="gap-5">
@@ -30,12 +33,12 @@ export const ContentCard = ({
           <Text variant="body">{contentOptions.title}</Text>
         </div>
         {noIcon ? null : (
-          <Button variant="ghost" className="h-fit p-0">
+          <Link href={contentOptions?.link ? contentOptions?.link : "/"} className="h-fit p-0">
             <Icon iconName={"rightArrow"} />
-          </Button>
+          </Link>
         )}
       </Stack>
-      <Stack noMargins variant="inline" className="gap-2">
+      <Stack noMargins variant="inline" className={cn(reverse && "flex-row-reverse", "gap-2")}>
         {noImage ? null : (
           <Image
             src={contentOptions.image}
