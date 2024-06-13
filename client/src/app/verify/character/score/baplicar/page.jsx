@@ -26,10 +26,10 @@ const page = () => {
 
         <div className=" rounded-xl  mt-2 flex flex-col  border-2 justicefy-center items-center">
           <div className="mb-2  w-full font-serif">
-            <DataCard
+            {/* <DataCard
               variant="single"
               dataCardOptions={singleDataCardOptionsCategorias}
-            />
+            /> */}
           </div>
           <div className="mb-5 h-7 w-full font-serif">{/**input */}</div>
 
