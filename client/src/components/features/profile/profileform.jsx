@@ -3,11 +3,11 @@
 import { Form, FormField } from "@/components/ui/form";
 import { RegisterSchema } from "@/schemas/register.schema";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import { useForm } from "react-hook-form";
+import { useForm as UseForm } from "react-hook-form";
 import { ProfileInput } from "./profileInputs";
 
 const ProfileForm = () => {
-  const form = useForm({
+  const form = UseForm({
     defaultValues: {
       name: "Pepita Flores",
       address: "San Patricio 1234",

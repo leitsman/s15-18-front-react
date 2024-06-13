@@ -1,22 +1,21 @@
-'use client'
+"use client";
 
-import React, { useTransition } from 'react'
+import React, { useTransition } from "react";
 
-import { Button } from '@/components/ui/button'
-import { FormField, Form } from '@/components/ui/form'
-import { Text } from '@/components/ui/text'
-import { Textfield } from '@/components/ui/textcomp'
-import { useForm } from 'react-hook-form'
-
+import { Button } from "@/components/ui/button";
+import { FormField, Form } from "@/components/ui/form";
+import { Text } from "@/components/ui/text";
+import { Textfield } from "@/components/ui/textcomp";
+import { useForm as UseForm } from "react-hook-form";
 
 const page = () => {
   function handleLogin(data) {
     console.log(data);
   }
 
-  const form = useForm({
+  const form = UseForm({
     defaultValues: {
-      dni: ""
+      dni: "",
     },
   });
 
@@ -71,9 +70,7 @@ const page = () => {
         </Form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
-
-
+export default page;

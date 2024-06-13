@@ -1,23 +1,23 @@
-'use client'
+"use client";
 
-import React from 'react'
+import React from "react";
 
-import { Button } from '@/components/ui/button';
-import { Form, FormField } from '@/components/ui/form';
-import { Text } from '@/components/ui/text';
-import { Textfield } from '@/components/ui/textfield';
-import { PersonCreationSchema } from '@/schemas/personCreation.schema';
-import { valibotResolver } from '@hookform/resolvers/valibot';
-import { useForm } from 'react-hook-form';
-import { Stack } from '@/components/layout/stack';
-import { SERVER_ROUTES } from '@/constants/server.routes';
-import { getUserToken } from '@/actions/getUserToken';
-import { Icon } from '@/components/ui/icon';
+import { Button } from "@/components/ui/button";
+import { Form, FormField } from "@/components/ui/form";
+import { Text } from "@/components/ui/text";
+import { Textfield } from "@/components/ui/textfield";
+import { PersonCreationSchema } from "@/schemas/personCreation.schema";
+import { valibotResolver } from "@hookform/resolvers/valibot";
+import { useForm as UseForm } from "react-hook-form";
+import { Stack } from "@/components/layout/stack";
+import { SERVER_ROUTES } from "@/constants/server.routes";
+import { getUserToken } from "@/actions/getUserToken";
+import { Icon } from "@/components/ui/icon";
 
 const OnboardingForm = () => {
   const [isPending, startTransition] = React.useTransition();
 
-  const form = useForm({
+  const form = UseForm({
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -35,7 +35,7 @@ const OnboardingForm = () => {
   });
 
   async function handlePersonCreation(data) {
-    const token = await getUserToken()
+    const token = await getUserToken();
 
     const parsedData = {
       firstName: data.firstName,
@@ -49,31 +49,31 @@ const OnboardingForm = () => {
         city: data.city,
         country: data.country,
         phone: data.phone,
-      }
-    }
+      },
+    };
 
     startTransition(async () => {
-      const tokenObj = await getUserToken()
+      const tokenObj = await getUserToken();
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}${SERVER_ROUTES.person.create}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${tokenObj.token}`
-        },
-        body: JSON.stringify(parsedData)
-      })
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}${SERVER_ROUTES.person.create}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${tokenObj.token}`,
+          },
+          body: JSON.stringify(parsedData),
+        }
+      );
       if (res.ok) {
-        console.log("Person created successfully")
+        console.log("Person created successfully");
       }
-    })
-
+    });
   }
 
-
   return (
-    <div className='w-full h-full flex justify-center items-center'>
-
+    <div className="w-full h-full flex justify-center items-center">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handlePersonCreation)}
@@ -148,7 +148,12 @@ const OnboardingForm = () => {
             )}
           />
 
-          <Stack noMargins variant="inline" distribution="center" className="gap-5">
+          <Stack
+            noMargins
+            variant="inline"
+            distribution="center"
+            className="gap-5"
+          >
             <FormField
               control={form.control}
               name="city"
@@ -217,7 +222,7 @@ const OnboardingForm = () => {
         </form>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default OnboardingForm
+export default OnboardingForm;

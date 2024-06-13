@@ -9,12 +9,12 @@ import { LoginSchema } from "@/schemas/login.schema";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { redirect } from "next/navigation";
 import { useTransition } from "react";
-import { useForm } from "react-hook-form";
+import { useForm as UseForm } from "react-hook-form";
 
 const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm({
+  const form = UseForm({
     defaultValues: {
       email: "",
       password: "",
@@ -35,7 +35,7 @@ const LoginForm = () => {
         body: JSON.stringify(data),
       });
       const resData = await res.json();
-      console.log(resData)
+      console.log(resData);
       if (resData.data) redirect("/");
 
       /*  toast({
