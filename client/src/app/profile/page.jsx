@@ -40,6 +40,7 @@ const composeDataCardOptions = {
   ),
 };
 
+
 const singleDataCardOptions = {
   mainContent: "Datos Personales",
   secondaryContent: "",

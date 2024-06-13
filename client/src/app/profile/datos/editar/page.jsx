@@ -8,6 +8,7 @@ import { Stack } from "@/components/layout/stack";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { Photo } from "@/components/ui/photo"
 
+
 const composeDataCardOptions = {
   mainContent: "Pepita Flores",
   iconName: "rightArrow",

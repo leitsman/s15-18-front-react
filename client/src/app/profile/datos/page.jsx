@@ -14,8 +14,6 @@ const singleDataCardOptions = {
   ),
 };
 
-
-
 const page = () => {
   return (
     <main className="w-full h-screen ">
