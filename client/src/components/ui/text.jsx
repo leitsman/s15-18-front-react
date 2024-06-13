@@ -1,5 +1,21 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Lora } from 'next/font/google';
+import { Poppins } from 'next/font/google';
+
+ 
+// define your variable fonts
+const lora = Lora({
+  subsets: ['latin'],
+  display: 'swap',
+})
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400'
+})
+//Nyala - titles, subtitles y botones - similar Lora
+//Poppins - body text
 
 
 /* TODO 
@@ -26,9 +42,9 @@ export const Text = ({ variant, size = "md", children, className }) => {
   };
 
   const variants = {
-    title: <h1 className={cn(sizes[size], className)}>{children}</h1>,
-    subtitle: <h2 className={cn(sizes[size], className)}>{children}</h2>,
-    body: <p className={cn(sizes[size], className)}>{children}</p>,
+    title: <h1 className={cn(sizes[size], 'lora', className)}>{children}</h1>,
+    subtitle: <h2 className={cn(sizes[size], 'lora', className)}>{children}</h2>,
+    body: <p className={cn(sizes[size], 'poppins', className)}>{children}</p>,
   };
 
   return variants[variant];

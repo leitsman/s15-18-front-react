@@ -12,7 +12,7 @@ const singleDataCardOptionsCategorias = {
   secondaryContent: "",
   iconName: "rightArrow",
   secondSectionElements: <Text variant={"body"} className={"font-bold"}></Text>,
-};
+}; 
 
 const page = () => {
   return (
@@ -38,7 +38,6 @@ const page = () => {
               className="text-sm rounded-full border-2 border-custom-gradient-from"
             ></input>
           </div>
-
           <div className="flex flex-row">
             <div>
               <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full">
@@ -47,6 +46,13 @@ const page = () => {
                   variant="subtitle"
                   className="w-full text-white font-serif"
                 >
+                 Aplicar
+                </Text>
+                </Button>
+            </div>
+            </div>
+            <div className="mt-5">
+                <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full"> 
                   Borrar
                 </Text>
               </Button>
