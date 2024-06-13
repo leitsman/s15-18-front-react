@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();
-  const router = useRouter()
+  const router = useRouter();
 
   const form = useForm({
     defaultValues: {
@@ -26,7 +26,7 @@ const RegisterForm = () => {
   });
 
   const handleRegister = async (data) => {
-    const BASE_URL = "http://localhost:3000/api";
+    const BASE_URL = "https://s15-18-t-java-react.onrender.com";
     const path = "/auth/register";
 
     async function registerUser() {

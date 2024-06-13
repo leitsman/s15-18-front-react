@@ -24,7 +24,7 @@ const LoginForm = () => {
   });
 
   const handleLogin = async (data) => {
-    const BASE_URL = "http://localhost:3000/api";
+    const BASE_URL = "https://s15-18-t-java-react.onrender.com";
     const path = "/auth/login";
 
     async function signInUser() {
