@@ -6,6 +6,7 @@ import { Icon } from "./icon";
 import { Text } from "./text";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const ContentCard = ({
   contentOptions,
@@ -32,9 +33,9 @@ export const ContentCard = ({
           <Text variant="body">{contentOptions.title}</Text>
         </div>
         {noIcon ? null : (
-          <Button variant="ghost" className="h-fit p-0">
+          <Link href={contentOptions?.link ? contentOptions?.link : "/"} className="h-fit p-0">
             <Icon iconName={"rightArrow"} />
-          </Button>
+          </Link>
         )}
       </Stack>
       <Stack noMargins variant="inline" className={cn(reverse && "flex-row-reverse", "gap-2")}>

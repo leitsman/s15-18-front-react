@@ -4,6 +4,12 @@ import {
   FiChevronRight,
   FiChevronLeft,
   FiArrowRight,
+  FiHome,
+  FiUser,
+  FiHelpCircle,
+  FiLogOut,
+  FiX,
+  FiLock,
 } from "react-icons/fi";
 import {
   MdOutlineEco,
@@ -13,6 +19,7 @@ import {
 } from "react-icons/md";
 import { LuLoader2 } from "react-icons/lu";
 import { LuPencil } from "react-icons/lu";
+import { FaCog } from "react-icons/fa";
 
 export const iconNames = {
   bell: FiBell,
@@ -26,4 +33,11 @@ export const iconNames = {
   loader: LuLoader2,
   arrowRight: FiArrowRight,
   pencil: LuPencil,
+  home: FiHome,
+  user: FiUser,
+  help: FiHelpCircle,
+  logOut: FiLogOut,
+  close: FiX,
+  cog: FaCog,
+  lock: FiLock,
 };

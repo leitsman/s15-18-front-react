@@ -1,8 +1,28 @@
+
+import { MenuDrawer } from "@/components/features/menu_drawer/MenuDrawer";
+import { NavBar } from "@/components/features/navbar/NavBar";
+import { BreadCrumbs } from "@/components/ui/breadCrumbs";
+import { DataCard } from "@/components/ui/data_card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Text } from "@/components/ui/text";
+import { CLIENT_ROUTES } from "@/constants/routes.client";
+
+const singleDataCardOptions = {
+  mainContent: "PUNTAJE",
+  secondaryContent: "Historial",
+  secondaryLinkTo: CLIENT_ROUTES.HISTORY,
+  iconName: "rightArrow",
+  secondSectionElements: (
+    <Text variant={"body"} className={"font-bold"}>
+      50 pts.
+    </Text>
+  )
+};
+
 
 function RedimePlace() {
   return (
-    <div className="w-full  h-full flex flex-col justify-between gap-2">
+    <div className="w-full h-full flex flex-col justify-between gap-2">
       <div className="flex justify-between *:font-bold">
         <div className="w-full h-52 flex justify-center items-center bg-gray-300 rounded-t-3xl">
           FOTO
@@ -28,55 +48,9 @@ function RedimePlace() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-const page = () => {
-  const redimePlaces = Array(10).fill();
 
-  return (
-    <>
-      <main className="w-screen h-[calc(100vh-96px)] flex flex-col gap-10 py-5 px-8 ">
-        {/* HEADER */}
-        <div className="w-full flex p-2 justify-between items-center h-16 ">
-          <div className="flex justify-center items-center gap-5 ">
-            <div className="flex justify-center items-center size-10 rounded-full bg-gray-500">
-              <h2 className="text-sm text-white">Icon</h2>
-            </div>
-            <div>
-              <h2 className="font-bold">PROMOCIONES</h2>
-            </div>
-          </div>
-          <div className="flex justify-center items-center size-5 outline-4 outline-green-500 outline-dashed"></div>
-        </div>
-
-        <ScrollArea className="w-full h-[80dvh]">
-          {/* USER POINTS */}
-          <div className="w-full p-5 justify-between  h-20 bg-gray-300 rounded-2xl flex flex-col items-start">
-            <div className="w-full flex justify-between">
-              <h2 className="font-bold">PUNTAJE</h2>
-              <div className="flex items-center gap-5">
-                <h2 className="font-bold">Historial</h2>
-                <div className="size-3 outline-4 outline-green-500 outline-dashed"></div>
-              </div>
-            </div>
-            <h2 className="font-bold">50 pts.</h2>
-          </div>
-
-          {/* Places to redime points */}
-          <div className="w-full h-96 mt-10 flex flex-col  justify-between items-center gap-5">
-            {redimePlaces.map((_, idx) => (
-              <RedimePlace key={idx} />
-            ))}
-          </div>
-          <ScrollBar />
-        </ScrollArea>
-      </main>
-      <nav className="w-screen h-24 flex flex-col justify-center items-center gap-10 p-5 border-4 border-green-500 border-dashed font-bold">
-        NAVBAR LAYOUT
-      </nav>
-    </>
-  );
-};
 
 export default page;
