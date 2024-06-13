@@ -17,6 +17,13 @@ const poppins = Poppins({
 //Nyala - titles, subtitles y botones - similar Lora
 //Poppins - body text
 
+
+/* TODO 
+
+Implementar fuente Nayala desde Tailwind.config 
+*/
+
+
 /**
  * Componente funcional que representa un texto con diferentes variantes y tamaños.
  * @param {Object} props - Las propiedades del texto.

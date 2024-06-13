@@ -4,7 +4,12 @@ import {
   FiChevronRight,
   FiChevronLeft,
   FiArrowRight,
-  
+  FiHome,
+  FiUser,
+  FiHelpCircle,
+  FiLogOut,
+  FiX,
+  FiLock,
 } from "react-icons/fi";
 import {
   MdOutlineEco,
@@ -18,7 +23,8 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { IoIosCheckmark } from "react-icons/io";
 import { IoShareSocial } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-import { BiToggleRight } from "react-icons/bi";
+import { BiToggleRight } from "react-icons/bi"; 
+import { FaCog } from "react-icons/fa";
 
 export const iconNames = {
   bell: FiBell,
@@ -36,6 +42,12 @@ export const iconNames = {
   check: IoIosCheckmark,
   social: IoShareSocial,
   toggleOn: BiToggleRight,
-  pencil: LuPencil,
-  
-  };
+  pencil: LuPencil, 
+  home: FiHome,
+  user: FiUser,
+  help: FiHelpCircle,
+  logOut: FiLogOut,
+  close: FiX,
+  cog: FaCog,
+  lock: FiLock,
+};

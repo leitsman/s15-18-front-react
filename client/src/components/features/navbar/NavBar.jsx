@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { navbarContent } from "./nabar.content";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -7,11 +8,14 @@ import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { CLIENT_ROUTES } from "@/constants/routes.client";
+import { MenuDrawer } from "../menu_drawer/MenuDrawer";
+import { getCurrentUserInfo } from "@/actions/getUserInfo";
 
-export const NavBar = ({ design = "default" }) => {
+export const NavBar = async ({ design = "default" }) => {
+  const userData = await getCurrentUserInfo();
+
   const variants = {
     default: (
       <Stack
@@ -38,7 +42,7 @@ export const NavBar = ({ design = "default" }) => {
                 "bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to text-transparent bg-clip-text font-bold"
               }
             >
-              {`¡${navbarContent.greeting.greeting} --$nombre--!`}{" "}
+              {` ¡${navbarContent.greeting.greeting} ${userData?.data?.firstName && userData.data.firstName}!`}{" "}
             </Text>
           </div>
         </Stack>
@@ -51,9 +55,9 @@ export const NavBar = ({ design = "default" }) => {
           <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
             <Icon iconName={"bell"} size="md" />
           </Button>
-          <Button variant="ghost" className={"p-0 hover:bg-transparent"}>
-            <Icon iconName={"menu"} size="md" />
-          </Button>
+          <div className={"p-0 hover:bg-transparent"}>
+            <MenuDrawer data={userData.data && userData.data} />
+          </div>
         </Stack>
       </Stack>
     ),
@@ -65,10 +69,10 @@ export const NavBar = ({ design = "default" }) => {
         <nav>
           <ul className="flex flex-row gap-1">
             <li>
-              <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.REGISTER}>Registrarme</Link>
+              <Link className={cn(buttonVariants({ variant: "default" }), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.REGISTER}>Registrarme</Link>
             </li>
             <li>
-            <Link className={cn(buttonVariants({variant: "default"}), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.LOGIN}>Iniciar sesión</Link>
+              <Link className={cn(buttonVariants({ variant: "default" }), "rounded-2xl px-2 bg-[#0180A7]")} href={CLIENT_ROUTES.LOGIN}>Iniciar sesión</Link>
             </li>
           </ul>
         </nav>

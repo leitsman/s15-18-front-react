@@ -23,6 +23,7 @@ export const Stack = ({
   alignment,
   showOutline,
   noMargins,
+  ...rest
 }) => {
   const baseStyle = "w-full h-fit flex";
 
@@ -63,6 +64,7 @@ export const Stack = ({
         noMargins && "p-0",
         className,
       )}
+      {...rest}
     >
       {children}
     </div>

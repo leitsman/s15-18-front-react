@@ -32,7 +32,7 @@ const page = () => {
                 <DataCard variant="single" dataCardOptions={singleDataCardOptionsCategorias} />
             </div>
             <div className="mb-5 h-7 w-full font-serif">
-                /**input */
+              {/**input */}
             </div>
             
             <div className="flex flex-row">
