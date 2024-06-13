@@ -14,13 +14,16 @@ const page = () => {
       </BreadCrumbs>
       <Text
         className="text-custom-gradient-from font-bold"
-        children="Datos personales"
         variant="title"
         size="md"
-      />
+      >
+        Datos personales
+      </Text>
 
       <form className="space-y-3">
-        <Text children="Documento de identidad" variant="subtitle" size="sm" />
+        <Text variant="subtitle" size="sm">
+          Documento de identidad
+        </Text>
         <input
           type="text"
           className="text-sm rounded-full border-2 border-custom-gradient-from"

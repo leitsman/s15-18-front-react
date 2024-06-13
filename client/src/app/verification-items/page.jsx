@@ -14,9 +14,10 @@ const verification = () => {
       <Text
         variant="title"
         size="md"
-        children="Caracteristicas del dispositivo"
         className="text-custom-gradient-from font-bold"
-      />
+      >
+        Caracteristicas del dispositivo
+      </Text>
       <AccordionItems />
       <div className="mt-5">
         <Button className="w-full bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to rounded-full">
