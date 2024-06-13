@@ -1,4 +1,3 @@
-
 import { MenuDrawer } from "@/components/features/menu_drawer/MenuDrawer";
 import { NavBar } from "@/components/features/navbar/NavBar";
 import { BreadCrumbs } from "@/components/ui/breadCrumbs";
@@ -16,9 +15,8 @@ const singleDataCardOptions = {
     <Text variant={"body"} className={"font-bold"}>
       50 pts.
     </Text>
-  )
+  ),
 };
-
 
 function RedimePlace() {
   return (
@@ -48,9 +46,7 @@ function RedimePlace() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-
-
-export default page;
+export default RedimePlace;
