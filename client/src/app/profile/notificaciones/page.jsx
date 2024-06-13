@@ -14,36 +14,6 @@ const singleDataCardOptions = {
     </Text>
   ),
 };
-const singleDataCardOptions1 = {
-  mainContent: "Recibir notificaciones al realizar la verificación del dispositivo",
-  secondaryContent: "",
-  iconName: "toggleOn",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions2 = {
-  mainContent: "Recibir notificaciones al correo electrónico registrado",
-  secondaryContent: "",
-  iconName: "toggleOn",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions3 = {
-  mainContent: "Recibir notificaciones al acreditarse mi puntaje",
-  secondaryContent: "",
-  iconName: "toggleOn",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
 
 const page = () => {
   return (
@@ -51,23 +21,28 @@ const page = () => {
        <BreadCrumbs currentRoute="Configuración">
         <Icon iconName="menu" size="lg" />
       </BreadCrumbs>
-      <div className="mt-5 flex flex-col  justicefy-center items-center">
-         <div className="mb-5 w-full ">
-             <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
-             <Switch />
-        </div>
-        <div>
-          <div className="mb-7 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions1} />
+      <div className="mt-5 flex flex-col  justify-center">
+          <div className="mb-5 w-full ">
+            <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
           </div>
-          <div className="mb-7 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions2} />
+
+      <div>
+          <div  className="mb-7 w-full flex flex-row justify-between" >
+            <h4 >Recibir notificaciones al realizar la verificación del dispositivo</h4>
+            <p>ON <Switch /></p>
+            
           </div>
-          <div className="mb-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions3} />
+          <div  className="mb-7 w-full flex flex-row justify-between" >
+            <h4 >Recibir notificaciones al correo electrónico registrado</h4>
+            <p>ON <Switch /></p>
+           
           </div>
-          <Switch />
-        </div>
+          <div  className="mb-7 w-full flex flex-row justify-between" >
+            <h4>Recibir notificaciones al acreditarse mi puntaje</h4>
+            <p>ON <Switch /></p>
+            
+          </div> 
+      </div>
       </div>
     </main>
   );

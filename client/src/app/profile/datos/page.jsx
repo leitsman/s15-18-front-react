@@ -13,56 +13,8 @@ const singleDataCardOptions = {
     </Text>
   ),
 };
-const singleDataCardOptions1 = {
-  mainContent: "Nombre: Pepita Flores",
-  secondaryContent: "",
-  iconName: "check",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions2 = {
-  mainContent: "Direcion: San Patricio 1234",
-  secondaryContent: "",
-  iconName: "check",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions3 = {
-  mainContent: "Localidad: San Rafael",
-  secondaryContent: "",
-   iconName: "check",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions4 = {
-  mainContent: "Mail: pepitaflores@gmail.ocm",
-  secondaryContent: "",
-  iconName: "check",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
-const singleDataCardOptions5 = {
-  mainContent: "Contraseña: ********",
-  secondaryContent: "",
-  iconName: "check",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
-};
+
+
 
 const page = () => {
   return (
@@ -70,29 +22,34 @@ const page = () => {
        <BreadCrumbs currentRoute="Configuración">
         <Icon iconName="menu" size="lg" />
       </BreadCrumbs>
-      <div className="mt-5 flex flex-col  justicefy-center items-center">
-         <div className="mb-5 w-full ">
+      <div className="mt-5 flex flex-col  justify-center items-center">
+          <div className="mb-5 w-full ">
              <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
-        </div>
-        <div className="border-4 rounded-xl">
-          <div className="mb-5 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions1} />
           </div>
-          <div className="mb-5 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions2} />
-          </div>
-          <div className="mb-5 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions3} />
-          </div>
-          <div className="mb-5 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions4} />
-          </div>
-          <div className="mb-5 h-7 w-full ">
-              <DataCard variant="single" dataCardOptions={singleDataCardOptions5} />
-          </div>
-        </div>
-        <div className="mt-10 flex flex-row  justicefy-center items-center ">
-            <Button variant="ghost">
+          <div className="border-4 rounded-xl w-full ">
+            <div className="m-5 flex flex-row justicefy-center justify-between">
+              <h3>Nombre: </h3>
+              <p>Pepita Flores</p>
+            </div>
+            <div className="m-5 flex flex-row justicefy-center justify-between">
+              <h3>Direcion:</h3>
+              <p> San Patricio 1234</p>
+            </div>
+            <div className="m-5 flex flex-row justicefy-center justify-between">
+              <h3>Localidad:</h3>
+              <p>San Rafael</p>
+            </div>
+            <div className="m-5 flex flex-row justicefy-center justify-between">
+              <h3>Mail:</h3>
+              <p>pepitaflores@gmail.ocm</p>
+            </div>
+            <div className="m-5 flex flex-row justicefy-center justify-between">
+              <h3>Contraseña:</h3>
+              <p> ********</p>
+            </div>
+          
+            <div className="mt-10 flex flex-row  justify-center items-center ">
+              <Button variant="ghost">
                 <Text
                   size="md"
                   variant="subtitle"
@@ -100,8 +57,8 @@ const page = () => {
                 >
                 <Icon variant="circular" circularColor="green" iconName="pencil" size="lg" />
                 </Text>
-            </Button>
-            <Button variant="ghost">
+              </Button>
+              <Button variant="ghost">
                 <Text
                   size="md"
                   variant="subtitle"
@@ -109,10 +66,8 @@ const page = () => {
                 >
                 <Icon variant="circular" circularColor="green" iconName="social" size="lg" />
                 </Text>
-            </Button>
-                
-
-            
+              </Button>
+            </div>
         </div>
       </div>
     </main>
