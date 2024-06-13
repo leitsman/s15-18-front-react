@@ -5,7 +5,7 @@ import { SERVER_ROUTES } from "@/constants/server.routes";
 const { getUserToken } = require("./getUserToken");
 
 export async function getCurrentUserInfo() {
-  const BASE_URL = process.env.SERVER_BASE_URL;
+  const BASE_URL = process.env.SERVER_BASE_URL || process.env.NEXT_PUBLIC_SERVER_BASE_URL;
   const token = await getUserToken()
 
   try {

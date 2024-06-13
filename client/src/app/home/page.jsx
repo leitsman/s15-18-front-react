@@ -23,14 +23,14 @@ const textAboutUs = {
 const textMission = {
   iconName: "arrowRight",
   title: "Misión",
-  image: "/images/placeholder.webp",
+  image: "/images/residuos_chatarra.png",
   alt: "asdasdad",
   content: `Nuestra misión es empoderar a las personas a reciclar sus dispositivos electrónicos de manera fácil y efectiva, proporcionando las herramientas y la información necesarias para reducir la contaminación y promover la reutilización de los recursos. A través de nuestro sistema de retribución por puntos, incentivamos a los usuarios a participar activamente en el reciclaje, recompensándolos con beneficios en establecimientos comprometidos con el cuidado ambiental. Queremos crear una comunidad consciente y activa en la preservación del medio ambiente, haciendo del reciclaje una práctica accesible y común para todos.`,
 };
 const textVision = {
   iconName: "arrowRight",
   title: "Visión",
-  image: "/images/placeholder.webp",
+  image: "/dispositivos/todosreciclando.webp",
   alt: "asdasdad",
   content: `Nuestra visión es convertirnos en la plataforma líder en reciclaje de dispositivos electrónicos, transformando la forma en que las personas gestionan sus residuos tecnológicos. Aspiramos a ser un referente en educación ambiental y sostenibilidad, inspirando a las generaciones actuales y futuras a adoptar hábitos de consumo más responsables y a contribuir activamente en la protección del planeta. Con nuestro sistema de retribución por puntos, buscamos motivar a más personas a reciclar y colaborar con comercios que promuevan prácticas ecológicas, fomentando una economía circular y sostenible.`,
 };

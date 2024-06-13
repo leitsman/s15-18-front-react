@@ -5,7 +5,6 @@ import { Form, FormField } from "@/components/ui/form";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { Textfield } from "@/components/ui/textfield";
-import { toast } from "@/components/ui/use-toast";
 import { LoginSchema } from "@/schemas/login.schema";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { redirect } from "next/navigation";
@@ -24,7 +23,7 @@ const LoginForm = () => {
   });
 
   const handleLogin = async (data) => {
-    const BASE_URL = "https://s15-18-t-java-react.onrender.com";
+    const BASE_URL = "http://localhost:3000/api";
     const path = "/auth/login";
 
     async function signInUser() {
@@ -36,12 +35,14 @@ const LoginForm = () => {
         body: JSON.stringify(data),
       });
       const resData = await res.json();
+      console.log(resData)
       if (resData.data) redirect("/");
-      toast({
-        variant: "destructive",
-        title: "Upsss 🤭",
-        description: "Credenciales de usuario invalidas",
-      });
+
+      /*  toast({
+          variant: "destructive",
+          title: "Upsss 🤭",
+          description: "Credenciales de usuario invalidas",
+          }); */
     }
     async function handlePromise() {
       return new Promise((resolve) => {

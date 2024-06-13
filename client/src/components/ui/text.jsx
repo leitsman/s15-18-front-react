@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Lora } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 
- 
+
 // define your variable fonts
 const lora = Lora({
   subsets: ['latin'],
@@ -14,12 +14,13 @@ const poppins = Poppins({
   display: 'swap',
   weight: '400'
 })
+
+
 //Nyala - titles, subtitles y botones - similar Lora
 //Poppins - body text
 
 
 /* TODO 
-
 Implementar fuente Nayala desde Tailwind.config 
 */
 

@@ -4,11 +4,10 @@ import { cookies } from "next/headers";
 export async function POST(request) {
   const requestBody = await request.json();
 
-  const BASE_URL = process.env.SERVER_BASE_URL || process.env.NEXT_PUBLIC_SERVER_BASE_URL;
-  const path = SERVER_ROUTES.login;
+  const BASE_URL = "https://s15-18-t-java-react.onrender.com";
+  const path = "/auth/login";
 
   const cookieStore = cookies();
-
   const serverResponse = await fetch(`${BASE_URL}${path}`, {
     method: "POST",
     headers: {
@@ -18,8 +17,7 @@ export async function POST(request) {
   });
 
   const data = await serverResponse.json();
-  console.log(data);
-
+  console.log(data)
   if (data.token) {
     try {
       cookieStore.set("token", data.token, {
@@ -29,7 +27,7 @@ export async function POST(request) {
 
       return Response.json({
         message: "usuario autorizado",
-        data: requestBody,
+        data: data.token,
       });
     } catch (error) {
       console.error(error);

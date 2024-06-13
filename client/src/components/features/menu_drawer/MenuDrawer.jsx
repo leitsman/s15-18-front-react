@@ -59,12 +59,12 @@ export function MenuDrawer({ data }) {
         <Stack variant="vertical" distribution="center" alignment="center" className="gap-5">
           <div className="flex flex-col items-center gap-5">
             <Avatar className="size-40">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src="https://images.unsplash.com/photo-1503596476-1c12a8ba09a9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
 
             <div>
-              <Text variant="subtitle">{data.firstName.toUpperCase()}</Text>
+              <Text variant="subtitle">{data?.firstName?.toUpperCase() ? data?.firstName?.toUpperCase() : ""}</Text>
             </div>
           </div>
 

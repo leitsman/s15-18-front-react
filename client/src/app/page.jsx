@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { NavBar } from "@/components/features/navbar/NavBar";
 import { DataCard } from "@/components/ui/data_card";
 import { Text } from "@/components/ui/text";
@@ -5,10 +7,7 @@ import { Icon } from "@/components/ui/icon";
 import { Stack } from "@/components/layout/stack";
 import { ContentCard } from "@/components/ui/content_card";
 import { BadgeC } from "@/components/ui/badge_claro";
-import { CLIENT_ROUTES } from "@/constants/routes.client"; 
-import { ModeToggle } from "@/components/ui/mode_toggle";
-import { Logo } from "@/components/ui/logo"; 
-import Link from "next/link";
+import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { getCurrentUserInfo } from "@/actions/getUserInfo";
 
 const composeDataCardOptions = {
@@ -54,7 +53,7 @@ const composeDataCardOptions = {
 const contentCardOptions = {
   title: "ReCycle Tips",
   iconName: "recycle",
-  image: "/images/placeholder.webp",
+  image: "/dispositivos/todosreciclando.webp",
   alt: "",
   link: "/tips",
   content:
@@ -64,7 +63,7 @@ const contentCardOptions = {
 const contentCardOptions2 = {
   title: "Noticias e información",
   iconName: "news",
-  image: "/images/placeholder.webp",
+  image: "/dispositivos/money.webp",
   alt: "",
   link: "/news",
   content:
@@ -84,7 +83,7 @@ export default async function Home() {
         iconName: "rightArrow",
         secondSectionElements: (
           <Text variant={"body"} className={"font-bold"}>
-            {!userData.data.totalPoints ? 0 : userData.data.totalPoints}
+            {!userData?.data?.totalPoints ? 0 : userData?.data?.totalPoints}
           </Text>
         ),
         extraSectionElements: (
