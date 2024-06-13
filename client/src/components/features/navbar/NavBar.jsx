@@ -13,8 +13,8 @@ import { CLIENT_ROUTES } from "@/constants/routes.client";
 import { MenuDrawer } from "../menu_drawer/MenuDrawer";
 import { getCurrentUserInfo } from "@/actions/getUserInfo";
 
-export const NavBar = ({ design = "default" }) => {
-  getCurrentUserInfo()
+export const NavBar = async ({ design = "default" }) => {
+  const userData = await getCurrentUserInfo();
 
   const variants = {
     default: (
@@ -42,7 +42,7 @@ export const NavBar = ({ design = "default" }) => {
                 "bg-gradient-to-r from-custom-gradient-from to-custom-gradient-to text-transparent bg-clip-text font-bold"
               }
             >
-              {`¡${navbarContent.greeting.greeting} --$nombre--!`}{" "}
+              {` ¡${navbarContent.greeting.greeting} ${userData?.data?.firstName && userData.data.firstName}!`}{" "}
             </Text>
           </div>
         </Stack>
@@ -56,7 +56,7 @@ export const NavBar = ({ design = "default" }) => {
             <Icon iconName={"bell"} size="md" />
           </Button>
           <div className={"p-0 hover:bg-transparent"}>
-            <MenuDrawer />
+            <MenuDrawer data={userData.data && userData.data} />
           </div>
         </Stack>
       </Stack>
