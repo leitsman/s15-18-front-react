@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm as UseForm } from "react-hook-form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { useTransition } from "react";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,7 @@ const RegisterForm = () => {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  const form = useForm({
+  const form = UseForm({
     defaultValues: {
       email: "",
       password: "",

@@ -13,14 +13,13 @@ const composeDataCardOptions = {
   iconName: "rightArrow",
   secondSectionElements: (
     <Text variant={"body"} className={"font-bold"}>
-    <div className="flex flex-row gap-10">
-      <div>
-        <h3>pepitaflores@gmail.com</h3>
+      <div className="flex flex-row gap-10">
+        <div>
+          <h3>pepitaflores@gmail.com</h3>
+        </div>
+        <div></div>
       </div>
-      <div>
-      </div>
-    </div>
-  </Text>
+    </Text>
   ),
   secondaryLinkTo: CLIENT_ROUTES.HOME,
   extraSectionElements: (
@@ -39,71 +38,52 @@ const composeDataCardOptions = {
   ),
 };
 
-
 const singleDataCardOptions = {
   mainContent: "Datos Personales",
   secondaryContent: "",
   iconName: "rightArrow",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
+  secondSectionElements: <Text variant={"body"} className={"font-bold"}></Text>,
 };
 const singleDataCardOptionsSeguridad = {
   mainContent: "Seguridad",
   secondaryContent: "",
   iconName: "candado",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
+  secondSectionElements: <Text variant={"body"} className={"font-bold"}></Text>,
 };
 const singleDataCardOptionsPrivacidad = {
   mainContent: "Privacidad",
   secondaryContent: "",
   iconName: "candado",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
+  secondSectionElements: <Text variant={"body"} className={"font-bold"}></Text>,
 };
-const singleDataCardOptionsNotificaciones ={
+const singleDataCardOptionsNotificaciones = {
   mainContent: "Notificaciones",
   secondaryContent: "",
   iconName: "rightArrow",
-  secondSectionElements: (
-    <Text variant={"body"} className={"font-bold"}>
-      
-    </Text>
-  ),
+  secondSectionElements: <Text variant={"body"} className={"font-bold"}></Text>,
 };
 
 const page = () => {
   return (
     <main className="w-full h-screen ">
-    
-       <BreadCrumbs currentRoute="Configuración">
+      <BreadCrumbs currentRoute="Configuración">
         <Icon iconName="menu" size="lg" />
       </BreadCrumbs>
       <NavBarUbicacion variant="perfil" className=""></NavBarUbicacion>
       <div className="mt-5 flex flex-col  justicefy-center items-center">
-          <div className="mb-5 w-full ">
-             <DataCard variant="single" dataCardOptions={singleDataCardOptions} />
-          </div>
-          <div className="mb-5 w-full ">
-             <DataCard variant="single" dataCardOptions={singleDataCardOptionsNotificaciones} />
-          </div>
-          <div className="mb-5  w-full">
-            <DataCard variant="single" dataCardOptions={singleDataCardOptionsSeguridad} />
-          </div>
-          <div className="mb-5  w-full">
-            <DataCard variant="single" dataCardOptions={singleDataCardOptionsPrivacidad} />
-          </div>
+        <div className="mb-5 w-full ">
+          {/* <DataCard variant="single" dataCardOptions={singleDataCardOptions} /> */}
+        </div>
+        <div className="mb-5 w-full ">
+          {/* <DataCard variant="single" dataCardOptions={singleDataCardOptionsNotificaciones} /> */}
+        </div>
+        <div className="mb-5  w-full">
+          {/* <DataCard variant="single" dataCardOptions={singleDataCardOptionsSeguridad} /> */}
+        </div>
+        <div className="mb-5  w-full">
+          {/* <DataCard variant="single" dataCardOptions={singleDataCardOptionsPrivacidad} /> */}
+        </div>
       </div>
-
     </main>
   );
 };

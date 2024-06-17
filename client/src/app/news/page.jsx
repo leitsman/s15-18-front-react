@@ -58,7 +58,11 @@ un protocolo. La fase del fin de la vida...`,
               residuos al reparar un celular
             </Text>
           </div>
-          <Icon iconName="rightArrow" size="md" className="text-custom-gradient-from ml-2" />
+          <Icon
+            iconName="rightArrow"
+            size="md"
+            className="text-custom-gradient-from ml-2"
+          />
         </Button>
 
         <Stack
@@ -97,7 +101,11 @@ un protocolo. La fase del fin de la vida...`,
               residuos al reparar un celular
             </Text>
           </div>
-          <Icon iconName="rightArrow" size="md" className="text-custom-gradient-from ml-2" />
+          <Icon
+            iconName="rightArrow"
+            size="md"
+            className="text-custom-gradient-from ml-2"
+          />
         </Button>
         <Stack
           noMargins
@@ -135,7 +143,11 @@ un protocolo. La fase del fin de la vida...`,
               residuos al reparar un celular
             </Text>
           </div>
-          <Icon iconName="rightArrow" size="md" className="text-custom-gradient-from ml-2" />
+          <Icon
+            iconName="rightArrow"
+            size="md"
+            className="text-custom-gradient-from ml-2"
+          />
         </Button>
         <Stack
           noMargins
@@ -160,3 +172,4 @@ un protocolo. La fase del fin de la vida...`,
     </main>
   );
 };
+export default page;
