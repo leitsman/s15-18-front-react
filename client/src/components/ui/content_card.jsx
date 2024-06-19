@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 import { Container } from "../layout/container";
 import { Stack } from "../layout/stack";
 import { Icon } from "./icon";
 import { Text } from "./text";
-import { Button } from "./button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export const ContentCard = ({
   contentOptions,
@@ -45,7 +45,7 @@ export const ContentCard = ({
             alt={contentOptions.alt}
             width={100}
             height={100}
-            className="size-[100px]"
+            className="aspect-square"
             priority
           />
         )}
