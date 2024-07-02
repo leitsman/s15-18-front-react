@@ -8,7 +8,7 @@ export function CarrouselCard({ data }) {
     <CarouselItem className="border-2 rounded-3xl bg-card p-0">
       <div className="flex flex-col p-5 gap-2">
         <div className="bg-indigo-800 rounded-t-2xl h-32 w-full">
-          <Image src={data.image} alt={data.alt} />
+          <img src={data.image} alt={data.alt} />
         </div>
         <h3 className="text-ellipsis">{data.title}</h3>
         <span>Puntos: {data.points}</span>

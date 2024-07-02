@@ -3,8 +3,6 @@ import { cn } from "@/lib/utils";
 import { Lora } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 
-
-// define your variable fonts
 const lora = Lora({
   subsets: ['latin'],
   display: 'swap',
@@ -36,16 +34,16 @@ Implementar fuente Nayala desde Tailwind.config
  */
 export const Text = ({ variant, size = "md", children, className }) => {
   const sizes = {
-    xs: "text-[11px]",
+    xs: "text-[13px]",
     sm: "text-sm",
     md: "text-md",
     lg: "text-lg",
   };
 
   const variants = {
-    title: <h1 className={cn(sizes[size], 'lora', className)}>{children}</h1>,
-    subtitle: <h2 className={cn(sizes[size], 'lora', className)}>{children}</h2>,
-    body: <p className={cn(sizes[size], 'poppins', className)}>{children}</p>,
+    title: <h1 className={cn(sizes[size], lora.className, className)}>{children}</h1>,
+    subtitle: <h2 className={cn(sizes[size], lora.className, className)}>{children}</h2>,
+    body: <p className={cn(sizes[size], poppins.className, className)}>{children}</p>,
   };
 
   return variants[variant];

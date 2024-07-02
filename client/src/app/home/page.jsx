@@ -88,10 +88,10 @@ const Home = () => {
         <article className="flex flex-col gap-10" >
           <section>
             <Image
-              className="bg-orange-700 flex w-full h-32  rounded-t-3xl"
+              className="bg-orange-700 flex w-full h-32  rounded-t-3xl aspect-video"
               src="/images/home/bannerHome.webp"
               alt="banner home"
-              unoptimized
+              priority
               width={500}
               height={300}
             ></Image>
